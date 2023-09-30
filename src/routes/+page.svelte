@@ -9,7 +9,20 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"> -->
 </svelte:head>
 
-
+<script context="module">
+	import { GraphQLClient } from 'graphql-request';
+	export async function load() {
+		const hygraph = new GraphQLClient(
+			'https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clmzz4539023b01ue1k1uhxt7/master',
+			{
+				headers: {
+					Authorization:
+						'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2OTU4OTk4NDEsImF1ZCI6WyJodHRwczovL2FwaS1ldS1jZW50cmFsLTEtc2hhcmVkLWV1YzEtMDIuaHlncmFwaC5jb20vdjIvY2xteno0NTM5MDIzYjAxdWUxazF1aHh0Ny9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC5ncmFwaGNtcy5jb20vIiwic3ViIjoiNTAzZGE5MzgtZDQ3Yi00ODYwLWJiMmQtZDViYTcyNTA1YWUyIiwianRpIjoiY2xuMzJ6OG55MThjdjAxdXE4MWhkZG5sdSJ9.EsHpKbXqZZtrGjD8AR_qtpw02qWaNxGj807XbOAlQPATIlnkPFkpRbVGoEFqwAoffBxxU8h46A4IJBh-W7eHIK2r6WX_jKhnxmi8otUmGz3D_NMLGYQ9PAD4XkH2VvrwcaL5NZfEWG9wMBAv36axmKxuCrkfmwVbpneF5kvQSDK1EM_m7u1Wd0H35lnnFZRLwSl8RcfE-VZ5XdopCbzRzhpTQmNuBzWVGJKBAvk2GWTfVPB7cc3rsGN4PtVbhpJsSTKoLYkoYaI-hq0DkGJJcTnjVJENNZaz3UClA0fIGEbNN_adFpN0M0eRM6nQWHrwnBJkiEx0bIV2fav6zJoum9uQLxoRru6VsDREncfaqVWmrHeuUwdBWPPVvE86wtEVY01foj1iZ90ZgIJO11hy-uhPRIbRfUNV9QSNqfFeXkIQ8gPxN0owKmIEt061SnumuCZy44qVCXOweczSTK9ScDeFAznClElmJzGiWX5Yp-LJup1-AQMbORPn7JQmKqtaVDeiPl-D4IDgm_uuLKX57IMBwI6qXdYrzRXGc4Y0XJ6847KhsQhS65H0hfX9xTeCEgEZFqQEKoi2JKrOy9iuiwxaC99LgNR6qmY8FyK4i5WU3A6p2KUZct256i-1LEUO86w-2EmxdHPMpyfHckuahjMbM5wFMFJed2WIZwS8Cxo'
+				}
+			}
+		);
+	}
+</script>
 
 <!-- Navigation -->
 <!-- Iconen moeten worden toegevoegd -->
