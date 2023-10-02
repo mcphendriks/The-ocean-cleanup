@@ -1,7 +1,6 @@
 {
 	"name": "fdnd-the-ocean-cleanup",
 	"version": "0.0.1",
-	"private": true,
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -10,12 +9,16 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-auto": "^2.1.0",
 		"@sveltejs/kit": "^1.20.4",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
 		"svelte": "^4.0.5",
 		"vite": "^4.4.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"graphql": "^16.8.1",
+		"graphql-request": "^6.1.0"
+	}
 }
