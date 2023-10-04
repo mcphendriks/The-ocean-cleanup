@@ -1,6 +1,7 @@
 <!-- Head dashboard-->
 <script>
     export let data
+    import Trashgraph from "/src/components/trashGraph.svelte"
 </script>
 <svelte:head>
     <title>Dashboard The Ocean Cleanup</title>
@@ -58,7 +59,7 @@
 
         <!-- Title + Searchbar -->
         <section class="header-dashboard">
-            <h1>{data.dashboard.title}</h1>
+            <!-- <h1>{data.dashboard.title}</h1> -->
             <form class="search" action="/" method="GET">
                 <input type="text" name="search" placeholder="Search..">
                 <input type="submit" name="search-button" aria-label="search button" class="search-button">
@@ -115,6 +116,7 @@
 
         <!-- Grafiek: share swith icons -->
         <section class="panel grafiek">
+            <Trashgraph />
             <h2>Share this dashboard</h2>
             <p>Cleaning up the world's ocean is a global initiative requiring the support of
                 governments and
