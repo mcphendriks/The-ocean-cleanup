@@ -63,7 +63,7 @@
 
         <!-- Title + Searchbar -->
         <section class="header-dashboard">
-            <h1>{data.dashboard.title}</h1>
+            <!-- <h1>{data.dashboard.title}</h1> -->
             <form class="search" action="/" method="GET">
                 <input type="text" name="search" placeholder="Search..">
                 <input type="submit" name="search-button" aria-label="search button" class="search-button">
@@ -161,15 +161,11 @@
         </section>
 
         <!-- Map: map with interceptors -->
-        <div id="js-enabled" class="map">
-            <a href="/map">
-                <div id="bubbles">
+        <div class="map">
                     <Map />
-                </div>
-            </a>
         </div>
 
-        <!-- When JS is disabled, this content will show -->
+        <!-- When JS is disabled, this content will show
         <form id="js-disabled" class="map">
             <label for="interceptor-select">Choose Interceptor:</label>
             <select id="interceptor-select" name="interceptor">
@@ -184,8 +180,8 @@
                 <option value="/map">Kingston Harbour</option>
             </select>
 
-            <!-- <img src="/map-nojs.png"> -->
-        </form>
+        <img src="/map-nojs.png">
+        </form> -->
 
         <!-- Dashboard-info: info about dashboard -->
         <section class="panel dashboard-info">
@@ -416,7 +412,7 @@
     :global(body) {
     background-color: var(--lightGray);
     color: var(--textColor);
-    position: relative;
+     position: relative;
     }
 
     h1{
@@ -551,14 +547,14 @@
     grid-area: grafiek;
     }
 
-    /* .map {
+     .map {
     grid-area: map;
     border-radius: .5rem;
     padding: 0.5rem;
     background-color: var(--whiteColor);
     box-shadow: var(--boxShadow) 0px 0px 8px;
     transition: .2s;
-    } */
+    } 
 
     .box-1 {
     grid-area: box-1;
@@ -665,12 +661,6 @@
     .col {
         display: flex;
         gap: .9rem;
-    }
-
-    /* map styling */
-    #bubbles {
-    position: relative;
-    width: 100%;
     }
 
     /* .hoverinfo {
@@ -969,10 +959,7 @@
     } */
 
 /* 
-    .map img {
-    width: 100%;
-    height: auto;
-    } */
+   
 
    
 
@@ -1239,10 +1226,5 @@
         height: 3.3rem;
     }
 
-    #bubbles {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
     }
 </style>
