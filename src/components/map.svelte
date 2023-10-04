@@ -19,13 +19,25 @@
       const layerList = document.getElementById('menu');
       const inputs = layerList.getElementsByTagName('input');
 
+
+       // Add your markers here
+       const marker1 = new mapboxgl.Marker()
+        .setLngLat([12.554729, 55.70651])
+        .addTo(map);
+
+      const marker2 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
+        .setLngLat([12.65147, 55.608166])
+        .addTo(map);
+
     });
   </script>
   
    
   
   <style>
-    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    #map 
+    { position: relative; width: 100%; height:100%;
+    }
   </style>
   
    
