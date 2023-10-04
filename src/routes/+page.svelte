@@ -1,9 +1,14 @@
 <!-- Head dashboard-->
 <script>
     export let data
+    import Map from "/src/components/map.svelte"
 </script>
+
 <svelte:head>
     <title>Dashboard The Ocean Cleanup</title>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 
     <!-- Sanne's iconen, wij gaan andere iconen gebruiken -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
@@ -158,7 +163,9 @@
         <!-- Map: map with interceptors -->
         <div id="js-enabled" class="map">
             <a href="/map">
-                <div id="bubbles"></div>
+                <div id="bubbles">
+                    <Map />
+                </div>
             </a>
         </div>
 
@@ -544,14 +551,14 @@
     grid-area: grafiek;
     }
 
-    .map {
+    /* .map {
     grid-area: map;
     border-radius: .5rem;
     padding: 0.5rem;
     background-color: var(--whiteColor);
     box-shadow: var(--boxShadow) 0px 0px 8px;
     transition: .2s;
-    }
+    } */
 
     .box-1 {
     grid-area: box-1;
