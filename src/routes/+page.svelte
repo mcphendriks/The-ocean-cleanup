@@ -12,34 +12,6 @@
 
 <!-- Navigation -->
 <!-- Iconen moeten worden toegevoegd -->
-<header>
-    <nav>
-        <img src="/1200px-The_Ocean_Cleanup_logowhite.png" alt="logo of The ocean cleanup">
-        <ul class="nav-list">
-            <li>
-                <a href="https://theoceancleanup.com/" class="nav-link" aria-label="back to the homepage">
-                    <span>Home</span>
-                </a>
-            </li>
-            
-            <li>
-                <a href="/" class="nav-link active" aria-label="dashboard">
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            
-            <li>
-                 <button class="darkmode" value="darkmode button" aria-label="switch to darkmode">
-                    <a href="/" class="nav-link" aria-label="switch to darkmode">
-                        <span id="darkmode-btn-text">Dark</span>
-                    </a>
-                </button>
-            </li>
-        </ul>
-       
-    </nav>
-</header>
-
 
 
 
@@ -447,58 +419,6 @@
         align-self: center;
     } */
 
-    /* Nav */
-    header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 5.5rem;
-    background-color: var(--whiteColor);
-    box-shadow: var(--boxShadow) 0px 0px 8px;
-    z-index: 100;
-    }
-
-    nav {
-    height: 5.5rem;
-    display: flex;
-    flex-direction: row;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    overflow: hidden;
-    }
-
-    nav img {
-    left: 0;
-    top: 0;
-    width: 11rem;
-    height: 100%;
-    padding: 1rem;
-    background-color: var(--lightBlue);
-    }
-
-    .nav-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
-    margin: 0 auto;
-    }
-
-    .nav-link {
-    text-align: center;
-    color: var(--darkBlue);
-    font-size: 1.5rem;
-    }
-
-    .nav-link span {
-    display: none;
-    }
-
-    .active {
-    color: var(--lightBlue);
-    }
 
     /* Grid */
     .container2 {
