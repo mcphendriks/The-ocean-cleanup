@@ -1,7 +1,12 @@
 <script>
     import Infotext from "../components/infotext.svelte"
     export let data
+<<<<<<< Updated upstream
     // console.log(data.dataHygraph.dashboard.infotext.infotext.html)
+=======
+    import PieChartContinent from "../components/pieChartContinent.svelte"
+    import PieChartOceanRiver from "../components/pieChartOceanRiver.svelte"
+>>>>>>> Stashed changes
 </script>
 
 <svelte:head>
@@ -33,7 +38,7 @@
             </li>
             
             <li>
-                 <button class="darkmode" value="darkmode button" aria-label="switch to darkmode">
+                <button class="darkmode" value="darkmode button" aria-label="switch to darkmode">
                     <a href="/" class="nav-link" aria-label="switch to darkmode">
                         <span id="darkmode-btn-text">Dark</span>
                     </a>
@@ -43,7 +48,10 @@
     </nav>
 </header>
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 <!-- Start main section -->
 <main>
     <div class="container2">
@@ -77,36 +85,14 @@
             <p id="weight-removed">443.415 kg</p>
         </section>
 
-        <!-- Box 3: percentage since 2013 -->
+        <!-- Box 3: pie chart plastic removed from ocean/river -->
         <section class="panel box-3">
-            <h2>% removed since 2013 </h2>
-            <div class="single-chart">
-                <svg viewBox="0 0 36 36" class="circular-chart green">
-                    <path class="circle-bg" d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <path class="circle" stroke-dasharray="60, 100" d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <text x="18" y="20.35" class="percentage">65%</text>
-                </svg>
-            </div>
+            <PieChartOceanRiver />
         </section>
 
-        <!-- Box 4: percentage in 2040 -->
+        <!-- Box 4: pie chart plastic removed from continents -->
         <section class="panel box-4">
-            <h2>% removed in 2040</h2>
-            <div class="single-chart">
-                <svg viewBox="0 0 36 36" class="circular-chart green">
-                    <path class="circle-bg" d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <text x="18" y="20.35" class="percentage">90%</text>
-                </svg>
-            </div>
+            <PieChartContinent />
         </section>
 
         <!-- Grafiek: share swith icons -->
