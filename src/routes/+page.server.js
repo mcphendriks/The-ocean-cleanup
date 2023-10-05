@@ -1,5 +1,6 @@
 import { gql } from 'graphql-request'
 import { hygraph } from '$lib/utils/hygraph.js'
+import { json } from '@sveltejs/kit'
 
 export async function load() {
   
@@ -18,5 +19,10 @@ export async function load() {
   }
   
   `
-  return await hygraph.request(query)
+  const dataHygraph = await hygraph.request(query)
+  
+  const grrrData = await fetch("https://fdnd-toc-api.netlify.app/total")
+        const dataApi = await grrrData.json()
+  return {dataHygraph, dataApi}
 }
+

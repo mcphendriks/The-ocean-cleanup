@@ -1,7 +1,9 @@
-<!-- Head dashboard-->
 <script>
+    import Infotext from "../components/infotext.svelte"
     export let data
+    // console.log(data.dataHygraph.dashboard.infotext.infotext.html)
 </script>
+
 <svelte:head>
     <title>Dashboard The Ocean Cleanup</title>
 
@@ -38,14 +40,8 @@
                 </button>
             </li>
         </ul>
-       
     </nav>
 </header>
-
-
-
-
-
 
 
 <!-- Start main section -->
@@ -58,7 +54,7 @@
 
         <!-- Title + Searchbar -->
         <section class="header-dashboard">
-            <h1>{data.dashboard.title}</h1>
+            <h1>{data.dataHygraph.dashboard.title}</h1>
             <form class="search" action="/" method="GET">
                 <input type="text" name="search" placeholder="Search..">
                 <input type="submit" name="search-button" aria-label="search button" class="search-button">
@@ -115,7 +111,7 @@
 
         <!-- Grafiek: share swith icons -->
         <section class="panel grafiek">
-            <h2>Share this dashboard</h2>
+            
             <p>Cleaning up the world's ocean is a global initiative requiring the support of
                 governments and
                 individuals all over the world. Spread the word about our work to help bring awareness to the
@@ -180,17 +176,7 @@
             <!-- <img src="/map-nojs.png"> -->
         </form>
 
-        <!-- Dashboard-info: info about dashboard -->
-        <section class="panel dashboard-info">
-            <h2>Track our progress on this dashboard and learn more about the upcoming and deployed cleanup
-                solutions.</h2>
-
-            <p>Our goal is to reduce floating plastic by 90% by 2040. According to our research, about 80% of
-                riverine plastic pollution stems from 1000 rivers. </p>
-
-            <p>To effectively clean up the oceans, we need to both clean up the plastic already in the ocean and
-                intercept plastic on its way through rivers.</p>
-        </section>
+        <!-- <Infotext></Infotext> -->
 
         <!-- Share: table system statuses -->
         <section class="panel share">
