@@ -1,14 +1,10 @@
 <!-- Head dashboard-->
 <script>
-    export let data
+    // export let data
 </script>
+
 <svelte:head>
     <title>Dashboard The Ocean Cleanup</title>
-
-    <!-- Sanne's iconen, wij gaan andere iconen gebruiken -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-    <!-- <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"> -->
 </svelte:head>
 
 
@@ -58,7 +54,8 @@
 
         <!-- Title + Searchbar -->
         <section class="header-dashboard">
-            <h1>{data.dashboard.title}</h1>
+            <h1>Dashboard</h1>
+            <!-- <h1>{data.dashboard.title}</h1> -->
             <form class="search" action="/" method="GET">
                 <input type="text" name="search" placeholder="Search..">
                 <input type="submit" name="search-button" aria-label="search button" class="search-button">
@@ -335,6 +332,7 @@
                 </span>
             </table>
         </section>
+    </div>
 </main>
 <!-- End main section -->
 
@@ -351,16 +349,6 @@
 <!-- Footer -->
 <footer>
 </footer>
-<!--         
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="/datamaps.world.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/9e5ba2e3f5.js" crossorigin="anonymous"></script> -->
-<!-- <script src="/main.js"></script> -->
-<!-- </body> -->
-
-<!-- </html> -->
 
 
 
@@ -385,6 +373,7 @@
     font-family: 'Proxima', sans-serif;
     }
 
+    /* Als lightmode de standaard instelling is */
     :root {
     --darkBlue: #143653;
     --lightBlue: #5CC8DE;
@@ -401,6 +390,27 @@
     --iconSize: 2rem;
     }
 
+    /* Als darkmode de standaard instelling is */
+    @media (prefers-color-scheme: dark) {
+        :root {
+        --darkBlue: #ffffff;
+        --lightBlue: #5CC8DE;
+        --whiteColor: #143653;
+        --lightGray: #0D2437;
+        --accentGray: rgb(228, 228, 228);
+        --textColor: #ffffff;
+        --boxShadow: rgba(128, 128, 128, 0.0);
+        --color: rgb(212, 212, 212);
+        --textSize: 1.2rem;
+        --iconSize: 2rem;
+
+         /* denk dat volgende 3 kleuren niet meer nodig zijn?? */
+        /* --worldmapGray: #0D2437;
+        --worldmapBorder: #1a4f7e;
+        --worldmapbuttons: #0D2437; */
+        } 
+  }
+ 
     :global(html) {
     font-size: 62.5%;
     scroll-behavior: smooth;
