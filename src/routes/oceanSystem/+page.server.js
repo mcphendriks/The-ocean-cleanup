@@ -24,11 +24,11 @@ export async function load() {
     }
   }
   `
- 
   const dataHygraph = await hygraph.request(query)
   
-  const grrrData = await fetch("https://fdnd-toc-api.netlify.app/total")
+  const grrrData = await fetch("https://fdnd-toc-api.netlify.app/ocean")
         const dataApi = await grrrData.json()
+        console.log(dataHygraph.dashboard.trashRemoved[0])
   return {dataHygraph, dataApi}
 }
 

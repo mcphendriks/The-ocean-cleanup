@@ -1,7 +1,7 @@
 <script>
     import Infotext from "../components/infotext.svelte"
     export let data
-    // console.log(data.dataHygraph.dashboard.infotext.infotext.html)
+    console.log(data.dataApi)
 </script>
 
 <svelte:head>
