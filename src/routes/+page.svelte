@@ -954,8 +954,8 @@
     .container2 {
         margin: 8rem 1.5rem 1.5rem 1.5rem;
         display: grid;
-        grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-        grid-template-rows: 0.1fr, 0.3fr, 2fr, 2fr, 1fr, 1fr, 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 0.01fr 0.1fr 1fr 1fr 1fr 1fr 1fr;
         gap: 1.2rem;
         grid-template-areas:
         "menu menu menu menu"
