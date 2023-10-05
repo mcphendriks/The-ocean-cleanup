@@ -299,6 +299,7 @@
                 </span>
             </table>
         </section>
+    </div>
 </main>
 <!-- End main section -->
 
@@ -315,16 +316,7 @@
 <!-- Footer -->
 <footer>
 </footer>
-<!--         
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="/datamaps.world.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/9e5ba2e3f5.js" crossorigin="anonymous"></script> -->
-<!-- <script src="/main.js"></script> -->
-<!-- </body> -->
 
-<!-- </html> -->
 
 
 
@@ -470,8 +462,8 @@
     .container2 {
     margin: 8rem 1.5rem 1.5rem 1.5rem;
     display: grid;
-    grid-template-columns: 1fr, 1fr;
-    grid-template-rows: 0.1fr, 0.3fr, 2fr, 2fr, 1fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.01fr 0.1fr 1fr 1fr .5fr .8fr .5fr .5fr 1fr;
     gap: 1.2rem;
     grid-template-areas:
         "menu menu"
@@ -935,11 +927,11 @@
 
     /* Breakpoints small screen */
     @media (min-width:700px) {
-    .container2 {
+        .container2 {
         margin: 8rem 1.5rem 1.5rem 1.5rem;
         display: grid;
-        grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-        grid-template-rows: 0.1fr, 0.3fr, 2fr, 2fr, 1fr, 1fr, 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 0.01fr 0.1fr 1fr 1fr 1fr 1fr 1fr;
         gap: 1.2rem;
         grid-template-areas:
         "menu menu menu menu"
