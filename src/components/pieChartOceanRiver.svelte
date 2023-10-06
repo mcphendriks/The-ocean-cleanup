@@ -1,32 +1,20 @@
 <h2>Plastic removed from ocean and river systems</h2>
-<!-- 
-<div class="single-chart">
-    <svg viewBox="0 0 36 36" class="circular-chart green">
-        <path class="circle-bg" d="M18 2.0845
-            a 15.9155 15.9155 0 0 1 0 31.831
-            a 15.9155 15.9155 0 0 1 0 -31.831" />
-        <path class="circle" stroke-dasharray="60, 100" d="M18 2.0845
-            a 15.9155 15.9155 0 0 1 0 31.831
-            a 15.9155 15.9155 0 0 1 0 -31.831" />
-        <text x="18" y="20.35" class="percentage">65%</text>
-    </svg>
-</div> -->
 
 <div class="wrapper">
+
     <div class="pie-chart-ocean-river-wrap">
 
-<!-- classes aanpassen naar landen ipv kleuren -->
-        <div class="america entry">
+        <div class="river entry">
             <p>25%</p>
-            <p class="entry-value">America</p>
+            <p class="entry-value">River systems</p>
         </div>
                     
-        <div class="africa entry">
-            <p>25%</p>
-            <p class="entry-value">Africa</p>
+        <div class="ocean entry">
+            <p>75%</p>
+            <p class="entry-value">Ocean systems</p>
         </div>
                     
-        <div class="asia entry">
+        <!-- <div class="asia entry">
             <p>12.5%</p>
             <p class="entry-value">Asia </p>
         </div>
@@ -44,38 +32,37 @@
         <div class="oceania entry">
             <p> 12.5%</p>
             <p class="entry-value">Oceania</p>
-        </div>
+        </div> -->
                     
     </div>
                 
-<!--Pie chart keys  -->
-<div class="key-wrap"></div>
-
-<input type="radio" id="america" name="values" class="america-key"/>
-<label for="america" class="america-label"> America</label>
-
-<input type="radio" name="values" id="africa" class="africa-key"/>
-<label for="africa" class="africa-label"> Africa</label>
-
-<input type="radio" name="values" id="asia" class="asia-key"/>
-<label for="asia" class="asia-label"> Asia</label>
-
-<input type="radio" name="values" id="antarctica" class="antarctica-key"/>
-<label for="antarctica" class="antarctica-label"> Antarctica</label>
-
-<input type="radio" name="values" id="europe" class="europe-key"/>
-<label for="europe" class="europe-label"> Europe</label>
-
-<input type="radio" name="values" id="oceania" class="oceania-key"/>
-<label for="oceania" class="oceania-label"> Oceania</label>
-
-<p class="america-text text">25% of collected plastic comes from the USA</p>
-<p class="africa-text text">12.5% of the removed plastic comes from africa</p>
-<p class="asia-text text">12.5% plastic from Asia</p>
-<p class="antarctica-text text">12.5% from Antarcticca</p>
-<p class="europe-text text">12.5% plastic from Europe</p>
-<p class="oceania-text text">25% from oceania</p>
-                
+    <!--Pie chart keys  -->
+    <div class="key-wrap">
+        <input type="radio" id="river" name="values" class="river-key"/>
+        <label for="river" class="river-label"> River</label>
+        
+        <input type="radio" name="values" id="ocean" class="ocean-key"/>
+        <label for="ocean" class="ocean-label"> Ocean</label>
+        
+        <!-- <input type="radio" name="values" id="asia" class="asia-key"/>
+        <label for="asia" class="asia-label"> Asia</label>
+        
+        <input type="radio" name="values" id="antarctica" class="antarctica-key"/>
+        <label for="antarctica" class="antarctica-label"> Antarctica</label>
+        
+        <input type="radio" name="values" id="europe" class="europe-key"/>
+        <label for="europe" class="europe-label"> Europe</label>
+        
+        <input type="radio" name="values" id="oceania" class="oceania-key"/>
+        <label for="oceania" class="oceania-label"> Oceania</label> -->
+        
+        <p class="river-text text">75% of collected plastic comes from rivers</p>
+        <p class="ocean-text text">25% of the removed plastic comes from oceans</p>
+        <!-- <p class="asia-text text">12.5% plastic from Asia</p>
+        <p class="antarctica-text text">12.5% from Antarcticca</p>
+        <p class="europe-text text">12.5% plastic from Europe</p>
+        <p class="oceania-text text">25% from oceania</p> -->
+    </div>               
 </div>
 
     <style>
@@ -153,7 +140,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* flex-direction: column; */
+    max-width:65rem;
 }
 
 .pie-chart-ocean-river-wrap{
@@ -165,19 +152,7 @@
     border-radius: 50%;
     color: black;
     overflow: hidden;
-    /* animation: pie-size 500ms 500ms ease forwards; */
 }
-/* 
-@keyframes pie-size {
-  from{
-    width:200px;
-  }
-  to{
-    width: 400px;
-    height: 400px;
-  }
-} */
-
 
 .pie-chart-ocean-river-wrap .entry{
     display: flex;
@@ -186,7 +161,7 @@
     align-items: center;
 }
 
-.asia{
+/* .asia{
     background-color: var(--color1);
     height:50%;
     position: absolute;
@@ -194,9 +169,9 @@
     right: 0;
     width: 50%;
     clip-path: polygon(0 0, 100% 0%, 0% 100%);
-}
+} */
 
-.antarctica{
+/* .antarctica{
     background-color: var(--color2);
     height:50%;
     width: 50%;
@@ -204,9 +179,9 @@
     top: 0;
     position: absolute;
     clip-path:polygon(0% 100%, 100% 0%, 100% 100%);
-}
+} */
 
-.europe{
+/* .europe{
     background-color: var(--color3);
     height:50%;
     width: 50%;
@@ -214,9 +189,9 @@
     top: 50%;
     position: absolute;
     clip-path:polygon(0% 0%, 100% 0%, 100% 100%);
-}
+} */
 
-.oceania{
+/* .oceania{
     background-color: var(--color4);
     height:50%;
     width: 50%;
@@ -224,29 +199,29 @@
     top: 50%;
     position: absolute;
     clip-path:polygon(0% 0%, 100% 100%, 0% 100%);
-}
+} */
 
 /* *the individual entries* */
-.africa{
-    background-color: var(--color5);
+.river{
+    background-color: var(--color6);
     height:50%;
     width: 50%;
     display: block;
 }
 
-.america{
-    background-color: var(--color6);
+.ocean{
+    background-color: var(--color1);
     height:50%;
     width: 50%;
 }
 
-.america-text{
+/* .ocean-text{
     border-color: black;
 }
-.africa-text{
+.river-text{
     border-color:  pink;
-}
-.asia-text{
+} */
+/* .asia-text{
     border-color:  purple;
 }
 .antarctica-text{
@@ -257,7 +232,7 @@
 }
 .oceania-text{
     border-color:  skyblue;
-}
+} */
 
 .pie-chart-ocean-river-wrap .antarctica p{
     position: absolute;
@@ -277,17 +252,17 @@
     top: 0px;
 }
 
-.pie-chart-ocean-river-wrap .africa p, .pie-chart-ocean-river-wrap .oceania p{
+.pie-chart-ocean-river-wrap .river p, .pie-chart-ocean-river-wrap .oceania p{
     position: absolute;
     left: 20px;
     top: 80px;
 }
 
-.pie-chart-ocean-river-wrap .africa, .pie-chart-ocean-river-wrap .oceania{
+.pie-chart-ocean-river-wrap .river, .pie-chart-ocean-river-wrap .oceania{
     justify-content: flex-start;
 }
 
-.pie-chart-ocean-river-wrap .africa p:first-child, .pie-chart-ocean-river-wrap .oceania p:first-child{
+.pie-chart-ocean-river-wrap .river p:first-child, .pie-chart-ocean-river-wrap .oceania p:first-child{
     top: 100px;
 }
 
@@ -309,7 +284,7 @@ input[type="radio"]{
 .key-wrap label{
     display: block;
     border: 1px solid;
-    width: 50px;
+    width: 10rem;
     text-align: center;
     padding: 10px 15px;
     cursor: pointer;
@@ -317,23 +292,23 @@ input[type="radio"]{
     }
     
     @keyframes display-key {
-  from{
+from{
     visibility: hidden;
-  }
-  to{
-    visibility: visible;
-  }
 }
-.america-label{
+to{
+    visibility: visible;
+}
+}
+.ocean-label{
     background-color: var(--color1);
     visibility: hidden;
     animation: display-key 500ms 1s  ease forwards;
 }
-.africa-label{
+.river-label{
     background-color: var(--color2);
     animation: display-key 500ms 1.5s  ease forwards;
 }
-.asia-label{
+/* .asia-label{
     background-color: var(--color3);
     color: white;
     animation: display-key 500ms 2s  ease forwards;
@@ -349,7 +324,7 @@ input[type="radio"]{
 .oceania-label{
     background-color: var(--color6);
     animation: display-key 500ms 3.5s  ease forwards;
-}
+} */
 
 .text{
     display: none;
@@ -365,8 +340,7 @@ input[type="radio"]{
 .key-wrap label:active{
     opacity: .5;
 }
-.america-key:checked ~ .america-text, .africa-key:checked ~ .africa-text, .asia-key:checked ~ .asia-text,  
-.antarctica-key:checked ~ .antarctica-text, .europe-key:checked ~ .europe-text, .aceania-key:checked ~ .oceania-text{
+.ocean-key:checked ~ .ocean-text, .river-key:checked ~ .river-text {
     display: block;
 }
 
@@ -415,12 +389,3 @@ input[type="radio"]{
     } */
 
 </style>
-
-<!--  
-    Rice = Amerika = Light yellow
-    Beans = Afrika = Sky Blue
-    Plantain = Azië = Pink
-    Potato = Antarctica = Purple
-    Yam = Europe = Green
-    Pasta = Oceania = Wheat
--->

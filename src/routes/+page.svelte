@@ -1,12 +1,10 @@
 <script>
+    import ChartContinents from "../components/chartContinents.svelte";
     import Infotext from "../components/infotext.svelte"
     export let data
-<<<<<<< Updated upstream
     // console.log(data.dataHygraph.dashboard.infotext.infotext.html)
-=======
-    import PieChartContinent from "../components/pieChartContinent.svelte"
+    import chartContinents from "../components/chartContinents.svelte"
     import PieChartOceanRiver from "../components/pieChartOceanRiver.svelte"
->>>>>>> Stashed changes
 </script>
 
 <svelte:head>
@@ -48,10 +46,6 @@
     </nav>
 </header>
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 <!-- Start main section -->
 <main>
     <div class="container2">
@@ -92,7 +86,7 @@
 
         <!-- Box 4: pie chart plastic removed from continents -->
         <section class="panel box-4">
-            <PieChartContinent />
+            <ChartContinents />
         </section>
 
         <!-- Grafiek: share swith icons -->
@@ -333,10 +327,6 @@
 <!-- </body> -->
 
 <!-- </html> -->
-
-
-
-
 
 <style>
     /* Roboto font */
@@ -939,7 +929,6 @@
     height: auto;
     } */
 
-   
 
     /* Breakpoints small screen */
     @media (min-width:700px) {
