@@ -45,4 +45,3 @@ export async function load() {
         const dataApi = await grrrData.json()
   return {dataHygraph, dataApi}
 }
-

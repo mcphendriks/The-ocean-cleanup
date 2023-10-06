@@ -7,18 +7,7 @@
 <h2>{data.dataApi.systems[0]. name}</h2>
 <main>
 
-<TrashRemovedOcean></TrashRemovedOcean>
-
-<article>
-    <p>{data.dataHygraph.dashboard.trashRemoved.trashRemovedText[0].text}</p>
-   <p>{data.dataApi.systems[0].debris_extracted_last_30d}Kg</p>
-</article>
-
-
-<article>
-    <p>{data.dataHygraph.dashboard.trashRemoved.trashRemovedText[1].text}</p>
-   <p>{data.dataApi.systems[0].debris_extracted_total}Kg</p>
-</article>
+<TrashRemovedOcean data={data.dataApi.systems[0]}></TrashRemovedOcean>
 
 <section>
     <p>{data.dataHygraph.dashboard.ocean.oceanInfotext.infotext.markdown}</p>
@@ -30,11 +19,26 @@
 </main>
 
 <style>
-    article{
+        :root {
+    --darkBlue: #143653;
+    --lightBlue: #5CC8DE;
+    --whiteColor: #ffffff;
+    --lightGray: #f7f7f7;
+    --accentGray: rgb(228, 228, 228);
+    --worldmapGray: #dbdbdb;
+    --worldmapBorder: #8c8c8c;
+    --worldmapbuttons: rgb(235, 235, 235);
+    --textColor: #143653;
+    --boxShadow: rgba(128, 128, 128, 0.132);
+    --color: rgb(212, 212, 212);
+    --textSize: 1.2rem;
+    --iconSize: 2rem;
+    }
+    /* article{
         color: white;
         background-color: #5CC8DE;
         
-    }
+    } */
     img{
         width: 10rem;
         height: auto;
