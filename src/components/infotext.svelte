@@ -7,6 +7,7 @@
 </section>
 
 <style>
+
     section {
         grid-area: dashboard-info;
         border-radius: .5rem;
@@ -21,5 +22,6 @@
         color: var(--textColor);
         margin-top: 0.5rem;
         font-family: 'Proxima', sans-serif;
+
     }
 </style>

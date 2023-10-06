@@ -1,3 +1,4 @@
+
 import { gql } from 'graphql-request'
 import { hygraph } from '$lib/utils/hygraph.js'
 import { json } from '@sveltejs/kit'
@@ -9,8 +10,7 @@ export async function load() {
     dashboard(where: {id: "cln32p50anrma0bw03q8fsa54"}) {
       infotext {
         infotext {
-          html
-          text
+          markdown
         }
         id
       }
@@ -31,4 +31,3 @@ export async function load() {
         const dataApi = await grrrData.json()
   return {dataHygraph, dataApi}
 }
-
