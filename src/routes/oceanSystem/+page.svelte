@@ -3,18 +3,13 @@
     import TrashRemovedOcean from '../../components/trash-removed-ocean.svelte';
     import Image from '../../components/image.svelte';
     export let data
-
 </script>
 
-<h2>{data.dataApi.systems[0]. name}</h2>
 <main>
-
-<TrashRemovedOcean data={data.dataApi.systems[0]}></TrashRemovedOcean>
-
-<Infotext data={data.dataHygraph.dashboard.ocean.oceanInfotext} />
-
-<Image data={data.dataHygraph.dashboard.ocean.oceanImage} />
-
+    <h2>{data.dataApi.systems[0]. name}</h2>
+    <TrashRemovedOcean data={data.dataApi.systems[0]}/>
+    <Infotext data={data.dataHygraph.dashboard.ocean.oceanInfotext} />
+    <Image data={data.dataHygraph.dashboard.ocean.oceanImage} />
 </main>
 
 <style>
