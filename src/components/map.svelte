@@ -1,51 +1,30 @@
-<!-- src/routes/Map.svelte -->
 <script>
+	// Import necessary modules
+	import { onMount } from 'svelte';
 
-    import { onMount } from 'svelte';
-  
-    let map;
-  
+	// Define Mapbox access token
+	mapboxgl.accessToken =
+		'pk.eyJ1IjoibWNwaGVuZHJpa3MiLCJhIjoiY2xuYWpkajM3MDRvNzJxbzdjbGg1YXc0MiJ9.mRRivdosZVdSXQ9FDd0ZwA';
 
-    onMount(() => {
-      mapboxgl.accessToken = 'pk.eyJ1IjoibWNwaGVuZHJpa3MiLCJhIjoiY2xuYWpkajM3MDRvNzJxbzdjbGg1YXc0MiJ9.mRRivdosZVdSXQ9FDd0ZwA';
-  
-      map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/satellite-streets-v12', // style URL
-        center: [-2.81361, 36.77271], // starting position [lng, lat]
-        zoom: 13 // starting zoom
-      });
-  
-      const layerList = document.getElementById('menu');
-      const inputs = layerList.getElementsByTagName('input');
+	let map; // Declare map variable outside of onMount
 
+	onMount(() => {
+		// Create a map instance
+		map = new mapboxgl.Map({
+			container: 'map',
+			style: 'mapbox://styles/mapbox/light-v11',
+			zoom: 12,
+			center: [-122.4473, 37.7535]
+		});
+	});
+</script>
 
-       // Add your markers here
-       const marker1 = new mapboxgl.Marker()
-        .setLngLat([12.554729, 55.70651])
-        .addTo(map);
+<section id="map" />
 
-      const marker2 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
-        .setLngLat([12.65147, 55.608166])
-        .addTo(map);
-
-    });
-  </script>
-  
-   
-  
-  <style>
-    #map 
-    { position: relative; width: 100%; height:100%;
-    }
-  </style>
-  
-   
-  
-  <section id="map"></section>
-  
-   
-  
-
-  
-  <!-- heeft contextmenu -->
+<style>
+	#map {
+		position: relative;
+		width: 100%;
+		height: 500px; /* Set the map height as per your preference */
+	}
+</style>
