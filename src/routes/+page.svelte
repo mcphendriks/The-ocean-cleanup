@@ -116,7 +116,7 @@
 
         <!-- Grafiek: share swith icons -->
         <section class="panel grafiek">
-            <Trashgraph />
+            <Trashgraph data={data} />
         </section>
 
         <!-- Map: map with interceptors -->

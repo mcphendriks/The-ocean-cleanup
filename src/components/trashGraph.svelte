@@ -9,8 +9,11 @@
  -->
 
 <script>
+
     import { onMount } from 'svelte';
     import { Chart } from 'chart.js/auto';
+    export let trashdata
+    console.log(trashdata)
 
   // Gegevens en configuratie
   const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
@@ -36,5 +39,6 @@
 
 <h2>Trash collected over time</h2>
 <p>In kilogram</p>
+<!-- <h2>{data.dataApi.totals.months[0].year}</h2> -->
 
 <canvas id="line-chart" width="400" height="200"></canvas>

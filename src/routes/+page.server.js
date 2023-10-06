@@ -18,6 +18,13 @@ export async function load() {
     }
   }
   
-  `
-  return await hygraph.request(query)
+`
+  const dataHygraph = await hygraph.request(query)
+
+  const grrrData = await fetch("https://fdnd-toc-api.netlify.app/total")
+
+        const dataApi = await grrrData.json()
+        console.log()
+  return {dataHygraph, dataApi}
+
 }
