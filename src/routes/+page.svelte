@@ -1,24 +1,14 @@
-<!-- Head dashboard-->
+<script>
+    import Infotext from "../components/infotext.svelte"
+    import TrashRemoved from "../components/trash-removed.svelte"
+    export let data
+    // console.log(data.dataHygraph.dashboard.infotext.infotext.html)
+</script>
 
 <svelte:head>
     <title>Dashboard The Ocean Cleanup</title>
-
-    <!-- Sanne's iconen, wij gaan andere iconen gebruiken -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-    <!-- <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"> -->
 </svelte:head>
 
-
-<!-- Navigation -->
-<!-- Iconen moeten worden toegevoegd -->
-
-
-
-
-
-
-<!-- Start main section -->
 <main>
     <div class="container2">
         <!-- Blue line -->
@@ -28,7 +18,7 @@
 
         <!-- Title + Searchbar -->
         <section class="header-dashboard">
-            <h1>Dashboard</h1>
+            <h1>{data.dataHygraph.dashboard.title}</h1
             <form class="search" action="/" method="GET">
                 <input type="text" name="search" placeholder="Search..">
                 <input type="submit" name="search-button" aria-label="search button" class="search-button">
@@ -36,21 +26,8 @@
             </form>
         </section>
 
-        <!-- Box 1: total trash removed -->
-        <section class="panel box-1">
-            <h2>Trash removed in total</h2>
-            <div class="col">
-                <p class="count-num" data-count="600000000">353874119</p>
-                <p>kg</p>
-            </div>
-        </section>
-
-        <!-- Box 2: last 30 days removed -->
-        <section class="panel box-2">
-            <h2>Last 30 days removed</h2>
-            <p id="weight-removed">443.415 kg</p>
-        </section>
-
+        <TrashRemoved data={data.dataApi.totals}></TrashRemoved>
+       
         <!-- Box 3: percentage since 2013 -->
         <section class="panel box-3">
             <h2>% removed since 2013 </h2>
@@ -85,7 +62,7 @@
 
         <!-- Grafiek: share swith icons -->
         <section class="panel grafiek">
-            <h2>Share this dashboard</h2>
+            
             <p>Cleaning up the world's ocean is a global initiative requiring the support of
                 governments and
                 individuals all over the world. Spread the word about our work to help bring awareness to the
@@ -150,17 +127,8 @@
             <!-- <img src="/map-nojs.png"> -->
         </form>
 
-        <!-- Dashboard-info: info about dashboard -->
-        <section class="panel dashboard-info">
-            <h2>Track our progress on this dashboard and learn more about the upcoming and deployed cleanup
-                solutions.</h2>
-
-            <p>Our goal is to reduce floating plastic by 90% by 2040. According to our research, about 80% of
-                riverine plastic pollution stems from 1000 rivers. </p>
-
-            <p>To effectively clean up the oceans, we need to both clean up the plastic already in the ocean and
-                intercept plastic on its way through rivers.</p>
-        </section>
+      
+        <Infotext data={data.dataHygraph.dashboard.infotext} />
 
         <!-- Share: table system statuses -->
         <section class="panel share">
@@ -305,11 +273,9 @@
                 </span>
             </table>
         </section>
+    </div>
 </main>
 <!-- End main section -->
-
-
-
 
 
 
@@ -321,18 +287,6 @@
 <!-- Footer -->
 <footer>
 </footer>
-<!--         
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="/datamaps.world.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/9e5ba2e3f5.js" crossorigin="anonymous"></script> -->
-<!-- <script src="/main.js"></script> -->
-<!-- </body> -->
-
-<!-- </html> -->
-
-
 
 
 
@@ -382,12 +336,6 @@
     position: relative;
     }
 
-    h1{
-    line-height: 1.2;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: var(--darkBlue);
-    }
 
     h2 {
     line-height: 1.2;
@@ -424,8 +372,8 @@
     .container2 {
     margin: 8rem 1.5rem 1.5rem 1.5rem;
     display: grid;
-    grid-template-columns: 1fr, 1fr;
-    grid-template-rows: 0.1fr, 0.3fr, 2fr, 2fr, 1fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.01fr 0.1fr 1fr 1fr .5fr .8fr .5fr .5fr 1fr;
     gap: 1.2rem;
     grid-template-areas:
         "menu menu"
@@ -471,14 +419,6 @@
     transition: .2s;
     }
 
-    .box-1 {
-    grid-area: box-1;
-    }
-
-    .box-2 {
-    grid-area: box-2;
-    }
-
     .box-3 {
     grid-area: box-3;
     }
@@ -487,10 +427,7 @@
     grid-area: box-4;
     }
 
-    .dashboard-info {
-    grid-area: dashboard-info;
-    }
-
+   
     .share {
     grid-area: share;
     }
@@ -499,24 +436,11 @@
     grid-area: more;
     }
 
-    /* header styling + line */
-    .header-dashboard h1 {
-    font-size: 2rem;
-    }
-
+    /* line */
     .line {
     height: 2px;
     width: 18%;
     background-color: var(--lightBlue);
-    }
-
-    /* dashboard-info styling */
-    .dashboard-info p {
-    font-size: 1.3rem;
-    line-height: 1.4;
-    color: var(--textColor);
-    margin-top: 0.5rem;
-    font-family: 'Proxima', sans-serif;
     }
 
     /* .dashboard-info span {
@@ -526,6 +450,17 @@
     font-weight: bold;
     font-family: 'Proxima', sans-serif;
     } */
+
+    /* dashboard H1 */
+    h1{
+        line-height: 1.2;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: var(--darkBlue);
+    }
+    .header-dashboard h1{
+    font-size: 2rem;
+}
 
     /* share styling */
     .grafiek p {
@@ -892,8 +827,8 @@
     .container2 {
         margin: 8rem 1.5rem 1.5rem 1.5rem;
         display: grid;
-        grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-        grid-template-rows: 0.1fr, 0.3fr, 2fr, 2fr, 1fr, 1fr, 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 0.01fr 0.1fr 1fr 1fr 1fr 1fr 1fr;
         gap: 1.2rem;
         grid-template-areas:
         "menu menu menu menu"
@@ -988,10 +923,6 @@
 
     .active {
         color: var(--lightBlue);
-    }
-
-    .header-dashboard h1 {
-        font-size: 2.5rem;
     }
     }
 
