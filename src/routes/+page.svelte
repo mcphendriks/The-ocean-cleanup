@@ -1,5 +1,6 @@
 <script>
     import Infotext from "../components/infotext.svelte"
+    import TrashRemoved from "../components/trash-removed.svelte"
     export let data
     // console.log(data.dataHygraph.dashboard.infotext.infotext.html)
 </script>
@@ -16,6 +17,7 @@
 
 <!-- Navigation -->
 <!-- Iconen moeten worden toegevoegd -->
+
 <header>
     <nav>
         <img src="/1200px-The_Ocean_Cleanup_logowhite.png" alt="logo of The ocean cleanup">
@@ -62,21 +64,8 @@
             </form>
         </section>
 
-        <!-- Box 1: total trash removed -->
-        <section class="panel box-1">
-            <h2>Trash removed in total</h2>
-            <div class="col">
-                <p class="count-num" data-count="600000000">353874119</p>
-                <p>kg</p>
-            </div>
-        </section>
-
-        <!-- Box 2: last 30 days removed -->
-        <section class="panel box-2">
-            <h2>Last 30 days removed</h2>
-            <p id="weight-removed">443.415 kg</p>
-        </section>
-
+        <TrashRemoved data={data}></TrashRemoved>
+       
         <!-- Box 3: percentage since 2013 -->
         <section class="panel box-3">
             <h2>% removed since 2013 </h2>
@@ -176,7 +165,8 @@
             <!-- <img src="/map-nojs.png"> -->
         </form>
 
-        <!-- <Infotext></Infotext> -->
+      
+        <Infotext data={data} />
 
         <!-- Share: table system statuses -->
         <section class="panel share">
@@ -539,14 +529,6 @@
     transition: .2s;
     }
 
-    .box-1 {
-    grid-area: box-1;
-    }
-
-    .box-2 {
-    grid-area: box-2;
-    }
-
     .box-3 {
     grid-area: box-3;
     }
@@ -555,10 +537,7 @@
     grid-area: box-4;
     }
 
-    .dashboard-info {
-    grid-area: dashboard-info;
-    }
-
+   
     .share {
     grid-area: share;
     }
@@ -576,15 +555,6 @@
     height: 2px;
     width: 18%;
     background-color: var(--lightBlue);
-    }
-
-    /* dashboard-info styling */
-    .dashboard-info p {
-    font-size: 1.3rem;
-    line-height: 1.4;
-    color: var(--textColor);
-    margin-top: 0.5rem;
-    font-family: 'Proxima', sans-serif;
     }
 
     /* .dashboard-info span {
