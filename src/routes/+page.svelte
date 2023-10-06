@@ -2,7 +2,6 @@
     import Infotext from "../components/infotext.svelte"
     import TrashRemoved from "../components/trash-removed.svelte"
     export let data
-    // console.log(data.dataHygraph.dashboard.infotext.infotext.html)
 </script>
 
 <svelte:head>
