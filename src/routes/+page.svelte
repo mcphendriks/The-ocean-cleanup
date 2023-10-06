@@ -1,96 +1,39 @@
-<!-- Head dashboard-->
 <script>
-	export let data;
-	import Map from '/src/components/map.svelte';
+    import Infotext from "../components/infotext.svelte"
+    import TrashRemoved from "../components/trash-removed.svelte"
+    export let data
 </script>
 
 <svelte:head>
-	<title>Dashboard The Ocean Cleanup</title>
-
-	<script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
-	<link href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css" rel="stylesheet" />
-
-	<!-- Sanne's iconen, wij gaan andere iconen gebruiken -->
-	<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-	<!-- <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> -->
-	<!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"> -->
+    <title>Dashboard The Ocean Cleanup</title>
 </svelte:head>
 
-<!-- Navigation -->
-<!-- Iconen moeten worden toegevoegd -->
-<header>
-	<nav>
-		<img src="/1200px-The_Ocean_Cleanup_logowhite.png" alt="logo of The ocean cleanup" />
-		<ul class="nav-list">
-			<li>
-				<a href="https://theoceancleanup.com/" class="nav-link" aria-label="back to the homepage">
-					<span>Home</span>
-				</a>
-			</li>
-
-			<li>
-				<a href="/" class="nav-link active" aria-label="dashboard">
-					<span>Dashboard</span>
-				</a>
-			</li>
-
-			<li>
-				<button class="darkmode" value="darkmode button" aria-label="switch to darkmode">
-					<a href="/" class="nav-link" aria-label="switch to darkmode">
-						<span id="darkmode-btn-text">Dark</span>
-					</a>
-				</button>
-			</li>
-		</ul>
-	</nav>
-</header>
-
-<!-- Start main section -->
 <main>
-	<div class="container2">
-		<!-- Blue line -->
-		<div class="menu">
-			<div class="line" />
-		</div>
+    <div class="container2">
+        <!-- Blue line -->
+        <div class="menu">
+            <div class="line"></div>
+        </div>
 
-		<!-- Title + Searchbar -->
-		<section class="header-dashboard">
-			<!-- <h1>{data.dashboard.title}</h1> -->
-			<form class="search" action="/" method="GET">
-				<input type="text" name="search" placeholder="Search.." />
-				<input
-					type="submit"
-					name="search-button"
-					aria-label="search button"
-					class="search-button"
-				/>
-				<!-- voeg een zoekicoon toe -->
-			</form>
-		</section>
+        <!-- Title + Searchbar -->
+        <section class="header-dashboard">
+            <h1>{data.dataHygraph.dashboard.title}</h1>
+            <form class="search" action="/" method="GET">
+                <input type="text" name="search" placeholder="Search..">
+                <input type="submit" name="search-button" aria-label="search button" class="search-button">
+                    <!-- voeg een zoekicoon toe -->
+            </form>
+        </section>
 
-		<!-- Box 1: total trash removed -->
-		<section class="panel box-1">
-			<h2>Trash removed in total</h2>
-			<div class="col">
-				<p class="count-num" data-count="600000000">353874119</p>
-				<p>kg</p>
-			</div>
-		</section>
+        <TrashRemoved data={data.dataApi.totals}></TrashRemoved>
+       
+        <!-- Box 3: percentage since 2013 -->
+        <section class="panel box-3">
+            <h2>% removed since 2013 </h2>
+            <div class="single-chart">
+                <svg viewBox="0 0 36 36" class="circular-chart green">
+                    <path class="circle-bg" d="M18 2.0845
 
-		<!-- Box 2: last 30 days removed -->
-		<section class="panel box-2">
-			<h2>Last 30 days removed</h2>
-			<p id="weight-removed">443.415 kg</p>
-		</section>
-
-		<!-- Box 3: percentage since 2013 -->
-		<section class="panel box-3">
-			<h2>% removed since 2013</h2>
-			<div class="single-chart">
-				<svg viewBox="0 0 36 36" class="circular-chart green">
-					<path
-						class="circle-bg"
-						d="M18 2.0845
                             a 15.9155 15.9155 0 0 1 0 31.831
                             a 15.9155 15.9155 0 0 1 0 -31.831"
 					/>
@@ -168,188 +111,156 @@
 			<Map {data} />
 		</div>
 
-		<!-- When JS is disabled, this content will show
-        <form id="js-disabled" class="map">
-            <label for="interceptor-select">Choose Interceptor:</label>
-            <select id="interceptor-select" name="interceptor">
-                <option value="" disabled selected hidden>Choose Interceptor</option>
-                <option value="/map">Interceptor 001</option>
-                <option value="/map">Interceptor 002</option>
-                <option value="/map">Interceptor 003</option>
-                <option value="/map">Interceptor 004</option>
-                <option value="/map">Interceptor 005</option>
-                <option value="/map">Interceptor 006</option>
-                <option value="/map">System 002</option>
-                <option value="/map">Kingston Harbour</option>
-            </select>
+    
+        <Infotext data={data.dataHygraph.dashboard.infotext} />
 
-        <img src="/map-nojs.png">
-        </form> -->
+        <!-- Share: table system statuses -->
+        <section class="panel share">
+            <h2>System statuses</h2>
+            <table>
+                <tr>
+                    <td class="dot">
+                        <div class="pulse-container">
+                            <div class="status-pulse">
+                                <div class="pulse-marker green"></div>
+                                <h3>In operation</h3>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="amount">
+                        <h4>10 interceptors</h4>
+                    </td>
+                </tr>
 
-		<!-- Dashboard-info: info about dashboard -->
-		<section class="panel dashboard-info">
-			<h2>
-				Track our progress on this dashboard and learn more about the upcoming and deployed cleanup
-				solutions.
-			</h2>
+                <tr>
+                    <td class="dot">
+                        <div class="pulse-container">
+                            <div class="status-pulse">
+                                <div class="pulse-marker green"></div>
+                                <h3>Harvesting</h3>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="amount">
+                        <h4>1 ocean system</h4>
+                    </td>
+                </tr>
 
-			<p>
-				Our goal is to reduce floating plastic by 90% by 2040. According to our research, about 80%
-				of riverine plastic pollution stems from 1000 rivers.
-			</p>
+                <tr>
+                    <td class="dot">
+                        <div class="pulse-container">
+                            <div class="status-pulse">
+                                <div class="pulse-marker blue"></div>
+                                <h3>Installed for testing</h3>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="amount">
+                        <h4>1 interceptor</h4>
+                    </td>
+                </tr>
 
-			<p>
-				To effectively clean up the oceans, we need to both clean up the plastic already in the
-				ocean and intercept plastic on its way through rivers.
-			</p>
-		</section>
+                <tr>
+                    <td class="dot">
+                        <div class="pulse-container">
+                            <div class="status-pulse">
+                                <div class="pulse-marker gray"></div>
+                                <h3>Planned</h3>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="amount">
+                        <h4>1 interceptor</h4>
+                    </td>
+                </tr>
 
-		<!-- Share: table system statuses -->
-		<section class="panel share">
-			<h2>System statuses</h2>
-			<table>
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker green" />
-								<h3>In operation</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>10 interceptors</h4>
-					</td>
-				</tr>
+                <tr>
+                    <td class="dot">
+                        <div class="pulse-container">
+                            <div class="status-pulse">
+                                <div class="pulse-marker gray"></div>
+                                <h3>Contract signed</h3>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="amount">
+                        <h4>1 interceptor</h4>
+                    </td>
+                </tr>
+            </table>
+        </section>
 
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker green" />
-								<h3>Harvesting</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 ocean system</h4>
-					</td>
-				</tr>
+        <!-- More: table more information links -->
+        <section class="panel more">
+            <h2>More about</h2>
+            <table class="table-more">
+                <tr class="more-row">
+                    <td class="more-icon">
+                        <a href="/" class="more-link">
+                            <!-- add icon -->
+                            Our river technology
+                        </a>
+                    </td>
+                    <td class="arrow">
+                        <!-- add icon -->
+                    </td>
+                </tr>
 
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker blue" />
-								<h3>Installed for testing</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 interceptor</h4>
-					</td>
-				</tr>
+                <tr class="more-row">
+                    <td class="more-icon">
+                        <a href="/" class="more-link">
+                            <!-- add icon -->
+                            The economic impact
+                        </a>
+                    </td>
+                    <td class="arrow">
+                        <!-- add icon -->
+                    </td>
+                </tr>
 
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker gray" />
-								<h3>Planned</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 interceptor</h4>
-					</td>
-				</tr>
+                <tr class="more-row">
+                    <td class="more-icon">
+                        <a href="/" class="more-link">
+                            <!-- add icon -->
+                            Plastic sources
+                        </a>
+                    </td>
+                    <td class="arrow">
+                        <!-- add icon -->
+                    </td>
+                </tr>
 
-				<tr>
-					<td class="dot">
-						<div class="pulse-container">
-							<div class="status-pulse">
-								<div class="pulse-marker gray" />
-								<h3>Contract signed</h3>
-							</div>
-						</div>
-					</td>
-					<td class="amount">
-						<h4>1 interceptor</h4>
-					</td>
-				</tr>
-			</table>
-		</section>
+                <tr class="more-row">
+                    <td class="more-icon">
+                        <a href="/" class="more-link">
+                            <!-- add icon -->
+                            Donate
+                        </a>
+                    </td>
+                    <td class="arrow">
+                        <!-- add icon -->
+                    </td>
+                </tr>
 
-		<!-- More: table more information links -->
-		<section class="panel more">
-			<h2>More about</h2>
-			<table class="table-more">
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							Our river technology
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
-
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							The economic impact
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
-
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							Plastic sources
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
-
-				<tr class="more-row">
-					<td class="more-icon">
-						<a href="/" class="more-link">
-							<!-- add icon -->
-							Donate
-						</a>
-					</td>
-					<td class="arrow">
-						<!-- add icon -->
-					</td>
-				</tr>
-
-				<span>
-					<tr class="more-row">
-						<td class="more-icon">
-							<a href="/" class="more-link">
-								<!-- add icon -->
-								Sign up to newsletter
-							</a>
-						</td>
-						<td class="arrow">
-							<!-- add icon -->
-						</td>
-					</tr>
-				</span>
-			</table>
-		</section>
-	</div>
+                <span>
+                    <tr class="more-row">
+                        <td class="more-icon">
+                            <a href="/" class="more-link">
+                                <!-- add icon -->
+                                Sign up to newsletter
+                            </a>
+                        </td>
+                        <td class="arrow">
+                            <!-- add icon -->
+                        </td>
+                    </tr>
+                </span>
+            </table>
+        </section>
+    </div>
 </main>
 <!-- End main section -->
+
 
 <!-- Scroll to top button -->
 <a href="#top" class="scroll-top" aria-label="scroll to top">
@@ -357,265 +268,165 @@
 </a>
 
 <!-- Footer -->
-<footer />
+<footer>
+</footer>
 
-<!--         
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="/datamaps.world.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/9e5ba2e3f5.js" crossorigin="anonymous"></script> -->
-<!-- <script src="/main.js"></script> -->
-<!-- </body> -->
 
-<!-- </html> -->
 
 <style>
-	/* Roboto font */
-	@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+    /* Roboto font */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
-	/* Proxima font */
-	@font-face {
-		font-family: 'Proxima';
-		src: url('/ProximaNovaFont.otf') format('opentype') weight('normal');
-		src: url('/Proxima-Nova-Bold.otf') format('opentype') weight('bold');
-	}
+    /* Proxima font */
+    @font-face {
+    font-family: 'Proxima';
+    src: url("/ProximaNovaFont.otf") format("opentype") weight("normal");
+    src: url("/Proxima-Nova-Bold.otf") format("opentype") weight("bold");
+    }
 
-	/* Base */
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		font-family: 'Proxima', sans-serif;
-	}
+    /* Base */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Proxima', sans-serif;
+    }
 
-	:root {
-		--darkBlue: #143653;
-		--lightBlue: #5cc8de;
-		--whiteColor: #ffffff;
-		--lightGray: #f7f7f7;
-		--accentGray: rgb(228, 228, 228);
-		--worldmapGray: #dbdbdb;
-		--worldmapBorder: #8c8c8c;
-		--worldmapbuttons: rgb(235, 235, 235);
-		--textColor: #143653;
-		--boxShadow: rgba(128, 128, 128, 0.132);
-		--color: rgb(212, 212, 212);
-		--textSize: 1.2rem;
-		--iconSize: 2rem;
-	}
+    :root {
+    --darkBlue: #143653;
+    --lightBlue: #5CC8DE;
+    --whiteColor: #ffffff;
+    --lightGray: #f7f7f7;
+    --accentGray: rgb(228, 228, 228);
+    --worldmapGray: #dbdbdb;
+    --worldmapBorder: #8c8c8c;
+    --worldmapbuttons: rgb(235, 235, 235);
+    --textColor: #143653;
+    --boxShadow: rgba(128, 128, 128, 0.132);
+    --color: rgb(212, 212, 212);
+    --textSize: 1.2rem;
+    --iconSize: 2rem;
+    }
 
-	:global(html) {
-		font-size: 62.5%;
-		scroll-behavior: smooth;
-	}
+    :global(html) {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    }
 
-	:global(body) {
-		background-color: var(--lightGray);
-		color: var(--textColor);
-		position: relative;
-	}
+    :global(body) {
+    background-color: var(--lightGray);
+    color: var(--textColor);
+    position: relative;
+    }
 
-	h1 {
-		line-height: 1.2;
-		font-weight: 500;
-		text-transform: uppercase;
-		color: var(--darkBlue);
-	}
 
-	h2 {
-		line-height: 1.2;
-		font-weight: 500;
-		color: var(--darkBlue);
-		margin-bottom: 1rem;
-	}
+    h2 {
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--darkBlue);
+    margin-bottom: 1rem;
+    }
 
-	h3 {
-		font-size: 1.3rem;
-		font-weight: 500;
-	}
+    h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    }
 
-	ul,
-	li {
-		list-style: none;
-	}
+    ul,
+    li {
+    list-style: none;
+    }
 
-	a {
-		text-decoration: none;
-	}
+    a {
+    text-decoration: none;
+    }
 
-	button {
-		all: unset;
-		text-align: center;
-	}
-	/* .darkmode{
+    button {
+    all: unset;
+    text-align: center;
+    }
+    /* .darkmode{
         display:flex;
         align-self: center;
     } */
 
-	/* Nav */
-	header {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 5.5rem;
-		background-color: var(--whiteColor);
-		box-shadow: var(--boxShadow) 0px 0px 8px;
-		z-index: 100;
-	}
 
-	nav {
-		height: 5.5rem;
-		display: flex;
-		flex-direction: row;
-		-webkit-box-pack: justify;
-		-ms-flex-pack: justify;
-		justify-content: space-between;
-		overflow: hidden;
-	}
+    /* Grid */
+    .container2 {
+    margin: 8rem 1.5rem 1.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.01fr 0.1fr 1fr 1fr .5fr .8fr .5fr .5fr 1fr;
+    gap: 1.2rem;
+    grid-template-areas:
+        "menu menu"
+        "header-dashboard header-dashboard"
+        "dashboard-info dashboard-info"
+        "map map"
+        "box-1 box-2"
+        "box-3 box-4"
+        "share share"
+        "grafiek grafiek"
+        "more more";
+    }
 
-	nav img {
-		left: 0;
-		top: 0;
-		width: 11rem;
-		height: 100%;
-		padding: 1rem;
-		background-color: var(--lightBlue);
-	}
+    .panel {
+    border-radius: .5rem;
+    padding: 1.5rem;
+    background-color: var(--whiteColor);
+    box-shadow: var(--boxShadow) 0px 0px 8px;
+    transition: .2s;
+    }
 
-	.nav-list {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 5rem;
-		margin: 0 auto;
-	}
+    /* Grid areas */
+    .header-dashboard {
+    display: flex;
+    justify-content: space-between;
+    grid-area: header-dashboard;
+    }
 
-	.nav-link {
-		text-align: center;
-		color: var(--darkBlue);
-		font-size: 1.5rem;
-	}
+    .menu {
+    grid-area: menu;
+    }
 
-	.nav-link span {
-		display: none;
-	}
+    .grafiek {
+    grid-area: grafiek;
+    }
 
-	.active {
-		color: var(--lightBlue);
-	}
+    .map {
+    grid-area: map;
+    border-radius: .5rem;
+    padding: 0.5rem;
+    background-color: var(--whiteColor);
+    box-shadow: var(--boxShadow) 0px 0px 8px;
+    transition: .2s;
+    }
 
-	/* Grid */
-	.container2 {
-		margin: 8rem 1.5rem 1.5rem 1.5rem;
-		display: grid;
-		grid-template-columns: 1fr, 1fr;
-		grid-template-rows: 0.1fr, 0.3fr, 2fr, 2fr, 1fr, 1fr, 1fr, 1fr, 1fr;
-		gap: 1.2rem;
-		grid-template-areas:
-			'menu menu'
-			'header-dashboard header-dashboard'
-			'dashboard-info dashboard-info'
-			'map map'
-			'map map'
-			'map map'
-			'map map'
-			'map map'
-			'map map'
-			'map map'
-			'map map'
-			'map map'
-			'map map'
-			'map map'
-			'box-1 box-2'
-			'box-3 box-4'
-			'share share'
-			'grafiek grafiek'
-			'more more';
-	}
+    .box-3 {
+    grid-area: box-3;
+    }
 
-	.panel {
-		border-radius: 0.5rem;
-		padding: 1.5rem;
-		background-color: var(--whiteColor);
-		box-shadow: var(--boxShadow) 0px 0px 8px;
-		transition: 0.2s;
-	}
+    .box-4 {
+    grid-area: box-4;
+    }
 
-	/* Grid areas */
-	.header-dashboard {
-		display: flex;
-		justify-content: space-between;
-		grid-area: header-dashboard;
-	}
+   
+    .share {
+    grid-area: share;
+    }
 
-	.menu {
-		grid-area: menu;
-	}
+    .more {
+    grid-area: more;
+    }
 
-	.grafiek {
-		grid-area: grafiek;
-	}
+    /* line */
+    .line {
+    height: 2px;
+    width: 18%;
+    background-color: var(--lightBlue);
+    }
 
-	.map {
-		grid-area: map;
-		border-radius: 0.5rem;
-		padding: 0.5rem;
-		background-color: var(--whiteColor);
-		box-shadow: var(--boxShadow) 0px 0px 8px;
-		transition: 0.2s;
-	}
-
-	.box-1 {
-		grid-area: box-1;
-	}
-
-	.box-2 {
-		grid-area: box-2;
-	}
-
-	.box-3 {
-		grid-area: box-3;
-	}
-
-	.box-4 {
-		grid-area: box-4;
-	}
-
-	.dashboard-info {
-		grid-area: dashboard-info;
-	}
-
-	.share {
-		grid-area: share;
-	}
-
-	.more {
-		grid-area: more;
-	}
-
-	/* header styling + line */
-	.header-dashboard h1 {
-		font-size: 2rem;
-	}
-
-	.line {
-		height: 2px;
-		width: 18%;
-		background-color: var(--lightBlue);
-	}
-
-	/* dashboard-info styling */
-	.dashboard-info p {
-		font-size: 1.3rem;
-		line-height: 1.4;
-		color: var(--textColor);
-		margin-top: 0.5rem;
-		font-family: 'Proxima', sans-serif;
-	}
-
-	/* .dashboard-info span {
+    /* .dashboard-info span {
     font-size: 1.3rem;
     line-height: 1.4;
     color: var(--textColor);
@@ -623,58 +434,75 @@
     font-family: 'Proxima', sans-serif;
     } */
 
-	/* share styling */
-	.grafiek p {
-		font-size: 1.3rem;
-		line-height: 1.4;
-		color: var(--textColor);
-		margin-top: 0.5rem;
-		font-family: 'Proxima', sans-serif;
-	}
+    /* dashboard H1 */
+    h1{
+        line-height: 1.2;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: var(--darkBlue);
+    }
+    .header-dashboard h1{
+    font-size: 2rem;
+}
 
-	.social-icons {
-		display: flex;
-		justify-content: left;
-		gap: 2rem;
-		align-items: center;
-		margin-top: 2rem;
-	}
+    /* share styling */
+    .grafiek p {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    color: var(--textColor);
+    margin-top: 0.5rem;
+    font-family: 'Proxima', sans-serif;
+    }
 
-	.share-icon {
-		font-size: 2.5rem;
-		color: var(--lightBlue);
-	}
+    .social-icons {
+    display: flex;
+    justify-content: left;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 2rem;
+    }
 
-	.share-icon:hover {
-		color: var(--darkBlue);
-	}
+    .share-icon {
+    font-size: 2.5rem;
+    color: var(--lightBlue);
+    }
 
-	/* boxes styling */
-	.box-1,
-	.box-2,
-	.box-3,
-	.box-4,
-	p {
-		font-size: 1.6rem;
-		color: var(--lightBlue);
-		font-family: 'Roboto Mono', monospace;
-	}
+    .share-icon:hover {
+    color: var(--darkBlue);
+    }
 
-	.box-1,
-	.box-2,
-	.box-3,
-	.box-4,
-	h2 {
-		font-size: 1.6rem;
-		color: var(--darkBlue);
-	}
+    /* boxes styling */
+    .box-1,
+    .box-2,
+    .box-3,
+    .box-4,
+    p {
+    font-size: 1.6rem;
+    color: var(--lightBlue);
+    font-family: 'Roboto Mono', monospace;
+    }
 
-	.col {
-		display: flex;
-		gap: 0.9rem;
-	}
+    .box-1,
+    .box-2,
+    .box-3,
+    .box-4,
+    h2 {
+        font-size: 1.6rem;
+        color: var(--darkBlue);
+    }
 
-	/* .hoverinfo {
+    .col {
+        display: flex;
+        gap: .9rem;
+    }
+
+    /* map styling */
+    #bubbles {
+    position: relative;
+    width: 100%;
+    }
+
+    /* .hoverinfo {
     color: #143653;
     padding: 4px;
     border-radius: 1px;
@@ -967,47 +795,46 @@
 	/* 
    
 
-   
 
-    /* Breakpoints small screen */
-	@media (min-width: 700px) {
-		.container2 {
-			margin: 8rem 1.5rem 1.5rem 1.5rem;
-			display: grid;
-			grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-			grid-template-rows: 0.1fr, 0.3fr, 2fr, 2fr, 1fr, 1fr, 1fr;
-			gap: 1.2rem;
-			grid-template-areas:
-				'menu menu menu menu'
-				'header-dashboard header-dashboard header-dashboard header-dashboard'
-				'dashboard-info dashboard-info dashboard-info box-1'
-				'map map map map'
-				'box-2 box-2 box-3 box-4'
-				'share grafiek grafiek grafiek'
-				'more more more more';
-		}
+    @media (min-width:700px) {
+    .container2 {
+        margin: 8rem 1.5rem 1.5rem 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 0.01fr 0.1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 1.2rem;
+        grid-template-areas:
+        "menu menu menu menu"
+        "header-dashboard header-dashboard header-dashboard header-dashboard"
+        "dashboard-info dashboard-info dashboard-info box-1"
+        "map map map map"
+        "box-2 box-2 box-3 box-4"
+        "share grafiek grafiek grafiek"
+        "more more more more";
+    }
 
-		.active {
-			color: var(--lightBlue);
-		}
-	}
+    .active {
+        color: var(--lightBlue);
+    }
 
-	/* Breakpoints medium screen */
-	@media (min-width: 992px) {
-		.container2 {
-			margin: 5rem 2rem 2rem 22.3rem;
-			grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
-			grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
-			grid-template-areas:
-				'menu menu menu menu menu'
-				'header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard'
-				'dashboard-info dashboard-info map map map'
-				'box-1 box-2 map map map'
-				'box-3 box-4 share share share'
-				'grafiek grafiek more more more';
-		}
+    }
 
-		/* .map .button-container {
+    /* Breakpoints medium screen */
+    @media (min-width:992px) {
+    .container2 {
+        margin: 5rem 2rem 2rem 22.3rem;
+        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+        grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
+        grid-template-areas:
+        "menu menu menu menu menu"
+        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
+        "dashboard-info dashboard-info map map map"
+        "box-1 box-2 map map map"
+        "box-3 box-4 share share share"
+        "grafiek grafiek more more more";
+    }
+
+    /* .map .button-container {
         position: absolute;
     } */
 
@@ -1067,92 +894,89 @@
         align-items: center;
     } */
 
-		.active {
-			color: var(--lightBlue);
-		}
+    .active {
+        color: var(--lightBlue);
+    }
+    }
 
-		.header-dashboard h1 {
-			font-size: 2.5rem;
-		}
-	}
+    /* Breakpoints large screen */
+    @media (min-width:1200px) {
+    .container2 {
+        margin: 5rem 2rem 2rem 22.3rem;
+        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+        grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
+        grid-template-areas:
+        "menu menu menu menu menu"
+        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
+        "dashboard-info dashboard-info map map map"
+        "box-1 box-2 map map map"
+        "box-3 box-4 map map map"
+        "share share grafiek more more";
+    }
 
-	/* Breakpoints large screen */
-	@media (min-width: 1200px) {
-		.container2 {
-			margin: 5rem 2rem 2rem 22.3rem;
-			grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
-			grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
-			grid-template-areas:
-				'menu menu menu menu menu'
-				'header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard'
-				'dashboard-info dashboard-info map map map'
-				'box-1 box-2 map map map'
-				'box-3 box-4 map map map'
-				'share share grafiek more more';
-		}
+    .more {
+        grid-area: more;
+    }
 
-		.more {
-			grid-area: more;
-		}
+    .panel {
+        padding: 2rem;
+    }
 
-		.panel {
-			padding: 2rem;
-		}
+    .map {
+        padding: 1.5rem;
+    }
 
-		.map {
-			padding: 1.5rem;
-		}
+    .box-1,
+    .box-2,
+    .box-4,
+    p {
+        font-size: 3rem;
+    }
 
-		.box-1,
-		.box-2,
-		.box-4,
-		p {
-			font-size: 3rem;
-		}
+    .box-3,
+    p {
+        font-size: 2.5rem;
+    }
 
-		.box-3,
-		p {
-			font-size: 2.5rem;
-		}
+    .box-1,
+    .box-2,
+    .box-3,
+    .box-4,
+    h2 {
+        font-size: 1.5rem;
+    }
 
-		.box-1,
-		.box-2,
-		.box-3,
-		.box-4,
-		h2 {
-			font-size: 1.5rem;
-		}
+    .grafiek h2 {
+        font-size: 1.8rem;
+    }
 
-		.grafiek h2 {
-			font-size: 1.8rem;
-		}
+    .more h2 {
+        font-size: 1.8rem;
+    }
 
-		.more h2 {
-			font-size: 1.8rem;
-		}
+    .share h2 {
+        font-size: 1.8rem;
+    }
 
-		.share h2 {
-			font-size: 1.8rem;
-		}
+    .grafiek p {
+        font-size: 1.5rem;
+    }
 
-		.grafiek p {
-			font-size: 1.5rem;
-		}
+    .share-icon {
+        font-size: 2.6rem;
+    }
 
-		.share-icon {
-			font-size: 2.6rem;
-		}
+    .social-icons {
+        margin-top: 3.5rem;
+    }
 
-		.social-icons {
-			margin-top: 3.5rem;
-		}
+    .dashboard-info p {
+        font-size: 1.5rem;
+        line-height: 1.4;
+        margin-top: 1rem;
+    }
+/* 
 
-		.dashboard-info p {
-			font-size: 1.5rem;
-			line-height: 1.4;
-			margin-top: 1rem;
-		}
-		/* 
     .dashboard-info span {
         margin-top: 1rem;
         font-size: 1.5rem;
