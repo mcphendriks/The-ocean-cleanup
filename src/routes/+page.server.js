@@ -9,8 +9,7 @@ export async function load() {
     dashboard(where: {id: "cln32p50anrma0bw03q8fsa54"}) {
       infotext {
         infotext {
-          html
-          text
+          markdown
         }
         id
       }
