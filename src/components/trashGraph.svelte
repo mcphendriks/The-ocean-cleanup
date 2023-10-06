@@ -1,27 +1,23 @@
 
-<!-- stappenplan
-        npm install chart.js 
-    import onmount en chart
-    definieer de data en options van de grafiek
-    maak de onmount functie zet daar de type, data en options in
-
-    maak een canvas waarin de grafiek komt te staan
- -->
-
 <script>
 
     import { onMount } from 'svelte';
     import { Chart } from 'chart.js/auto';
-    export let trashdata
-    console.log(trashdata)
+    export let data 
+    let trashdata = data
+
+     // de slice -4 pakt de laatste vier months
+    const laatsteVierMaanden = trashdata.dataApi.totals.months.slice(-4);
+    console.log(laatsteVierMaanden[0].debris_extracted)
+
 
   // Gegevens en configuratie
-  const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
-  const data = {
+  const labels = [laatsteVierMaanden[0].month, laatsteVierMaanden[1].month, laatsteVierMaanden[2].month, laatsteVierMaanden[3].month];
+  data = {
     labels: labels,
     datasets: [{
       label: 'Trash collected in kilogram',
-      data: [65, 59, 80, 81, 56, 55, 40],
+      data: [laatsteVierMaanden[0].debris_extracted, laatsteVierMaanden[1].debris_extracted ,laatsteVierMaanden[2].debris_extracted, laatsteVierMaanden[3].debris_extracted],
       fill: false,
       borderColor: 'rgb(75, 192, 192)',
       tension: 0.1
@@ -35,10 +31,11 @@
       data: data,
     });
   });
+
+ 
   </script>
 
 <h2>Trash collected over time</h2>
 <p>In kilogram</p>
-<!-- <h2>{data.dataApi.totals.months[0].year}</h2> -->
 
 <canvas id="line-chart" width="400" height="200"></canvas>
