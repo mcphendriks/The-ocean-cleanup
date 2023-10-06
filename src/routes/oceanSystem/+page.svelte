@@ -1,5 +1,7 @@
 <script>
+    import Infotext from '../../components/infotext.svelte';
     import TrashRemovedOcean from '../../components/trash-removed-ocean.svelte';
+    import Image from '../../components/image.svelte';
     export let data
 
 </script>
@@ -9,13 +11,10 @@
 
 <TrashRemovedOcean data={data.dataApi.systems[0]}></TrashRemovedOcean>
 
-<section>
-    <p>{data.dataHygraph.dashboard.ocean.oceanInfotext.infotext.markdown}</p>
-</section>
+<Infotext data={data.dataHygraph.dashboard.ocean.oceanInfotext} />
 
-{#each data.dataHygraph.dashboard.ocean.oceanImage as img}
-    <img alt="" src="{img.url}">
-{/each}
+<Image data={data.dataHygraph.dashboard.ocean.oceanImage} />
+
 </main>
 
 <style>
@@ -34,13 +33,5 @@
     --textSize: 1.2rem;
     --iconSize: 2rem;
     }
-    /* article{
-        color: white;
-        background-color: #5CC8DE;
-        
-    } */
-    img{
-        width: 10rem;
-        height: auto;
-    }
+    
 </style>
