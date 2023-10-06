@@ -52,7 +52,7 @@
 
         <!-- Title + Searchbar -->
         <section class="header-dashboard">
-            <h1>{data.dataHygraph.dashboard.title}</h1
+            <h1>{data.dataHygraph.dashboard.title}</h1>
             <form class="search" action="/" method="GET">
                 <input type="text" name="search" placeholder="Search..">
                 <input type="submit" name="search-button" aria-label="search button" class="search-button">
