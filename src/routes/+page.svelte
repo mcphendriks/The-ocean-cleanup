@@ -1,6 +1,7 @@
 <!-- Head dashboard-->
 <script>
     export let data
+    import SystemStatus from '../components/system-status.svelte';
 </script>
 <svelte:head>
     <title>Dashboard The Ocean Cleanup</title>
@@ -58,7 +59,7 @@
 
         <!-- Title + Searchbar -->
         <section class="header-dashboard">
-            <h1>{data.dashboard.title}</h1>
+            <!-- <h1>{data.dashboard.title}</h1> -->
             <form class="search" action="/" method="GET">
                 <input type="text" name="search" placeholder="Search..">
                 <input type="submit" name="search-button" aria-label="search button" class="search-button">
@@ -194,78 +195,7 @@
 
         <!-- Share: table system statuses -->
         <section class="panel share">
-            <h2>System statuses</h2>
-            <table>
-                <tr>
-                    <td class="dot">
-                        <div class="pulse-container">
-                            <div class="status-pulse">
-                                <div class="pulse-marker green"></div>
-                                <h3>In operation</h3>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="amount">
-                        <h4>10 interceptors</h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="dot">
-                        <div class="pulse-container">
-                            <div class="status-pulse">
-                                <div class="pulse-marker green"></div>
-                                <h3>Harvesting</h3>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="amount">
-                        <h4>1 ocean system</h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="dot">
-                        <div class="pulse-container">
-                            <div class="status-pulse">
-                                <div class="pulse-marker blue"></div>
-                                <h3>Installed for testing</h3>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="amount">
-                        <h4>1 interceptor</h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="dot">
-                        <div class="pulse-container">
-                            <div class="status-pulse">
-                                <div class="pulse-marker gray"></div>
-                                <h3>Planned</h3>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="amount">
-                        <h4>1 interceptor</h4>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="dot">
-                        <div class="pulse-container">
-                            <div class="status-pulse">
-                                <div class="pulse-marker gray"></div>
-                                <h3>Contract signed</h3>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="amount">
-                        <h4>1 interceptor</h4>
-                    </td>
-                </tr>
-            </table>
+            <SystemStatus />
         </section>
 
         <!-- More: table more information links -->
@@ -335,6 +265,7 @@
                 </span>
             </table>
         </section>
+    </div>
 </main>
 <!-- End main section -->
 
@@ -424,11 +355,6 @@
     font-weight: 500;
     color: var(--darkBlue);
     margin-bottom: 1rem;
-    }
-
-    h3 {
-    font-size: 1.3rem;
-    font-weight: 500;
     }
 
     ul,
@@ -833,141 +759,7 @@
     text-anchor: middle;
     }
 
-    /* Pulse */
-    .pulse-marker {
-    background: black;
-    border-radius: 50%;
-    height: 1rem;
-    width: 1rem;
-    transform: scale(1);
-    animation: pulse-black 2s infinite;
-    }
-
-    .pulse-marker.green {
-    background: rgb(132, 206, 95);
-    box-shadow: 0 0 0 0 rgb(132, 206, 95);
-    animation: pulse-green 2s infinite;
-    }
-
-    .pulse-marker.blue {
-    background: var(--lightBlue);
-    box-shadow: 0 0 0 0 var(--lightBlue);
-    animation: pulse-blue 2s infinite;
-    }
-
-    .pulse-marker.gray {
-    background: rgb(176, 176, 176);
-    box-shadow: 0 0 0 0 rgb(176, 176, 176);
-    animation: pulse-gray 2s infinite;
-    }
-
-    .pulse-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: .3rem;
-    }
-
-    @keyframes pulse-green {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgb(132, 206, 95);
-    }
-
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-    }
-
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-    }
-    }
-
-
-    @keyframes pulse-blue {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 var(--lightBlue);
-    }
-
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-    }
-
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-    }
-    }
-
-
-    @keyframes pulse-gray {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgb(176, 176, 176);
-    }
-
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-    }
-
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-    }
-    }
-
-    /* System statuses */
-    table {
-    width: 100%;
-    }
-
-    tr {
-    height: 2.5rem;
-    }
-
-    .dot {
-    width: 40%;
-    }
-
-    /* .status {
-    width: 30%;
-    } */
-
-    .status-pulse {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    }
-
-    .amount h4 {
-    font-family: 'Roboto', monospace;
-    color: var(--lightBlue);
-    font-weight: 500;
-    font-size: 1.45rem;
-    }
-
-    .amount {
-    width: 20%;
-    }
-
-    /* Progressive Enhancement, moet JS nog toevoegen */
-    /* .js-enabled {
-    display: none;
-    } */
-
-/* 
-    .map img {
-    width: 100%;
-    height: auto;
-    } */
-
-   
+    
 
     /* Breakpoints small screen */
     @media (min-width:700px) {
