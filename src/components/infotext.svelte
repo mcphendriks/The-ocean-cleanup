@@ -3,7 +3,7 @@
 </script>
 <!-- Dashboard-info: info about dashboard -->
 <section class="panel ">
-    <p>{data.dataHygraph.dashboard.infotext.infotext.markdown}</p>
+    <p>{data.infotext.markdown}</p>
 </section>
 
 <style>

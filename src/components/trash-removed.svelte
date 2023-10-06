@@ -4,12 +4,12 @@
 </script>
 
 <section class="box-1">
-    <h2>{data.dataApi.totals.debris_extracted_total} KG</h2>
+    <h2>{data.debris_extracted_total} KG</h2>
     <p>Trash removed in total</p>
 </section>
 
 <section class="box-2">
-    <h2>{data.dataApi.totals.debris_extracted_last_30d} KG</h2>
+    <h2>{data.debris_extracted_last_30d} KG</h2>
     <p>Last 30 days removed</p>
 </section>
 

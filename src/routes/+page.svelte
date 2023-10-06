@@ -64,7 +64,7 @@
             </form>
         </section>
 
-        <TrashRemoved data={data}></TrashRemoved>
+        <TrashRemoved data={data.dataApi.totals}></TrashRemoved>
        
         <!-- Box 3: percentage since 2013 -->
         <section class="panel box-3">
@@ -166,7 +166,7 @@
         </form>
 
       
-        <Infotext data={data} />
+        <Infotext data={data.dataHygraph.dashboard.infotext} />
 
         <!-- Share: table system statuses -->
         <section class="panel share">
