@@ -7,32 +7,29 @@ export async function load() {
   let query = gql`
   query Assets {
     dashboard(where: {id: "cln32p50anrma0bw03q8fsa54"}) {
-      infotext {
-        infotext {
-          html
-          text
-        }
-        id
-      }
       trashRemoved {
         trashRemovedText {
           html
           text
+          markdown
         }
       }
       title
       ocean {
-        oceanStartDate
+        oceanStartDate {
+          title
+          date
+        }
         oceanInfotext {
           infotext {
-            html
-            text
-            raw
             markdown
           }
         }
         oceanImage {
           url
+        }
+        oceanExtractionDate {
+          markdown
         }
       }
     }
@@ -43,5 +40,6 @@ export async function load() {
   
   const grrrData = await fetch("https://fdnd-toc-api.netlify.app/ocean")
         const dataApi = await grrrData.json()
+        console.log(dataHygraph.dashboard.ocean)
   return {dataHygraph, dataApi}
 }
