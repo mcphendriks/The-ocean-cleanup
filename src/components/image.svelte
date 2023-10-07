@@ -3,12 +3,18 @@
 </script>
 
 {#each data as img}
-    <img alt="" src="{img.url}">
+    <div class="image-container">
+        <img alt="" src="{img.url}">
+    </div>
 {/each}
 
 <style>
     img{
-        width: 10rem;
-        height: auto;
+        width: 100%; /* vernaderd van 10rem naar 100% om het mooi in de container te laten passen */
+        height: 100%;
+        object-fit: cover;
+    }
+    .image-container{
+        grid-area: auto;  
     }
 </style>
