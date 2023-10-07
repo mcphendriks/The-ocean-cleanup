@@ -9,7 +9,7 @@
 
 <style>
     section {
-        grid-area: dashboard-info;
+        grid-area: dashboard-info-lastportcall;
         border-radius: .5rem;
         padding: 1.5rem;
         background-color: var(--whiteColor);

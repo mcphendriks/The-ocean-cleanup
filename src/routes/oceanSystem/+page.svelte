@@ -19,7 +19,12 @@
     <Startdate data={data.dataHygraph.dashboard.ocean.oceanStartDate} />
     <Lastportcall data={data} />
     <Image data={data.dataHygraph.dashboard.ocean.oceanImage} />
+    <section class="map">
+        hier komt de map.
+    </section>
 </main>
+
+
 
 <style>
         :root {
@@ -52,6 +57,8 @@
         "header header"
         "box-1 box-2"
         "dashboard-info dashboard-info"
+        "dashboard-info-startdate dashboard-info-startdate"
+        "dashboard-info-lastportcall dashboard-info-lastportcall"
         "map map"
         "image image"
     }
@@ -77,9 +84,9 @@
             "dashboard-info dashboard-info map map map"
             "dashboard-info dashboard-info map map map"
             "dashboard-info dashboard-info map map map"
-            "dashboard-info dashboard-info image image image"
-            "dashboard-info dashboard-info image image image"
-            "dashboard-info dashboard-info image image image"
+            "dashboard-info-startdate dashboard-info-startdate image image image"
+            "dashboard-info-lastportcall dashboard-info-lastportcall image image image"
+            "dashboard-info-lastportcall dashboard-info-lastportcall image image image"
     }
     .map{
         grid-area: map;

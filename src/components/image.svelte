@@ -10,7 +10,7 @@
 
 <style>
     img{
-        width: 100%; /* vernaderd van 10rem naar 100% om het mooi in de container te laten passen */
+        width: 100%; /* veranderd van 10rem naar 100% om het mooi in de container te laten passen */
         height: 100%;
         object-fit: cover;
     }
