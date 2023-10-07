@@ -59,7 +59,7 @@
 
 
 <main>
-<slot/>
+    <slot/>
 </main>
 
 <footer>

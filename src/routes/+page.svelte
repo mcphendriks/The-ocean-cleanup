@@ -1,6 +1,7 @@
 <script>
     import Infotext from "../components/infotext.svelte"
     import TrashRemoved from "../components/trash-removed.svelte"
+    // import Map from "..components/map.svelte"
     export let data
 </script>
 
@@ -107,9 +108,9 @@
 		</section>
 
 		<!-- Map: map with interceptors -->
-		<div class="map">
+		<!-- <div class="map">
 			<Map {data} />
-		</div>
+		</div> -->
 
     
         <Infotext data={data.dataHygraph.dashboard.infotext} />

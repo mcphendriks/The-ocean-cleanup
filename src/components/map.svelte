@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	// Import necessary modules
 	import { onMount } from 'svelte';
 
@@ -27,4 +27,4 @@
 		width: 100%;
 		height: 500px; /* Set the map height as per your preference */
 	}
-</style>
+</style> -->
