@@ -1,6 +1,7 @@
 <script>
     import Infotext from "../components/infotext.svelte"
     import TrashRemoved from "../components/trash-removed.svelte"
+    // import Map from "..components/map.svelte"
     export let data
 </script>
 
@@ -33,100 +34,85 @@
             <div class="single-chart">
                 <svg viewBox="0 0 36 36" class="circular-chart green">
                     <path class="circle-bg" d="M18 2.0845
+
                             a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <path class="circle" stroke-dasharray="60, 100" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+					/>
+					<path
+						class="circle"
+						stroke-dasharray="60, 100"
+						d="M18 2.0845
                             a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <text x="18" y="20.35" class="percentage">65%</text>
-                </svg>
-            </div>
-        </section>
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+					/>
+					<text x="18" y="20.35" class="percentage">65%</text>
+				</svg>
+			</div>
+		</section>
 
-        <!-- Box 4: percentage in 2040 -->
-        <section class="panel box-4">
-            <h2>% removed in 2040</h2>
-            <div class="single-chart">
-                <svg viewBox="0 0 36 36" class="circular-chart green">
-                    <path class="circle-bg" d="M18 2.0845
+		<!-- Box 4: percentage in 2040 -->
+		<section class="panel box-4">
+			<h2>% removed in 2040</h2>
+			<div class="single-chart">
+				<svg viewBox="0 0 36 36" class="circular-chart green">
+					<path
+						class="circle-bg"
+						d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+					/>
+					<path
+						class="circle"
+						stroke-dasharray="90, 100"
+						d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <text x="18" y="20.35" class="percentage">90%</text>
-                </svg>
-            </div>
-        </section>
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+					/>
+					<text x="18" y="20.35" class="percentage">90%</text>
+				</svg>
+			</div>
+		</section>
 
-        <!-- Grafiek: share swith icons -->
-        <section class="panel grafiek">
-            
-            <p>Cleaning up the world's ocean is a global initiative requiring the support of
-                governments and
-                individuals all over the world. Spread the word about our work to help bring awareness to the
-                mission of
-                cleaner oceans.</p>
+		<!-- Grafiek: share swith icons -->
+		<section class="panel grafiek">
+			<h2>Share this dashboard</h2>
+			<p>
+				Cleaning up the world's ocean is a global initiative requiring the support of governments
+				and individuals all over the world. Spread the word about our work to help bring awareness
+				to the mission of cleaner oceans.
+			</p>
 
-            <ul class="social-icons">
-                <!-- Voeg juiste iconen toe -->
+			<ul class="social-icons">
+				<!-- Voeg juiste iconen toe -->
 
-                <!-- Facebook -->
-                <li>
-                    <a href="/" class="share-icon" aria-label="share on facebook">
-                        FB
-                    </a>
-                </li>
-                
-                <!-- Twitter -->
-                <li>
-                    <a href="/" class="share-icon" aria-label="share on twitter">
-                        TW
-                    </a>
-                </li>
-                
-                <!-- Linkedin -->
-                <li>
-                    <a href="/" class="share-icon" aria-label="share on linkedin">
-                        LI
-                    </a>
-                </li>
-                
-                <!-- Mail -->
-                <li>
-                    <a href="/" class="share-icon" aria-label="share mail">
-                        E
-                    </a>
-                </li>
-            </ul>
-        </section>
+				<!-- Facebook -->
+				<li>
+					<a href="/" class="share-icon" aria-label="share on facebook"> FB </a>
+				</li>
 
-        <!-- Map: map with interceptors -->
-        <div id="js-enabled" class="map">
-            <a href="/map">
-                <div id="bubbles"></div>
-            </a>
-        </div>
+				<!-- Twitter -->
+				<li>
+					<a href="/" class="share-icon" aria-label="share on twitter"> TW </a>
+				</li>
 
-        <!-- When JS is disabled, this content will show -->
-        <form id="js-disabled" class="map">
-            <label for="interceptor-select">Choose Interceptor:</label>
-            <select id="interceptor-select" name="interceptor">
-                <option value="" disabled selected hidden>Choose Interceptor</option>
-                <option value="/map">Interceptor 001</option>
-                <option value="/map">Interceptor 002</option>
-                <option value="/map">Interceptor 003</option>
-                <option value="/map">Interceptor 004</option>
-                <option value="/map">Interceptor 005</option>
-                <option value="/map">Interceptor 006</option>
-                <option value="/map">System 002</option>
-                <option value="/map">Kingston Harbour</option>
-            </select>
+				<!-- Linkedin -->
+				<li>
+					<a href="/" class="share-icon" aria-label="share on linkedin"> LI </a>
+				</li>
 
-            <!-- <img src="/map-nojs.png"> -->
-        </form>
+				<!-- Mail -->
+				<li>
+					<a href="/" class="share-icon" aria-label="share mail"> E </a>
+				</li>
+			</ul>
+		</section>
 
-      
+		<!-- Map: map with interceptors -->
+		<!-- <div class="map">
+			<Map {data} />
+		</div> -->
+
+    
         <Infotext data={data.dataHygraph.dashboard.infotext} />
 
         <!-- Share: table system statuses -->
@@ -277,10 +263,9 @@
 <!-- End main section -->
 
 
-
 <!-- Scroll to top button -->
 <a href="#top" class="scroll-top" aria-label="scroll to top">
-    <!-- add icon -->TOP
+	<!-- add icon -->TOP
 </a>
 
 <!-- Footer -->
@@ -528,73 +513,71 @@
     border: 1px solid #CCC;
     } */
 
-    /* more styling */
-    .more-link {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 2rem;
-    color: var(--textColor);
-    font-size: 1.5rem;
-    text-transform: capitalize;
-    }
+	/* more styling */
+	.more-link {
+		display: flex;
+		justify-content: left;
+		align-items: center;
+		gap: 2rem;
+		color: var(--textColor);
+		font-size: 1.5rem;
+		text-transform: capitalize;
+	}
 
-    .more-link:hover {
-    color: var(--lightBlue);
-    }
+	.more-link:hover {
+		color: var(--lightBlue);
+	}
 
-    /* .more-arrow {
+	/* .more-arrow {
     text-align: right;
     font-size: 1.8rem;
     margin-right: 2rem;
     } */
 
-    .more-icon {
-    font-size: 1.8rem;
-    color: var(--lightBlue);
-    }
+	.more-icon {
+		font-size: 1.8rem;
+		color: var(--lightBlue);
+	}
 
+	.table-more {
+		border-collapse: collapse;
+	}
 
-    .table-more {
-    border-collapse: collapse;
-    }
+	.more-row {
+		border-bottom: 0.5px solid var(--accentGray);
+		height: 4rem;
+	}
 
-    .more-row {
-    border-bottom: 0.5px solid var(--accentGray);
-    height: 4rem;
-    }
+	.arrow {
+		text-align: right;
+	}
 
-    .arrow {
-    text-align: right;
-    }
+	/* search bar */
+	.search {
+		display: flex;
+		gap: 0.5rem;
+	}
+	.search-button {
+		max-width: 8rem;
+	}
+	.search input {
+		width: 130px;
+		height: 25px;
+		border-radius: 5px;
+		outline: none;
+		padding-left: 0.5rem;
+		background: var(--whiteColor);
+		box-shadow: var(--boxShadow) 0px 0px 8px;
+		border: none;
+		color: var(--textColor);
+	}
 
-    /* search bar */
-    .search{
-        display: flex;
-        gap:.5rem;
-    }
-    .search-button{
-        max-width: 8rem;
-    }
-    .search input {
-    width: 130px;
-    height: 25px;
-    border-radius: 5px;
-    outline: none;
-    padding-left: .5rem;
-    background: var(--whiteColor);
-    box-shadow: var(--boxShadow) 0px 0px 8px;
-    border: none;
-    color: var(--textColor);
-    }
+	.search input::placeholder {
+		color: var(--darkBlue);
+		font-size: 1.3rem;
+	}
 
-    .search input::placeholder {
-    color: var(--darkBlue);
-    ;
-    font-size: 1.3rem;
-    }
-
-    /* .search button {
+	/* .search button {
     width: 30px;
     height: 25px;
     border: none;
@@ -620,208 +603,200 @@
     transition-duration: 0.5s;
     } */
 
+	/* Scroll to top */
+	.scroll-top {
+		position: absolute;
+		bottom: 1%;
+		right: 2%;
+		width: 3rem;
+		height: 3rem;
+		padding: 0.5rem;
+		background-color: var(--lightBlue);
+		color: var(--whiteColor);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
 
-    /* Scroll to top */
-    .scroll-top {
-    position: absolute;
-    bottom: 1%;
-    right: 2%;
-    width: 3rem;
-    height: 3rem;
-    padding: .5rem;
-    background-color: var(--lightBlue);
-    color: var(--whiteColor);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    }
-
-    /* .scroll-top i {
+	/* .scroll-top i {
     font-size: var(--fs16);
     } */
 
-    /* Charts % */
-    .single-chart {
-    width: 100%;
-    justify-content: space-around;
-    }
+	/* Charts % */
+	.single-chart {
+		width: 100%;
+		justify-content: space-around;
+	}
 
-    .circular-chart {
-    display: block;
-    margin: 1.3rem auto;
-    margin-bottom: 0;
-    width: 100px;
-    max-height: 250px;
-    }
+	.circular-chart {
+		display: block;
+		margin: 1.3rem auto;
+		margin-bottom: 0;
+		width: 100px;
+		max-height: 250px;
+	}
 
-    .circle-bg {
-    fill: none;
-    stroke: #eee;
-    stroke-width: 3.8;
-    }
+	.circle-bg {
+		fill: none;
+		stroke: #eee;
+		stroke-width: 3.8;
+	}
 
-    .circle {
-    fill: none;
-    stroke-width: 2.8;
-    stroke-linecap: round;
-    animation: progress 1s ease-out forwards;
-    }
+	.circle {
+		fill: none;
+		stroke-width: 2.8;
+		stroke-linecap: round;
+		animation: progress 1s ease-out forwards;
+	}
 
-    @keyframes progress {
-    0% {
-        stroke-dasharray: 0 100;
-    }
-    }
+	@keyframes progress {
+		0% {
+			stroke-dasharray: 0 100;
+		}
+	}
 
-    .circular-chart.green .circle {
-    stroke: var(--lightBlue);
-    }
+	.circular-chart.green .circle {
+		stroke: var(--lightBlue);
+	}
 
-    .percentage {
-    fill: var(--textColor);
-    font-family: sans-serif;
-    font-size: 0.5em;
-    text-anchor: middle;
-    }
+	.percentage {
+		fill: var(--textColor);
+		font-family: sans-serif;
+		font-size: 0.5em;
+		text-anchor: middle;
+	}
 
-    /* Pulse */
-    .pulse-marker {
-    background: black;
-    border-radius: 50%;
-    height: 1rem;
-    width: 1rem;
-    transform: scale(1);
-    animation: pulse-black 2s infinite;
-    }
+	/* Pulse */
+	.pulse-marker {
+		background: black;
+		border-radius: 50%;
+		height: 1rem;
+		width: 1rem;
+		transform: scale(1);
+		animation: pulse-black 2s infinite;
+	}
 
-    .pulse-marker.green {
-    background: rgb(132, 206, 95);
-    box-shadow: 0 0 0 0 rgb(132, 206, 95);
-    animation: pulse-green 2s infinite;
-    }
+	.pulse-marker.green {
+		background: rgb(132, 206, 95);
+		box-shadow: 0 0 0 0 rgb(132, 206, 95);
+		animation: pulse-green 2s infinite;
+	}
 
-    .pulse-marker.blue {
-    background: var(--lightBlue);
-    box-shadow: 0 0 0 0 var(--lightBlue);
-    animation: pulse-blue 2s infinite;
-    }
+	.pulse-marker.blue {
+		background: var(--lightBlue);
+		box-shadow: 0 0 0 0 var(--lightBlue);
+		animation: pulse-blue 2s infinite;
+	}
 
-    .pulse-marker.gray {
-    background: rgb(176, 176, 176);
-    box-shadow: 0 0 0 0 rgb(176, 176, 176);
-    animation: pulse-gray 2s infinite;
-    }
+	.pulse-marker.gray {
+		background: rgb(176, 176, 176);
+		box-shadow: 0 0 0 0 rgb(176, 176, 176);
+		animation: pulse-gray 2s infinite;
+	}
 
-    .pulse-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: .3rem;
-    }
+	.pulse-container {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 0.3rem;
+	}
 
-    @keyframes pulse-green {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgb(132, 206, 95);
-    }
+	@keyframes pulse-green {
+		0% {
+			transform: scale(0.95);
+			box-shadow: 0 0 0 0 rgb(132, 206, 95);
+		}
 
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-    }
+		70% {
+			transform: scale(1);
+			box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
+		}
 
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-    }
-    }
+		100% {
+			transform: scale(0.95);
+			box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+		}
+	}
 
+	@keyframes pulse-blue {
+		0% {
+			transform: scale(0.95);
+			box-shadow: 0 0 0 0 var(--lightBlue);
+		}
 
-    @keyframes pulse-blue {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 var(--lightBlue);
-    }
+		70% {
+			transform: scale(1);
+			box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
+		}
 
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-    }
+		100% {
+			transform: scale(0.95);
+			box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+		}
+	}
 
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-    }
-    }
+	@keyframes pulse-gray {
+		0% {
+			transform: scale(0.95);
+			box-shadow: 0 0 0 0 rgb(176, 176, 176);
+		}
 
+		70% {
+			transform: scale(1);
+			box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
+		}
 
-    @keyframes pulse-gray {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgb(176, 176, 176);
-    }
+		100% {
+			transform: scale(0.95);
+			box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+		}
+	}
 
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 5px rgba(255, 82, 82, 0);
-    }
+	/* System statuses */
+	table {
+		width: 100%;
+	}
 
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
-    }
-    }
+	tr {
+		height: 2.5rem;
+	}
 
-    /* System statuses */
-    table {
-    width: 100%;
-    }
+	.dot {
+		width: 40%;
+	}
 
-    tr {
-    height: 2.5rem;
-    }
-
-    .dot {
-    width: 40%;
-    }
-
-    /* .status {
+	/* .status {
     width: 30%;
     } */
 
-    .status-pulse {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    }
+	.status-pulse {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+	}
 
-    .amount h4 {
-    font-family: 'Roboto', monospace;
-    color: var(--lightBlue);
-    font-weight: 500;
-    font-size: 1.45rem;
-    }
+	.amount h4 {
+		font-family: 'Roboto', monospace;
+		color: var(--lightBlue);
+		font-weight: 500;
+		font-size: 1.45rem;
+	}
 
-    .amount {
-    width: 20%;
-    }
+	.amount {
+		width: 20%;
+	}
 
-    /* Progressive Enhancement, moet JS nog toevoegen */
-    /* .js-enabled {
+	/* Progressive Enhancement, moet JS nog toevoegen */
+	/* .js-enabled {
     display: none;
     } */
 
-/* 
-    .map img {
-    width: 100%;
-    height: auto;
-    } */
-
+	/* 
    
 
-    /* Breakpoints small screen */
+
     @media (min-width:700px) {
     .container2 {
         margin: 8rem 1.5rem 1.5rem 1.5rem;
@@ -864,58 +839,58 @@
         position: absolute;
     } */
 
-    /* Nav */
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 20rem;
-        height: 100vh;
-        box-shadow: var(--boxShadow) 0px 0px 8px;
-    }
+		/* Nav */
+		header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 20rem;
+			height: 100vh;
+			box-shadow: var(--boxShadow) 0px 0px 8px;
+		}
 
-    .nav-list {
-        display: block;
-    }
+		.nav-list {
+			display: block;
+		}
 
-    nav img {
-        width: 20rem;
-        height: auto;
-        padding: 2rem 3.5rem;
-    }
+		nav img {
+			width: 20rem;
+			height: auto;
+			padding: 2rem 3.5rem;
+		}
 
-    nav {
-        height: 100%;
-        flex-direction: column;
-        justify-content: left;
-        gap: 6rem;
-        overflow: hidden;
-    }
+		nav {
+			height: 100%;
+			flex-direction: column;
+			justify-content: left;
+			gap: 6rem;
+			overflow: hidden;
+		}
 
-    .nav-link {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        margin-bottom: 4rem;
-        gap: 1rem;
-    }
+		.nav-link {
+			display: flex;
+			justify-content: left;
+			align-items: center;
+			margin-bottom: 4rem;
+			gap: 1rem;
+		}
 
-    .nav-link span {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        gap: 1rem;
-        font-weight: 600;
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        letter-spacing: .05rem;
-    }
+		.nav-link span {
+			display: flex;
+			justify-content: left;
+			align-items: center;
+			gap: 1rem;
+			font-weight: 600;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 0.05rem;
+		}
 
-    .nav-link span:hover {
-        color: var(--lightBlue);
-    }
+		.nav-link span:hover {
+			color: var(--lightBlue);
+		}
 
-    /* .nav-icon {
+		/* .nav-icon {
         font-size: 2.5rem;
         align-items: center;
     } */
@@ -1002,88 +977,83 @@
         margin-top: 1rem;
     }
 /* 
+
     .dashboard-info span {
         margin-top: 1rem;
         font-size: 1.5rem;
         line-height: 1.4;
     } */
 
-    .nav-link {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-    }
+		.nav-link {
+			display: flex;
+			justify-content: left;
+			align-items: center;
+		}
 
-    .nav-link span {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        gap: 1rem;
-        font-weight: 600;
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        letter-spacing: .05rem;
-    }
+		.nav-link span {
+			display: flex;
+			justify-content: left;
+			align-items: center;
+			gap: 1rem;
+			font-weight: 600;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 0.05rem;
+		}
 
-    .nav-link:hover {
-        color: var(--lightBlue);
-    }
+		.nav-link:hover {
+			color: var(--lightBlue);
+		}
 
-    .active {
-        color: var(--lightBlue);
-    }
+		.active {
+			color: var(--lightBlue);
+		}
 
-    /* .nav-icon {
+		/* .nav-icon {
         font-size: 2.5rem;
         align-items: center;
     } */
 
-    .line {
-        height: 2px;
-        width: 6%;
-        background-color: var(--lightBlue);
-    }
+		.line {
+			height: 2px;
+			width: 6%;
+			background-color: var(--lightBlue);
+		}
 
-    .search input {
-        width: 190px;
-    }
+		.search input {
+			width: 190px;
+		}
 
-    .circular-chart {
-        display: flex;
-        justify-content: center;
-        margin: 10px auto;
-        width: 100px;
-        max-height: 250px;
-    }
+		.circular-chart {
+			display: flex;
+			justify-content: center;
+			margin: 10px auto;
+			width: 100px;
+			max-height: 250px;
+		}
 
-    .single-chart {
-        width: 100%;
-        justify-content: space-around;
-    }
+		.single-chart {
+			width: 100%;
+			justify-content: space-around;
+		}
 
-    .scroll-top {
-        display: none;
-    }
+		.scroll-top {
+			display: none;
+		}
 
-    .amount h4 {
-        font-family: 'Roboto', monospace;
-        color: var(--lightBlue);
-        font-weight: 500;
-        font-size: 1.8rem;
-    }
+		.amount h4 {
+			font-family: 'Roboto', monospace;
+			color: var(--lightBlue);
+			font-weight: 500;
+			font-size: 1.8rem;
+		}
 
-    h3 {
-        font-size: 1.5rem;
-    }
+		h3 {
+			font-size: 1.5rem;
+		}
 
-    tr {
-        height: 3.3rem;
-    }
-
-    #bubbles {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
-    }
+		tr {
+			height: 3.3rem;
+		}
+	}
 </style>
