@@ -1,6 +1,6 @@
 <script>
     import Infotext from '../../components/infotext.svelte';
-    import TrashRemovedOcean from '../../components/trash-removed-ocean.svelte';
+    import TrashRemovedOcean from '../../components/trash-removed.svelte';
     import Image from '../../components/image.svelte';
     export let data
 </script>

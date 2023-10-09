@@ -2,7 +2,7 @@ import { gql } from 'graphql-request'
 import { hygraph } from '$lib/utils/hygraph.js'
 import { json } from '@sveltejs/kit'
 
-export async function load() {
+export async function load({ url, params }) {
   
   let query = gql`
   query Assets {
@@ -22,21 +22,37 @@ export async function load() {
       }
       title
       river {
+        id
         slug
-        riverArea {
-          text
-        }
         riverImage {
           url
+        }
+        riverTitle
+        riverInfoText {
+          infotext {
+            markdown
+            text
+          }
         }
       }
     }
   }  
   `
+ 
+
   const dataHygraph = await hygraph.request(query)
+
+  const currentInterceptorHygraph = dataHygraph.dashboard.river.filter(interceptor => {
+    return interceptor.slug == url.searchParams.get('id')
+  })
   
   const grrrData = await fetch("https://fdnd-toc-api.netlify.app/river")
-        const dataApi = await grrrData.json()
-  return {dataHygraph, dataApi}
+  const interceptorList = await grrrData.json()
+
+  const currentInterceptor = interceptorList.systems.filter(interceptor => {
+    return interceptor.id == url.searchParams.get('id')
+  })
+  
+  return {currentInterceptorHygraph, currentInterceptor}
 }
 
