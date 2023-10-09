@@ -1,7 +1,7 @@
 <script>
     import Infotext from "../components/infotext.svelte"
 	import ChartContinents from "../components/chartContinents.svelte";
-	import PieChartOceanRiver from "../components/pieChartOceanRiver.svelte";
+	import ChartRiverOcean from "../components/ChartRiverOcean.svelte";
     import TrashRemoved from "../components/trash-removed.svelte"
     // import Map from "..components/map.svelte"
     export let data
@@ -31,15 +31,17 @@
         </section>
 
         <TrashRemoved data={data.dataApi.totals}></TrashRemoved>
-       
+
         <!-- Box 3: percentage since 2013 -->
         <section class="panel box-3">
-            <PieChartOceanRiver data{data} />
+            <h2>Plastic removed from ocean and river systems</h2>
+            <ChartRiverOcean data={data} />
 		</section>
 
 		<!-- Box 4: percentage in 2040 -->
 		<section class="panel box-4">
-			<ChartContinents data{data} />
+            <h2>Plastic removed per continent</h2>
+			<ChartContinents data={data} />
 		</section>
 
 		<!-- Grafiek: share swith icons -->

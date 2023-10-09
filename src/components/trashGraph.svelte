@@ -8,8 +8,6 @@
 
      // de slice -4 pakt de laatste vier months
     const laatsteVierMaanden = trashdata.dataApi.totals.months.slice(-4);
-    console.log(laatsteVierMaanden[0].debris_extracted)
-
 
   // Gegevens en configuratie
   const labels = [laatsteVierMaanden[0].month, laatsteVierMaanden[1].month, laatsteVierMaanden[2].month, laatsteVierMaanden[3].month];
@@ -32,7 +30,6 @@
     });
   });
 
- 
   </script>
 
 <h2>Trash collected over time</h2>

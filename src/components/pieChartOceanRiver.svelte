@@ -13,27 +13,6 @@
             <p>75%</p>
             <p class="entry-value">Ocean systems</p>
         </div>
-                    
-        <!-- <div class="asia entry">
-            <p>12.5%</p>
-            <p class="entry-value">Asia </p>
-        </div>
-                    
-        <div class="antarctica entry">
-            <p> 12.5%</p>
-            <p class="entry-value">Antarctica</p>
-        </div>
-                    
-        <div class="europe entry">
-            <p> 12.5%</p>
-            <p class="entry-value">Europe</p>
-        </div>
-                    
-        <div class="oceania entry">
-            <p> 12.5%</p>
-            <p class="entry-value">Oceania</p>
-        </div> -->
-                    
     </div>
                 
     <!--Pie chart keys  -->
@@ -43,25 +22,10 @@
         
         <input type="radio" name="values" id="ocean" class="ocean-key"/>
         <label for="ocean" class="ocean-label"> Ocean</label>
-        
-        <!-- <input type="radio" name="values" id="asia" class="asia-key"/>
-        <label for="asia" class="asia-label"> Asia</label>
-        
-        <input type="radio" name="values" id="antarctica" class="antarctica-key"/>
-        <label for="antarctica" class="antarctica-label"> Antarctica</label>
-        
-        <input type="radio" name="values" id="europe" class="europe-key"/>
-        <label for="europe" class="europe-label"> Europe</label>
-        
-        <input type="radio" name="values" id="oceania" class="oceania-key"/>
-        <label for="oceania" class="oceania-label"> Oceania</label> -->
-        
+
         <p class="river-text text">75% of collected plastic comes from rivers</p>
         <p class="ocean-text text">25% of the removed plastic comes from oceans</p>
-        <!-- <p class="asia-text text">12.5% plastic from Asia</p>
-        <p class="antarctica-text text">12.5% from Antarcticca</p>
-        <p class="europe-text text">12.5% plastic from Europe</p>
-        <p class="oceania-text text">25% from oceania</p> -->
+
     </div>               
 </div>
 
@@ -161,46 +125,6 @@
     align-items: center;
 }
 
-/* .asia{
-    background-color: var(--color1);
-    height:50%;
-    position: absolute;
-    top: 0px;
-    right: 0;
-    width: 50%;
-    clip-path: polygon(0 0, 100% 0%, 0% 100%);
-} */
-
-/* .antarctica{
-    background-color: var(--color2);
-    height:50%;
-    width: 50%;
-    right: 0;
-    top: 0;
-    position: absolute;
-    clip-path:polygon(0% 100%, 100% 0%, 100% 100%);
-} */
-
-/* .europe{
-    background-color: var(--color3);
-    height:50%;
-    width: 50%;
-    right: 0;
-    top: 50%;
-    position: absolute;
-    clip-path:polygon(0% 0%, 100% 0%, 100% 100%);
-} */
-
-/* .oceania{
-    background-color: var(--color4);
-    height:50%;
-    width: 50%;
-    right: 0;
-    top: 50%;
-    position: absolute;
-    clip-path:polygon(0% 0%, 100% 100%, 0% 100%);
-} */
-
 /* *the individual entries* */
 .river{
     background-color: var(--color6);
@@ -215,24 +139,6 @@
     width: 50%;
 }
 
-/* .ocean-text{
-    border-color: black;
-}
-.river-text{
-    border-color:  pink;
-} */
-/* .asia-text{
-    border-color:  purple;
-}
-.antarctica-text{
-    border-color:  limegreen;
-}
-.europe-text{
-    border-color:  wheat;
-}
-.oceania-text{
-    border-color:  skyblue;
-} */
 
 .pie-chart-ocean-river-wrap .antarctica p{
     position: absolute;
@@ -308,23 +214,6 @@ to{
     background-color: var(--color2);
     animation: display-key 500ms 1.5s  ease forwards;
 }
-/* .asia-label{
-    background-color: var(--color3);
-    color: white;
-    animation: display-key 500ms 2s  ease forwards;
-}
-.antarctica-label{
-    background-color: var(--color4);
-    animation: display-key 500ms 2.5s  ease forwards;
-}
-.europe-label{
-    background-color: var(--color5);
-    animation: display-key 500ms 3s  ease forwards;
-}
-.oceania-label{
-    background-color: var(--color6);
-    animation: display-key 500ms 3.5s  ease forwards;
-} */
 
 .text{
     display: none;
@@ -343,49 +232,5 @@ to{
 .ocean-key:checked ~ .ocean-text, .river-key:checked ~ .river-text {
     display: block;
 }
-
-        /* Charts % */
-        /* .single-chart {
-    width: 100%;
-    justify-content: space-around;
-    }
-
-    .circular-chart {
-    display: block;
-    margin: 1.3rem auto;
-    margin-bottom: 0;
-    width: 100px;
-    max-height: 250px;
-    }
-
-    .circle-bg {
-    fill: none;
-    stroke: #eee;
-    stroke-width: 3.8;
-    }
-
-    .circle {
-    fill: none;
-    stroke-width: 2.8;
-    stroke-linecap: round;
-    animation: progress 1s ease-out forwards;
-    }
-
-    @keyframes progress {
-    0% {
-        stroke-dasharray: 0 100;
-    }
-    }
-
-    .circular-chart.europe .circle {
-    stroke: var(--lightBlue);
-    }
-
-    .percentage {
-    fill: var(--textColor);
-    font-family: sans-serif;
-    font-size: 0.5em;
-    text-anchor: middle;
-    } */
 
 </style>
