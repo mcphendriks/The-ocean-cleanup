@@ -22,6 +22,7 @@ export async function load() {
       }
       title
       river {
+        slug
         riverArea {
           text
         }

@@ -12,6 +12,9 @@ export async function load() {
       infotext {
         infotext {
           markdown
+          html
+          text
+          raw
         }
         id
       }
