@@ -266,18 +266,6 @@
 		font-family: 'Proxima', sans-serif;
 	}
 
-	:root {
-		--darkBlue: #143653;
-		--lightBlue: #5cc8de;
-		--whiteColor: #ffffff;
-		--lightGray: #f7f7f7;
-		--accentGray: rgb(228, 228, 228);
-		--textColor: #143653;
-		--boxShadow: rgba(128, 128, 128, 0.132);
-		--color: rgb(212, 212, 212);
-		--textSize: 1.2rem;
-		--iconSize: 2rem;
-	}
 
 	/* Als darkmode de standaard instelling is */
 	@media (prefers-color-scheme: dark) {
@@ -294,6 +282,43 @@
 			--iconSize: 2rem;
 		}
 	}
+
+    :root {
+    --darkBlue: #143653;
+    --trashRemovedBackground: white;
+    --lightBlue: #5CC8DE;
+    --whiteColor: #ffffff;
+    --lightGray: #f7f7f7;
+    --accentGray: rgb(228, 228, 228);
+    --textColor: #143653;
+    --boxShadow: rgba(128, 128, 128, 0.132);
+    --color: rgb(212, 212, 212);
+    --textSize: 1.2rem;
+    --iconSize: 2rem;
+    }
+
+        /* Als darkmode de standaard instelling is */
+        @media (prefers-color-scheme: dark) {
+        :root {
+        --darkBlue: #ffffff;
+        --trashRemovedBackground: #143653;
+        --lightBlue: #5CC8DE;
+        --whiteColor: #143653;
+        --lightGray: #0D2437;
+        --accentGray: rgb(228, 228, 228);
+        --textColor: #ffffff;
+        --boxShadow: rgba(128, 128, 128, 0.0);
+        --color: rgb(212, 212, 212);
+        --textSize: 1.2rem;
+        --iconSize: 2rem;
+        } 
+  }
+
+    :global(html) {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    }
+
 
 	:global(html) {
 		font-size: 62.5%;
@@ -355,13 +380,33 @@
 			'more more';
 	}
 
-	.panel {
-		border-radius: 0.5rem;
-		padding: 1.5rem;
-		background-color: var(--whiteColor);
-		box-shadow: var(--boxShadow) 0px 0px 8px;
-		transition: 0.2s;
-	}
+    /* Grid */
+    .container2 {
+    margin: 8rem 1.5rem 1.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.01fr 0.1fr .1fr 1fr .5fr .8fr .5fr .5fr 1fr;
+    gap: 1.2rem;
+    grid-template-areas:
+        "menu menu"
+        "header-dashboard header-dashboard"
+        "box-1 box-2"
+        "dashboard-info dashboard-info"
+        "box-3 box-4"
+        "map map"
+        "share share"
+        "grafiek grafiek"
+        "more more";
+    }
+
+    .panel {
+    border-radius: .5rem;
+    padding: 1.5rem;
+    background-color: var(--whiteColor);
+    box-shadow: var(--boxShadow) 0px 0px 8px;
+    transition: .2s;
+    }
+
 
 	/* Grid areas */
 	.header-dashboard {
@@ -776,7 +821,7 @@
     display: none;
     } */
 
-	/* 
+
    
 
 
@@ -785,7 +830,7 @@
         margin: 8rem 1.5rem 1.5rem 1.5rem;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 0.01fr 0.1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.01fr 0.1fr .5fr 1fr 1fr 1fr 1fr;
         gap: 1.2rem;
         grid-template-areas:
         "menu menu menu menu"
@@ -803,20 +848,20 @@
 
     }
 
-    /* Breakpoints medium screen */
-	@media (min-width: 992px) {
-		.container2 {
-			margin: 5rem 2rem 2rem 22.3rem;
-			grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
-			grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
-			grid-template-areas:
-				'menu menu menu menu menu'
-				'header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard'
-				'dashboard-info dashboard-info map map map'
-				'box-1 box-2 map map map'
-				'box-3 box-4 share share share'
-				'grafiek grafiek more more more';
-		}
+    @media (min-width:992px) {
+    .container2 {
+        margin: 5rem 2rem 2rem 22.3rem;
+        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+        grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
+        grid-template-areas:
+        "menu menu menu menu menu"
+        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
+        "box-1 box-2  map map map"
+        "dashboard-info dashboard-info map map map"
+        "box-3 box-4 share share share"
+        "grafiek grafiek more more more";
+    }
+
 
 		/* .map .button-container {
         position: absolute;
@@ -883,20 +928,21 @@
 		}
 	}
 
-	/* Breakpoints large screen */
-	@media (min-width: 1200px) {
-		.container2 {
-			margin: 5rem 2rem 2rem 22.3rem;
-			grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
-			grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
-			grid-template-areas:
-				'menu menu menu menu menu'
-				'header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard'
-				'dashboard-info dashboard-info map map map'
-				'box-1 box-2 map map map'
-				'box-3 box-4 map map map'
-				'share share grafiek more more';
-		}
+
+    /* Breakpoints large screen */
+    @media (min-width:1200px) {
+    .container2 {
+        margin: 5rem 2rem 2rem 22.3rem;
+        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+        grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
+        grid-template-areas:
+        "menu menu menu menu menu"
+        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
+        "box-1 box-2 map map map"
+        "dashboard-info dashboard-info map map map"
+        "box-3 box-4 map map map"
+        "share share grafiek more more";
+    }
 
 		.more {
 			grid-area: more;

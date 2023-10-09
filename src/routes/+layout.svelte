@@ -1,7 +1,7 @@
 
 <header>
     <nav>
-        <img src="/1200px-The_Ocean_Cleanup_logowhite.png" alt="logo of The ocean cleanup">
+        <img src="/Ocean-Cleanup-Logo-Dark.png" alt="logo of The ocean cleanup">
         <ul>
             <li>
                 <a href="https://theoceancleanup.com/" class="nav-link" aria-label="back to the homepage">
@@ -23,7 +23,7 @@
 
             <li>
                 <a href="/" class="nav-link" aria-label="the economic impact">
-                    <span>The Economic Impact</span>
+                    <span>Economic Impact</span>
                 </a>
             </li>
 
@@ -138,6 +138,9 @@
     list-style: none;
     }
 
+    ul{
+        padding-left:2rem;
+    }
     a {
     text-decoration: none;
     }
@@ -178,8 +181,7 @@
     top: 0;
     width: 11rem;
     height: 100%;
-    padding: 1rem;
-    background-color: var(--lightBlue);
+    padding: 0rem;
     }
 
     .nav-list {
@@ -265,7 +267,6 @@
     nav img {
         width: 20rem;
         height: auto;
-        padding: 2rem 3.5rem;
     }
 
     nav {
