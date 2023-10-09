@@ -345,15 +345,15 @@
     margin: 8rem 1.5rem 1.5rem 1.5rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 0.01fr 0.1fr 1fr 1fr .5fr .8fr .5fr .5fr 1fr;
+    grid-template-rows: 0.01fr 0.1fr .1fr 1fr .5fr .8fr .5fr .5fr 1fr;
     gap: 1.2rem;
     grid-template-areas:
         "menu menu"
         "header-dashboard header-dashboard"
-        "dashboard-info dashboard-info"
-        "map map"
         "box-1 box-2"
+        "dashboard-info dashboard-info"
         "box-3 box-4"
+        "map map"
         "share share"
         "grafiek grafiek"
         "more more";
@@ -781,7 +781,7 @@
     display: none;
     } */
 
-	/* 
+
    
 
 
@@ -790,7 +790,7 @@
         margin: 8rem 1.5rem 1.5rem 1.5rem;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 0.01fr 0.1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.01fr 0.1fr .5fr 1fr 1fr 1fr 1fr;
         gap: 1.2rem;
         grid-template-areas:
         "menu menu menu menu"
@@ -817,8 +817,8 @@
         grid-template-areas:
         "menu menu menu menu menu"
         "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
+        "box-1 box-2  map map map"
         "dashboard-info dashboard-info map map map"
-        "box-1 box-2 map map map"
         "box-3 box-4 share share share"
         "grafiek grafiek more more more";
     }
@@ -897,8 +897,8 @@
         grid-template-areas:
         "menu menu menu menu menu"
         "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
-        "dashboard-info dashboard-info map map map"
         "box-1 box-2 map map map"
+        "dashboard-info dashboard-info map map map"
         "box-3 box-4 map map map"
         "share share grafiek more more";
     }
