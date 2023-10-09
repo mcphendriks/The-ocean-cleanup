@@ -1,5 +1,7 @@
 <script>
     import Infotext from "../components/infotext.svelte"
+	import ChartContinents from "../components/chartContinents.svelte";
+	import PieChartOceanRiver from "../components/pieChartOceanRiver.svelte";
     import TrashRemoved from "../components/trash-removed.svelte"
     // import Map from "..components/map.svelte"
     export let data
@@ -32,47 +34,12 @@
        
         <!-- Box 3: percentage since 2013 -->
         <section class="panel box-3">
-            <h2>% removed since 2013 </h2>
-            <div class="single-chart">
-                <svg viewBox="0 0 36 36" class="circular-chart green">
-                    <path class="circle-bg" d="M18 2.0845
-
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"
-					/>
-					<path
-						class="circle"
-						stroke-dasharray="60, 100"
-						d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"
-					/>
-					<text x="18" y="20.35" class="percentage">65%</text>
-				</svg>
-			</div>
+            <PieChartOceanRiver data{data} />
 		</section>
 
 		<!-- Box 4: percentage in 2040 -->
 		<section class="panel box-4">
-			<h2>% removed in 2040</h2>
-			<div class="single-chart">
-				<svg viewBox="0 0 36 36" class="circular-chart green">
-					<path
-						class="circle-bg"
-						d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-					/>
-					<path
-						class="circle"
-						stroke-dasharray="90, 100"
-						d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-					/>
-					<text x="18" y="20.35" class="percentage">90%</text>
-				</svg>
-			</div>
+			<ChartContinents data{data} />
 		</section>
 
 		<!-- Grafiek: share swith icons -->
