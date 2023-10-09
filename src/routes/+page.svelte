@@ -1,55 +1,19 @@
-<!-- Head dashboard-->
 <script>
+    import Infotext from "../components/infotext.svelte"
+    import TrashRemoved from "../components/trash-removed.svelte"
+    // import Map from "..components/map.svelte"
     export let data
+
     import SystemStatus from '../components/system-status.svelte';
+
+    import Trashgraph from "/src/components/trashGraph.svelte"
+
 </script>
+
 <svelte:head>
     <title>Dashboard The Ocean Cleanup</title>
-
-    <!-- Sanne's iconen, wij gaan andere iconen gebruiken -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-    <!-- <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet"> -->
 </svelte:head>
 
-
-<!-- Navigation -->
-<!-- Iconen moeten worden toegevoegd -->
-<header>
-    <nav>
-        <img src="/1200px-The_Ocean_Cleanup_logowhite.png" alt="logo of The ocean cleanup">
-        <ul class="nav-list">
-            <li>
-                <a href="https://theoceancleanup.com/" class="nav-link" aria-label="back to the homepage">
-                    <span>Home</span>
-                </a>
-            </li>
-            
-            <li>
-                <a href="/" class="nav-link active" aria-label="dashboard">
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            
-            <li>
-                 <button class="darkmode" value="darkmode button" aria-label="switch to darkmode">
-                    <a href="/" class="nav-link" aria-label="switch to darkmode">
-                        <span id="darkmode-btn-text">Dark</span>
-                    </a>
-                </button>
-            </li>
-        </ul>
-       
-    </nav>
-</header>
-
-
-
-
-
-
-
-<!-- Start main section -->
 <main>
     <div class="container2">
         <!-- Blue line -->
@@ -59,7 +23,10 @@
 
         <!-- Title + Searchbar -->
         <section class="header-dashboard">
-            <!-- <h1>{data.dashboard.title}</h1> -->
+
+
+            <h1>{data.dataHygraph.dashboard.title}</h1>
+
             <form class="search" action="/" method="GET">
                 <input type="text" name="search" placeholder="Search..">
                 <input type="submit" name="search-button" aria-label="search button" class="search-button">
@@ -67,131 +34,66 @@
             </form>
         </section>
 
-        <!-- Box 1: total trash removed -->
-        <section class="panel box-1">
-            <h2>Trash removed in total</h2>
-            <div class="col">
-                <p class="count-num" data-count="600000000">353874119</p>
-                <p>kg</p>
-            </div>
-        </section>
-
-        <!-- Box 2: last 30 days removed -->
-        <section class="panel box-2">
-            <h2>Last 30 days removed</h2>
-            <p id="weight-removed">443.415 kg</p>
-        </section>
-
+        <TrashRemoved data={data.dataApi.totals}></TrashRemoved>
+       
         <!-- Box 3: percentage since 2013 -->
         <section class="panel box-3">
             <h2>% removed since 2013 </h2>
             <div class="single-chart">
                 <svg viewBox="0 0 36 36" class="circular-chart green">
                     <path class="circle-bg" d="M18 2.0845
+
                             a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <path class="circle" stroke-dasharray="60, 100" d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+					/>
+					<path
+						class="circle"
+						stroke-dasharray="60, 100"
+						d="M18 2.0845
                             a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <text x="18" y="20.35" class="percentage">65%</text>
-                </svg>
-            </div>
-        </section>
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+					/>
+					<text x="18" y="20.35" class="percentage">65%</text>
+				</svg>
+			</div>
+		</section>
 
-        <!-- Box 4: percentage in 2040 -->
-        <section class="panel box-4">
-            <h2>% removed in 2040</h2>
-            <div class="single-chart">
-                <svg viewBox="0 0 36 36" class="circular-chart green">
-                    <path class="circle-bg" d="M18 2.0845
+		<!-- Box 4: percentage in 2040 -->
+		<section class="panel box-4">
+			<h2>% removed in 2040</h2>
+			<div class="single-chart">
+				<svg viewBox="0 0 36 36" class="circular-chart green">
+					<path
+						class="circle-bg"
+						d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+					/>
+					<path
+						class="circle"
+						stroke-dasharray="90, 100"
+						d="M18 2.0845
                     a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <text x="18" y="20.35" class="percentage">90%</text>
-                </svg>
-            </div>
-        </section>
+                    a 15.9155 15.9155 0 0 1 0 -31.831"
+					/>
+					<text x="18" y="20.35" class="percentage">90%</text>
+				</svg>
+			</div>
+		</section>
 
-        <!-- Grafiek: share swith icons -->
-        <section class="panel grafiek">
-            <h2>Share this dashboard</h2>
-            <p>Cleaning up the world's ocean is a global initiative requiring the support of
-                governments and
-                individuals all over the world. Spread the word about our work to help bring awareness to the
-                mission of
-                cleaner oceans.</p>
+		<!-- Grafiek: share swith icons -->
+		<section class="panel grafiek">
+			<Trashgraph data={data} />
+		</section>
 
-            <ul class="social-icons">
-                <!-- Voeg juiste iconen toe -->
+		<!-- Map: map with interceptors -->
+		<!-- <div class="map">
+			<Map {data} />
+		</div> -->
 
-                <!-- Facebook -->
-                <li>
-                    <a href="/" class="share-icon" aria-label="share on facebook">
-                        FB
-                    </a>
-                </li>
-                
-                <!-- Twitter -->
-                <li>
-                    <a href="/" class="share-icon" aria-label="share on twitter">
-                        TW
-                    </a>
-                </li>
-                
-                <!-- Linkedin -->
-                <li>
-                    <a href="/" class="share-icon" aria-label="share on linkedin">
-                        LI
-                    </a>
-                </li>
-                
-                <!-- Mail -->
-                <li>
-                    <a href="/" class="share-icon" aria-label="share mail">
-                        E
-                    </a>
-                </li>
-            </ul>
-        </section>
+    
+        <Infotext data={data.dataHygraph.dashboard.infotext} />
 
-        <!-- Map: map with interceptors -->
-        <div id="js-enabled" class="map">
-            <a href="/map">
-                <div id="bubbles"></div>
-            </a>
-        </div>
-
-        <!-- When JS is disabled, this content will show -->
-        <form id="js-disabled" class="map">
-            <label for="interceptor-select">Choose Interceptor:</label>
-            <select id="interceptor-select" name="interceptor">
-                <option value="" disabled selected hidden>Choose Interceptor</option>
-                <option value="/map">Interceptor 001</option>
-                <option value="/map">Interceptor 002</option>
-                <option value="/map">Interceptor 003</option>
-                <option value="/map">Interceptor 004</option>
-                <option value="/map">Interceptor 005</option>
-                <option value="/map">Interceptor 006</option>
-                <option value="/map">System 002</option>
-                <option value="/map">Kingston Harbour</option>
-            </select>
-
-            <!-- <img src="/map-nojs.png"> -->
-        </form>
-
-        <!-- Dashboard-info: info about dashboard -->
-        <section class="panel dashboard-info">
-            <h2>Track our progress on this dashboard and learn more about the upcoming and deployed cleanup
-                solutions.</h2>
-
-            <p>Our goal is to reduce floating plastic by 90% by 2040. According to our research, about 80% of
-                riverine plastic pollution stems from 1000 rivers. </p>
-
-            <p>To effectively clean up the oceans, we need to both clean up the plastic already in the ocean and
-                intercept plastic on its way through rivers.</p>
-        </section>
 
         <!-- Share: table system statuses -->
         <section class="panel share">
@@ -270,29 +172,14 @@
 <!-- End main section -->
 
 
-
-
-
-
 <!-- Scroll to top button -->
 <a href="#top" class="scroll-top" aria-label="scroll to top">
-    <!-- add icon -->TOP
+	<!-- add icon -->TOP
 </a>
 
 <!-- Footer -->
 <footer>
 </footer>
-<!--         
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="/datamaps.world.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/9e5ba2e3f5.js" crossorigin="anonymous"></script> -->
-<!-- <script src="/main.js"></script> -->
-<!-- </body> -->
-
-<!-- </html> -->
-
 
 
 
@@ -322,15 +209,28 @@
     --whiteColor: #ffffff;
     --lightGray: #f7f7f7;
     --accentGray: rgb(228, 228, 228);
-    --worldmapGray: #dbdbdb;
-    --worldmapBorder: #8c8c8c;
-    --worldmapbuttons: rgb(235, 235, 235);
     --textColor: #143653;
     --boxShadow: rgba(128, 128, 128, 0.132);
     --color: rgb(212, 212, 212);
     --textSize: 1.2rem;
     --iconSize: 2rem;
     }
+
+        /* Als darkmode de standaard instelling is */
+        @media (prefers-color-scheme: dark) {
+        :root {
+        --darkBlue: #ffffff;
+        --lightBlue: #5CC8DE;
+        --whiteColor: #143653;
+        --lightGray: #0D2437;
+        --accentGray: rgb(228, 228, 228);
+        --textColor: #ffffff;
+        --boxShadow: rgba(128, 128, 128, 0.0);
+        --color: rgb(212, 212, 212);
+        --textSize: 1.2rem;
+        --iconSize: 2rem;
+        } 
+  }
 
     :global(html) {
     font-size: 62.5%;
@@ -343,12 +243,6 @@
     position: relative;
     }
 
-    h1{
-    line-height: 1.2;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: var(--darkBlue);
-    }
 
     h2 {
     line-height: 1.2;
@@ -375,65 +269,13 @@
         align-self: center;
     } */
 
-    /* Nav */
-    header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 5.5rem;
-    background-color: var(--whiteColor);
-    box-shadow: var(--boxShadow) 0px 0px 8px;
-    z-index: 100;
-    }
-
-    nav {
-    height: 5.5rem;
-    display: flex;
-    flex-direction: row;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    overflow: hidden;
-    }
-
-    nav img {
-    left: 0;
-    top: 0;
-    width: 11rem;
-    height: 100%;
-    padding: 1rem;
-    background-color: var(--lightBlue);
-    }
-
-    .nav-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
-    margin: 0 auto;
-    }
-
-    .nav-link {
-    text-align: center;
-    color: var(--darkBlue);
-    font-size: 1.5rem;
-    }
-
-    .nav-link span {
-    display: none;
-    }
-
-    .active {
-    color: var(--lightBlue);
-    }
 
     /* Grid */
     .container2 {
     margin: 8rem 1.5rem 1.5rem 1.5rem;
     display: grid;
-    grid-template-columns: 1fr, 1fr;
-    grid-template-rows: 0.1fr, 0.3fr, 2fr, 2fr, 1fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.01fr 0.1fr 1fr 1fr .5fr .8fr .5fr .5fr 1fr;
     gap: 1.2rem;
     grid-template-areas:
         "menu menu"
@@ -479,14 +321,6 @@
     transition: .2s;
     }
 
-    .box-1 {
-    grid-area: box-1;
-    }
-
-    .box-2 {
-    grid-area: box-2;
-    }
-
     .box-3 {
     grid-area: box-3;
     }
@@ -495,10 +329,7 @@
     grid-area: box-4;
     }
 
-    .dashboard-info {
-    grid-area: dashboard-info;
-    }
-
+   
     .share {
     grid-area: share;
     }
@@ -507,24 +338,11 @@
     grid-area: more;
     }
 
-    /* header styling + line */
-    .header-dashboard h1 {
-    font-size: 2rem;
-    }
-
+    /* line */
     .line {
     height: 2px;
     width: 18%;
     background-color: var(--lightBlue);
-    }
-
-    /* dashboard-info styling */
-    .dashboard-info p {
-    font-size: 1.3rem;
-    line-height: 1.4;
-    color: var(--textColor);
-    margin-top: 0.5rem;
-    font-family: 'Proxima', sans-serif;
     }
 
     /* .dashboard-info span {
@@ -534,6 +352,17 @@
     font-weight: bold;
     font-family: 'Proxima', sans-serif;
     } */
+
+    /* dashboard H1 */
+    h1{
+        line-height: 1.2;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: var(--darkBlue);
+    }
+    .header-dashboard h1{
+    font-size: 2rem;
+}
 
     /* share styling */
     .grafiek p {
@@ -602,73 +431,71 @@
     border: 1px solid #CCC;
     } */
 
-    /* more styling */
-    .more-link {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 2rem;
-    color: var(--textColor);
-    font-size: 1.5rem;
-    text-transform: capitalize;
-    }
+	/* more styling */
+	.more-link {
+		display: flex;
+		justify-content: left;
+		align-items: center;
+		gap: 2rem;
+		color: var(--textColor);
+		font-size: 1.5rem;
+		text-transform: capitalize;
+	}
 
-    .more-link:hover {
-    color: var(--lightBlue);
-    }
+	.more-link:hover {
+		color: var(--lightBlue);
+	}
 
-    /* .more-arrow {
+	/* .more-arrow {
     text-align: right;
     font-size: 1.8rem;
     margin-right: 2rem;
     } */
 
-    .more-icon {
-    font-size: 1.8rem;
-    color: var(--lightBlue);
-    }
+	.more-icon {
+		font-size: 1.8rem;
+		color: var(--lightBlue);
+	}
 
+	.table-more {
+		border-collapse: collapse;
+	}
 
-    .table-more {
-    border-collapse: collapse;
-    }
+	.more-row {
+		border-bottom: 0.5px solid var(--accentGray);
+		height: 4rem;
+	}
 
-    .more-row {
-    border-bottom: 0.5px solid var(--accentGray);
-    height: 4rem;
-    }
+	.arrow {
+		text-align: right;
+	}
 
-    .arrow {
-    text-align: right;
-    }
+	/* search bar */
+	.search {
+		display: flex;
+		gap: 0.5rem;
+	}
+	.search-button {
+		max-width: 8rem;
+	}
+	.search input {
+		width: 130px;
+		height: 25px;
+		border-radius: 5px;
+		outline: none;
+		padding-left: 0.5rem;
+		background: var(--whiteColor);
+		box-shadow: var(--boxShadow) 0px 0px 8px;
+		border: none;
+		color: var(--textColor);
+	}
 
-    /* search bar */
-    .search{
-        display: flex;
-        gap:.5rem;
-    }
-    .search-button{
-        max-width: 8rem;
-    }
-    .search input {
-    width: 130px;
-    height: 25px;
-    border-radius: 5px;
-    outline: none;
-    padding-left: .5rem;
-    background: var(--whiteColor);
-    box-shadow: var(--boxShadow) 0px 0px 8px;
-    border: none;
-    color: var(--textColor);
-    }
+	.search input::placeholder {
+		color: var(--darkBlue);
+		font-size: 1.3rem;
+	}
 
-    .search input::placeholder {
-    color: var(--darkBlue);
-    ;
-    font-size: 1.3rem;
-    }
-
-    /* .search button {
+	/* .search button {
     width: 30px;
     height: 25px;
     border: none;
@@ -694,26 +521,26 @@
     transition-duration: 0.5s;
     } */
 
+	/* Scroll to top */
+	.scroll-top {
+		position: absolute;
+		bottom: 1%;
+		right: 2%;
+		width: 3rem;
+		height: 3rem;
+		padding: 0.5rem;
+		background-color: var(--lightBlue);
+		color: var(--whiteColor);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
 
-    /* Scroll to top */
-    .scroll-top {
-    position: absolute;
-    bottom: 1%;
-    right: 2%;
-    width: 3rem;
-    height: 3rem;
-    padding: .5rem;
-    background-color: var(--lightBlue);
-    color: var(--whiteColor);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    }
-
-    /* .scroll-top i {
+	/* .scroll-top i {
     font-size: var(--fs16);
     } */
+
 
     /* Charts % */
     .single-chart {
@@ -761,13 +588,58 @@
 
     
 
-    /* Breakpoints small screen */
+	/* Charts % */
+	.single-chart {
+		width: 100%;
+		justify-content: space-around;
+	}
+
+	.circular-chart {
+		display: block;
+		margin: 1.3rem auto;
+		margin-bottom: 0;
+		width: 100px;
+		max-height: 250px;
+	}
+
+	.circle-bg {
+		fill: none;
+		stroke: #eee;
+		stroke-width: 3.8;
+	}
+
+	.circle {
+		fill: none;
+		stroke-width: 2.8;
+		stroke-linecap: round;
+		animation: progress 1s ease-out forwards;
+	}
+
+	@keyframes progress {
+		0% {
+			stroke-dasharray: 0 100;
+		}
+	}
+
+	.circular-chart.green .circle {
+		stroke: var(--lightBlue);
+	}
+
+	.percentage {
+		fill: var(--textColor);
+		font-family: sans-serif;
+		font-size: 0.5em;
+		text-anchor: middle;
+	}
+
+
+
     @media (min-width:700px) {
-    .container2 {
+        .container2 {
         margin: 8rem 1.5rem 1.5rem 1.5rem;
         display: grid;
-        grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-        grid-template-rows: 0.1fr, 0.3fr, 2fr, 2fr, 1fr, 1fr, 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 0.01fr 0.1fr 1fr 1fr 1fr 1fr 1fr;
         gap: 1.2rem;
         grid-template-areas:
         "menu menu menu menu"
@@ -804,68 +676,64 @@
         position: absolute;
     } */
 
-    /* Nav */
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 20rem;
-        height: 100vh;
-        box-shadow: var(--boxShadow) 0px 0px 8px;
-    }
+		/* Nav */
+		header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 20rem;
+			height: 100vh;
+			box-shadow: var(--boxShadow) 0px 0px 8px;
+		}
 
-    .nav-list {
-        display: block;
-    }
+		.nav-list {
+			display: block;
+		}
 
-    nav img {
-        width: 20rem;
-        height: auto;
-        padding: 2rem 3.5rem;
-    }
+		nav img {
+			width: 20rem;
+			height: auto;
+			padding: 2rem 3.5rem;
+		}
 
-    nav {
-        height: 100%;
-        flex-direction: column;
-        justify-content: left;
-        gap: 6rem;
-        overflow: hidden;
-    }
+		nav {
+			height: 100%;
+			flex-direction: column;
+			justify-content: left;
+			gap: 6rem;
+			overflow: hidden;
+		}
 
-    .nav-link {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        margin-bottom: 4rem;
-        gap: 1rem;
-    }
+		.nav-link {
+			display: flex;
+			justify-content: left;
+			align-items: center;
+			margin-bottom: 4rem;
+			gap: 1rem;
+		}
 
-    .nav-link span {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        gap: 1rem;
-        font-weight: 600;
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        letter-spacing: .05rem;
-    }
+		.nav-link span {
+			display: flex;
+			justify-content: left;
+			align-items: center;
+			gap: 1rem;
+			font-weight: 600;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 0.05rem;
+		}
 
-    .nav-link span:hover {
-        color: var(--lightBlue);
-    }
+		.nav-link span:hover {
+			color: var(--lightBlue);
+		}
 
-    /* .nav-icon {
+		/* .nav-icon {
         font-size: 2.5rem;
         align-items: center;
     } */
 
     .active {
         color: var(--lightBlue);
-    }
-
-    .header-dashboard h1 {
-        font-size: 2.5rem;
     }
     }
 
@@ -946,88 +814,83 @@
         margin-top: 1rem;
     }
 /* 
+
     .dashboard-info span {
         margin-top: 1rem;
         font-size: 1.5rem;
         line-height: 1.4;
     } */
 
-    .nav-link {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-    }
+		.nav-link {
+			display: flex;
+			justify-content: left;
+			align-items: center;
+		}
 
-    .nav-link span {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        gap: 1rem;
-        font-weight: 600;
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        letter-spacing: .05rem;
-    }
+		.nav-link span {
+			display: flex;
+			justify-content: left;
+			align-items: center;
+			gap: 1rem;
+			font-weight: 600;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 0.05rem;
+		}
 
-    .nav-link:hover {
-        color: var(--lightBlue);
-    }
+		.nav-link:hover {
+			color: var(--lightBlue);
+		}
 
-    .active {
-        color: var(--lightBlue);
-    }
+		.active {
+			color: var(--lightBlue);
+		}
 
-    /* .nav-icon {
+		/* .nav-icon {
         font-size: 2.5rem;
         align-items: center;
     } */
 
-    .line {
-        height: 2px;
-        width: 6%;
-        background-color: var(--lightBlue);
-    }
+		.line {
+			height: 2px;
+			width: 6%;
+			background-color: var(--lightBlue);
+		}
 
-    .search input {
-        width: 190px;
-    }
+		.search input {
+			width: 190px;
+		}
 
-    .circular-chart {
-        display: flex;
-        justify-content: center;
-        margin: 10px auto;
-        width: 100px;
-        max-height: 250px;
-    }
+		.circular-chart {
+			display: flex;
+			justify-content: center;
+			margin: 10px auto;
+			width: 100px;
+			max-height: 250px;
+		}
 
-    .single-chart {
-        width: 100%;
-        justify-content: space-around;
-    }
+		.single-chart {
+			width: 100%;
+			justify-content: space-around;
+		}
 
-    .scroll-top {
-        display: none;
-    }
+		.scroll-top {
+			display: none;
+		}
 
-    .amount h4 {
-        font-family: 'Roboto', monospace;
-        color: var(--lightBlue);
-        font-weight: 500;
-        font-size: 1.8rem;
-    }
+		.amount h4 {
+			font-family: 'Roboto', monospace;
+			color: var(--lightBlue);
+			font-weight: 500;
+			font-size: 1.8rem;
+		}
 
-    h3 {
-        font-size: 1.5rem;
-    }
+		h3 {
+			font-size: 1.5rem;
+		}
 
-    tr {
-        height: 3.3rem;
-    }
-
-    #bubbles {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
-    }
+		tr {
+			height: 3.3rem;
+		}
+	}
 </style>
