@@ -270,6 +270,7 @@
 
     :root {
     --darkBlue: #143653;
+    --trashRemovedBackground: white;
     --lightBlue: #5CC8DE;
     --whiteColor: #ffffff;
     --lightGray: #f7f7f7;
@@ -285,6 +286,7 @@
         @media (prefers-color-scheme: dark) {
         :root {
         --darkBlue: #ffffff;
+        --trashRemovedBackground: #143653;
         --lightBlue: #5CC8DE;
         --whiteColor: #143653;
         --lightGray: #0D2437;

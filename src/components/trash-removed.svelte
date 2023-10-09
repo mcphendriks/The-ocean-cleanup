@@ -17,9 +17,10 @@
     section {
         border-radius: .5rem;
         padding: 1.5rem;
-        background-color: var(--lightBlue);
+        background-color: var(--trashRemovedBackground);
         box-shadow: var(--boxShadow) 0px 0px 8px;
         transition: .2s;
+        /* border: 20px solid var(--lightBlue) */
     }
     .box-1 {
         grid-area: box-1;
@@ -30,12 +31,12 @@
     }
     h2 {
         font-size: 1.6rem;
-        color: white;
+        color: var(--textColor);
         font-family: 'Roboto Mono', monospace;
     }
     p {
         font-size: 1.6rem;
-        color: white;
+        color: var(--textColor);
         font-family: 'Roboto Mono', monospace;
     }
 </style>
