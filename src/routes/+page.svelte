@@ -266,23 +266,6 @@
 		font-family: 'Proxima', sans-serif;
 	}
 
-
-	/* Als darkmode de standaard instelling is */
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--darkBlue: #ffffff;
-			--lightBlue: #5cc8de;
-			--whiteColor: #143653;
-			--lightGray: #0d2437;
-			--accentGray: rgb(228, 228, 228);
-			--textColor: #ffffff;
-			--boxShadow: rgba(128, 128, 128, 0);
-			--color: rgb(212, 212, 212);
-			--textSize: 1.2rem;
-			--iconSize: 2rem;
-		}
-	}
-
     :root {
     --darkBlue: #143653;
     --trashRemovedBackground: white;
@@ -318,12 +301,6 @@
     font-size: 62.5%;
     scroll-behavior: smooth;
     }
-
-
-	:global(html) {
-		font-size: 62.5%;
-		scroll-behavior: smooth;
-	}
 
 	:global(body) {
 		background-color: var(--lightGray);

@@ -32,14 +32,12 @@
     --whiteColor: #ffffff;
     --lightGray: #f7f7f7;
     --accentGray: rgb(228, 228, 228);
-    --worldmapGray: #dbdbdb;
-    --worldmapBorder: #8c8c8c;
-    --worldmapbuttons: rgb(235, 235, 235);
     --textColor: #143653;
     --boxShadow: rgba(128, 128, 128, 0.132);
     --color: rgb(212, 212, 212);
     --textSize: 1.2rem;
     --iconSize: 2rem;
+    --trashRemovedBackground: white;
     }
     
         /* Als darkmode de standaard instelling is */
@@ -55,6 +53,7 @@
         --color: rgb(212, 212, 212);
         --textSize: 1.2rem;
         --iconSize: 2rem;
+        --trashRemovedBackground: #143653;
         } 
   }
   
@@ -92,7 +91,7 @@
     @media (min-width:62em) {
     main{
         margin: 5rem 2rem 2rem 22.3rem;
-        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
         grid-template-areas:
             "header header header header header"
