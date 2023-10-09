@@ -77,36 +77,7 @@
 
 		<!-- Grafiek: share swith icons -->
 		<section class="panel grafiek">
-			<h2>Share this dashboard</h2>
-			<p>
-				Cleaning up the world's ocean is a global initiative requiring the support of governments
-				and individuals all over the world. Spread the word about our work to help bring awareness
-				to the mission of cleaner oceans.
-			</p>
-
-			<ul class="social-icons">
-				<!-- Voeg juiste iconen toe -->
-
-				<!-- Facebook -->
-				<li>
-					<a href="/" class="share-icon" aria-label="share on facebook"> FB </a>
-				</li>
-
-				<!-- Twitter -->
-				<li>
-					<a href="/" class="share-icon" aria-label="share on twitter"> TW </a>
-				</li>
-
-				<!-- Linkedin -->
-				<li>
-					<a href="/" class="share-icon" aria-label="share on linkedin"> LI </a>
-				</li>
-
-				<!-- Mail -->
-				<li>
-					<a href="/" class="share-icon" aria-label="share mail"> E </a>
-				</li>
-			</ul>
+			<Trashgraph data={data} />
 		</section>
 
 		<!-- Map: map with interceptors -->
