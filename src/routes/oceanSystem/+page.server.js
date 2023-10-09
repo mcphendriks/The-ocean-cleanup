@@ -1,5 +1,3 @@
-
-
 import { gql } from 'graphql-request'
 import { hygraph } from '$lib/utils/hygraph.js'
 import { json } from '@sveltejs/kit'
@@ -11,7 +9,8 @@ export async function load() {
     dashboard(where: {id: "cln32p50anrma0bw03q8fsa54"}) {
       infotext {
         infotext {
-          markdown
+          html
+          text
         }
         id
       }
@@ -22,14 +21,27 @@ export async function load() {
         }
       }
       title
+      ocean {
+        oceanStartDate
+        oceanInfotext {
+          infotext {
+            html
+            text
+            raw
+            markdown
+          }
+        }
+        oceanImage {
+          url
+        }
+      }
     }
   }
+  
   `
- 
   const dataHygraph = await hygraph.request(query)
   
-  const grrrData = await fetch("https://fdnd-toc-api.netlify.app/total")
+  const grrrData = await fetch("https://fdnd-toc-api.netlify.app/ocean")
         const dataApi = await grrrData.json()
   return {dataHygraph, dataApi}
-
 }
