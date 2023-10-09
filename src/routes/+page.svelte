@@ -195,7 +195,7 @@
 
         <!-- Share: table system statuses -->
         <section class="panel share">
-            <SystemStatus />
+            <SystemStatus data={data}/>
         </section>
 
         <!-- More: table more information links -->

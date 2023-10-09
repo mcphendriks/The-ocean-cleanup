@@ -1,7 +1,37 @@
 <script>
 	export let data;
-	console.log(data);
+
+let operational = []
+let installed = []
+let planned = []
+let inMaintenance = []
+
+data.dataApi.systems.forEach(interceptor => {
+	if (interceptor.status == "in_operation") {
+		operational.push(interceptor)
+	}
+});
+
+data.dataApi.systems.forEach(interceptor => {
+	if (interceptor.status == "installed_for_testing") {
+		installed.push(interceptor)
+	}
+});
+
+data.dataApi.systems.forEach(interceptor => {
+	if (interceptor.status == "planned") {
+		planned.push(interceptor)
+	}
+});
+
+data.dataApi.systems.forEach(interceptor => {
+	if (interceptor.status == "in_maintenance") {
+		inMaintenance.push(interceptor)
+	}
+});
+
 </script>
+
 
 <!-- Share: table system statuses -->
 <section class="panel share">
@@ -17,7 +47,7 @@
 				</div>
 			</td>
 			<td class="amount">
-				<h4>10 interceptors</h4>
+				<h4>{operational.length} interceptors</h4>
 			</td>
 		</tr>
 
@@ -45,7 +75,7 @@
 				</div>
 			</td>
 			<td class="amount">
-				<h4>1 interceptor</h4>
+				<h4>{installed.length} interceptor</h4>
 			</td>
 		</tr>
 
@@ -59,7 +89,7 @@
 				</div>
 			</td>
 			<td class="amount">
-				<h4>1 interceptor</h4>
+				<h4>{planned.length} interceptor</h4>
 			</td>
 		</tr>
 
@@ -73,7 +103,7 @@
 				</div>
 			</td>
 			<td class="amount">
-				<h4>1 interceptor</h4>
+				<h4>{inMaintenance.length} interceptor</h4>
 			</td>
 		</tr>
 	</table>
