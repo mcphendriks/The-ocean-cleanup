@@ -281,8 +281,8 @@
     --iconSize: 2rem;
     }
 
-     /* Als darkmode de standaard instelling is */
-     @media (prefers-color-scheme: dark) {
+        /* Als darkmode de standaard instelling is */
+        @media (prefers-color-scheme: dark) {
         :root {
         --darkBlue: #ffffff;
         --lightBlue: #5CC8DE;
