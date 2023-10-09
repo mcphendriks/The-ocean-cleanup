@@ -274,15 +274,28 @@
     --whiteColor: #ffffff;
     --lightGray: #f7f7f7;
     --accentGray: rgb(228, 228, 228);
-    --worldmapGray: #dbdbdb;
-    --worldmapBorder: #8c8c8c;
-    --worldmapbuttons: rgb(235, 235, 235);
     --textColor: #143653;
     --boxShadow: rgba(128, 128, 128, 0.132);
     --color: rgb(212, 212, 212);
     --textSize: 1.2rem;
     --iconSize: 2rem;
     }
+
+     /* Als darkmode de standaard instelling is */
+     @media (prefers-color-scheme: dark) {
+        :root {
+        --darkBlue: #ffffff;
+        --lightBlue: #5CC8DE;
+        --whiteColor: #143653;
+        --lightGray: #0D2437;
+        --accentGray: rgb(228, 228, 228);
+        --textColor: #ffffff;
+        --boxShadow: rgba(128, 128, 128, 0.0);
+        --color: rgb(212, 212, 212);
+        --textSize: 1.2rem;
+        --iconSize: 2rem;
+        } 
+  }
 
     :global(html) {
     font-size: 62.5%;
