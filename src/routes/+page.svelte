@@ -1,41 +1,47 @@
 <script>
-    import Infotext from "../components/infotext.svelte"
-    import TrashRemoved from "../components/trash-removed.svelte"
-    // import Map from "..components/map.svelte"
-    export let data
-    import Trashgraph from "/src/components/trashGraph.svelte"
+	import Infotext from '../components/infotext.svelte';
+	import TrashRemoved from '../components/trash-removed.svelte';
+	import Map from '/src/components/map.svelte';
+	import Trashgraph from '/src/components/trashGraph.svelte';
+	export let data;
 </script>
 
 <svelte:head>
-    <title>Dashboard The Ocean Cleanup</title>
+	<title>Dashboard The Ocean Cleanup</title>
 </svelte:head>
 
 <main>
-    <div class="container2">
-        <!-- Blue line -->
-        <div class="menu">
-            <div class="line"></div>
-        </div>
+	<div class="container2">
+		<!-- Blue line -->
+		<div class="menu">
+			<div class="line" />
+		</div>
 
-        <!-- Title + Searchbar -->
-        <section class="header-dashboard">
+		<!-- Title + Searchbar -->
+		<section class="header-dashboard">
+			<h1>{data.dataHygraph.dashboard.title}</h1>
+			<form class="search" action="/" method="GET">
+				<input type="text" name="search" placeholder="Search.." />
+				<input
+					type="submit"
+					name="search-button"
+					aria-label="search button"
+					class="search-button"
+				/>
+				<!-- voeg een zoekicoon toe -->
+			</form>
+		</section>
 
-            <h1>{data.dataHygraph.dashboard.title}</h1>
-            <form class="search" action="/" method="GET">
-                <input type="text" name="search" placeholder="Search..">
-                <input type="submit" name="search-button" aria-label="search button" class="search-button">
-                    <!-- voeg een zoekicoon toe -->
-            </form>
-        </section>
+		<TrashRemoved data={data.dataApi.totals} />
 
-        <TrashRemoved data={data.dataApi.totals}></TrashRemoved>
-       
-        <!-- Box 3: percentage since 2013 -->
-        <section class="panel box-3">
-            <h2>% removed since 2013 </h2>
-            <div class="single-chart">
-                <svg viewBox="0 0 36 36" class="circular-chart green">
-                    <path class="circle-bg" d="M18 2.0845
+		<!-- Box 3: percentage since 2013 -->
+		<section class="panel box-3">
+			<h2>% removed since 2013</h2>
+			<div class="single-chart">
+				<svg viewBox="0 0 36 36" class="circular-chart green">
+					<path
+						class="circle-bg"
+						d="M18 2.0845
 
                             a 15.9155 15.9155 0 0 1 0 31.831
                             a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -77,165 +83,161 @@
 
 		<!-- Grafiek: share swith icons -->
 		<section class="panel grafiek">
-			<Trashgraph data={data} />
+			<Trashgraph {data} />
 		</section>
 
-		<!-- Map: map with interceptors -->
-		<!-- <div class="map">
+		<div class="map">
 			<Map {data} />
-		</div> -->
+		</div>
 
-    
-        <Infotext data={data.dataHygraph.dashboard.infotext} />
+		<Infotext data={data.dataHygraph.dashboard.infotext} />
 
+		<!-- Share: table system statuses -->
+		<section class="panel share">
+			<h2>System statuses</h2>
+			<table>
+				<tr>
+					<td class="dot">
+						<div class="pulse-container">
+							<div class="status-pulse">
+								<div class="pulse-marker green" />
+								<h3>In operation</h3>
+							</div>
+						</div>
+					</td>
+					<td class="amount">
+						<h4>10 interceptors</h4>
+					</td>
+				</tr>
 
-        <!-- Share: table system statuses -->
-        <section class="panel share">
-            <h2>System statuses</h2>
-            <table>
-                <tr>
-                    <td class="dot">
-                        <div class="pulse-container">
-                            <div class="status-pulse">
-                                <div class="pulse-marker green"></div>
-                                <h3>In operation</h3>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="amount">
-                        <h4>10 interceptors</h4>
-                    </td>
-                </tr>
+				<tr>
+					<td class="dot">
+						<div class="pulse-container">
+							<div class="status-pulse">
+								<div class="pulse-marker green" />
+								<h3>Harvesting</h3>
+							</div>
+						</div>
+					</td>
+					<td class="amount">
+						<h4>1 ocean system</h4>
+					</td>
+				</tr>
 
-                <tr>
-                    <td class="dot">
-                        <div class="pulse-container">
-                            <div class="status-pulse">
-                                <div class="pulse-marker green"></div>
-                                <h3>Harvesting</h3>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="amount">
-                        <h4>1 ocean system</h4>
-                    </td>
-                </tr>
+				<tr>
+					<td class="dot">
+						<div class="pulse-container">
+							<div class="status-pulse">
+								<div class="pulse-marker blue" />
+								<h3>Installed for testing</h3>
+							</div>
+						</div>
+					</td>
+					<td class="amount">
+						<h4>1 interceptor</h4>
+					</td>
+				</tr>
 
-                <tr>
-                    <td class="dot">
-                        <div class="pulse-container">
-                            <div class="status-pulse">
-                                <div class="pulse-marker blue"></div>
-                                <h3>Installed for testing</h3>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="amount">
-                        <h4>1 interceptor</h4>
-                    </td>
-                </tr>
+				<tr>
+					<td class="dot">
+						<div class="pulse-container">
+							<div class="status-pulse">
+								<div class="pulse-marker gray" />
+								<h3>Planned</h3>
+							</div>
+						</div>
+					</td>
+					<td class="amount">
+						<h4>1 interceptor</h4>
+					</td>
+				</tr>
 
-                <tr>
-                    <td class="dot">
-                        <div class="pulse-container">
-                            <div class="status-pulse">
-                                <div class="pulse-marker gray"></div>
-                                <h3>Planned</h3>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="amount">
-                        <h4>1 interceptor</h4>
-                    </td>
-                </tr>
+				<tr>
+					<td class="dot">
+						<div class="pulse-container">
+							<div class="status-pulse">
+								<div class="pulse-marker gray" />
+								<h3>Contract signed</h3>
+							</div>
+						</div>
+					</td>
+					<td class="amount">
+						<h4>1 interceptor</h4>
+					</td>
+				</tr>
+			</table>
+		</section>
 
-                <tr>
-                    <td class="dot">
-                        <div class="pulse-container">
-                            <div class="status-pulse">
-                                <div class="pulse-marker gray"></div>
-                                <h3>Contract signed</h3>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="amount">
-                        <h4>1 interceptor</h4>
-                    </td>
-                </tr>
-            </table>
-        </section>
+		<!-- More: table more information links -->
+		<section class="panel more">
+			<h2>More about</h2>
+			<table class="table-more">
+				<tr class="more-row">
+					<td class="more-icon">
+						<a href="/" class="more-link">
+							<!-- add icon -->
+							Our river technology
+						</a>
+					</td>
+					<td class="arrow">
+						<!-- add icon -->
+					</td>
+				</tr>
 
-        <!-- More: table more information links -->
-        <section class="panel more">
-            <h2>More about</h2>
-            <table class="table-more">
-                <tr class="more-row">
-                    <td class="more-icon">
-                        <a href="/" class="more-link">
-                            <!-- add icon -->
-                            Our river technology
-                        </a>
-                    </td>
-                    <td class="arrow">
-                        <!-- add icon -->
-                    </td>
-                </tr>
+				<tr class="more-row">
+					<td class="more-icon">
+						<a href="/" class="more-link">
+							<!-- add icon -->
+							The economic impact
+						</a>
+					</td>
+					<td class="arrow">
+						<!-- add icon -->
+					</td>
+				</tr>
 
-                <tr class="more-row">
-                    <td class="more-icon">
-                        <a href="/" class="more-link">
-                            <!-- add icon -->
-                            The economic impact
-                        </a>
-                    </td>
-                    <td class="arrow">
-                        <!-- add icon -->
-                    </td>
-                </tr>
+				<tr class="more-row">
+					<td class="more-icon">
+						<a href="/" class="more-link">
+							<!-- add icon -->
+							Plastic sources
+						</a>
+					</td>
+					<td class="arrow">
+						<!-- add icon -->
+					</td>
+				</tr>
 
-                <tr class="more-row">
-                    <td class="more-icon">
-                        <a href="/" class="more-link">
-                            <!-- add icon -->
-                            Plastic sources
-                        </a>
-                    </td>
-                    <td class="arrow">
-                        <!-- add icon -->
-                    </td>
-                </tr>
+				<tr class="more-row">
+					<td class="more-icon">
+						<a href="/" class="more-link">
+							<!-- add icon -->
+							Donate
+						</a>
+					</td>
+					<td class="arrow">
+						<!-- add icon -->
+					</td>
+				</tr>
 
-                <tr class="more-row">
-                    <td class="more-icon">
-                        <a href="/" class="more-link">
-                            <!-- add icon -->
-                            Donate
-                        </a>
-                    </td>
-                    <td class="arrow">
-                        <!-- add icon -->
-                    </td>
-                </tr>
-
-                <span>
-                    <tr class="more-row">
-                        <td class="more-icon">
-                            <a href="/" class="more-link">
-                                <!-- add icon -->
-                                Sign up to newsletter
-                            </a>
-                        </td>
-                        <td class="arrow">
-                            <!-- add icon -->
-                        </td>
-                    </tr>
-                </span>
-            </table>
-        </section>
-    </div>
+				<span>
+					<tr class="more-row">
+						<td class="more-icon">
+							<a href="/" class="more-link">
+								<!-- add icon -->
+								Sign up to newsletter
+							</a>
+						</td>
+						<td class="arrow">
+							<!-- add icon -->
+						</td>
+					</tr>
+				</span>
+			</table>
+		</section>
+	</div>
 </main>
 <!-- End main section -->
-
 
 <!-- Scroll to top button -->
 <a href="#top" class="scroll-top" aria-label="scroll to top">
@@ -243,30 +245,43 @@
 </a>
 
 <!-- Footer -->
-<footer>
-</footer>
-
-
-
+<footer />
 
 <style>
-    /* Roboto font */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+	/* Roboto font */
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
-    /* Proxima font */
-    @font-face {
-    font-family: 'Proxima';
-    src: url("/ProximaNovaFont.otf") format("opentype") weight("normal");
-    src: url("/Proxima-Nova-Bold.otf") format("opentype") weight("bold");
-    }
+	/* Proxima font */
+	@font-face {
+		font-family: 'Proxima';
+		src: url('/ProximaNovaFont.otf') format('opentype') weight('normal');
+		src: url('/Proxima-Nova-Bold.otf') format('opentype') weight('bold');
+	}
 
-    /* Base */
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Proxima', sans-serif;
-    }
+	/* Base */
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Proxima', sans-serif;
+	}
+
+
+	/* Als darkmode de standaard instelling is */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--darkBlue: #ffffff;
+			--lightBlue: #5cc8de;
+			--whiteColor: #143653;
+			--lightGray: #0d2437;
+			--accentGray: rgb(228, 228, 228);
+			--textColor: #ffffff;
+			--boxShadow: rgba(128, 128, 128, 0);
+			--color: rgb(212, 212, 212);
+			--textSize: 1.2rem;
+			--iconSize: 2rem;
+		}
+	}
 
     :root {
     --darkBlue: #143653;
@@ -304,43 +319,66 @@
     scroll-behavior: smooth;
     }
 
-    :global(body) {
-    background-color: var(--lightGray);
-    color: var(--textColor);
-    position: relative;
-    }
 
+	:global(html) {
+		font-size: 62.5%;
+		scroll-behavior: smooth;
+	}
 
-    h2 {
-    line-height: 1.2;
-    font-weight: 500;
-    color: var(--darkBlue);
-    margin-bottom: 1rem;
-    }
+	:global(body) {
+		background-color: var(--lightGray);
+		color: var(--textColor);
+		position: relative;
+	}
 
-    h3 {
-    font-size: 1.3rem;
-    font-weight: 500;
-    }
+	h2 {
+		line-height: 1.2;
+		font-weight: 500;
+		color: var(--darkBlue);
+		margin-bottom: 1rem;
+	}
 
-    ul,
-    li {
-    list-style: none;
-    }
+	h3 {
+		font-size: 1.3rem;
+		font-weight: 500;
+	}
 
-    a {
-    text-decoration: none;
-    }
+	ul,
+	li {
+		list-style: none;
+	}
 
-    button {
-    all: unset;
-    text-align: center;
-    }
-    /* .darkmode{
+	a {
+		text-decoration: none;
+	}
+
+	button {
+		all: unset;
+		text-align: center;
+	}
+	/* .darkmode{
         display:flex;
         align-self: center;
     } */
 
+	/* Grid */
+	.container2 {
+		margin: 8rem 1.5rem 1.5rem 1.5rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 0.01fr 0.1fr 1fr 1fr 0.5fr 0.8fr 0.5fr 0.5fr 1fr;
+		gap: 1.2rem;
+		grid-template-areas:
+			'menu menu'
+			'header-dashboard header-dashboard'
+			'dashboard-info dashboard-info'
+			'map map'
+			'box-1 box-2'
+			'box-3 box-4'
+			'share share'
+			'grafiek grafiek'
+			'more more';
+	}
 
     /* Grid */
     .container2 {
@@ -369,55 +407,55 @@
     transition: .2s;
     }
 
-    /* Grid areas */
-    .header-dashboard {
-    display: flex;
-    justify-content: space-between;
-    grid-area: header-dashboard;
-    }
 
-    .menu {
-    grid-area: menu;
-    }
+	/* Grid areas */
+	.header-dashboard {
+		display: flex;
+		justify-content: space-between;
+		grid-area: header-dashboard;
+	}
 
-    .grafiek {
-    grid-area: grafiek;
-    }
+	.menu {
+		grid-area: menu;
+	}
 
-    .map {
-    grid-area: map;
-    border-radius: .5rem;
-    padding: 0.5rem;
-    background-color: var(--whiteColor);
-    box-shadow: var(--boxShadow) 0px 0px 8px;
-    transition: .2s;
-    }
+	.grafiek {
+		grid-area: grafiek;
+	}
 
-    .box-3 {
-    grid-area: box-3;
-    }
+	.map {
+		grid-area: map;
+		border-radius: 0.5rem;
+		padding: 0.5rem;
+		background-color: var(--whiteColor);
+		box-shadow: var(--boxShadow) 0px 0px 8px;
+		transition: 0.2s;
+	}
 
-    .box-4 {
-    grid-area: box-4;
-    }
+	.box-3 {
+		grid-area: box-3;
+	}
 
-   
-    .share {
-    grid-area: share;
-    }
+	.box-4 {
+		grid-area: box-4;
+	}
 
-    .more {
-    grid-area: more;
-    }
+	.share {
+		grid-area: share;
+	}
 
-    /* line */
-    .line {
-    height: 2px;
-    width: 18%;
-    background-color: var(--lightBlue);
-    }
+	.more {
+		grid-area: more;
+	}
 
-    /* .dashboard-info span {
+	/* line */
+	.line {
+		height: 2px;
+		width: 18%;
+		background-color: var(--lightBlue);
+	}
+
+	/* .dashboard-info span {
     font-size: 1.3rem;
     line-height: 1.4;
     color: var(--textColor);
@@ -425,75 +463,75 @@
     font-family: 'Proxima', sans-serif;
     } */
 
-    /* dashboard H1 */
-    h1{
-        line-height: 1.2;
-        font-weight: 500;
-        text-transform: uppercase;
-        color: var(--darkBlue);
-    }
-    .header-dashboard h1{
-    font-size: 2rem;
-}
+	/* dashboard H1 */
+	h1 {
+		line-height: 1.2;
+		font-weight: 500;
+		text-transform: uppercase;
+		color: var(--darkBlue);
+	}
+	.header-dashboard h1 {
+		font-size: 2rem;
+	}
 
-    /* share styling */
-    .grafiek p {
-    font-size: 1.3rem;
-    line-height: 1.4;
-    color: var(--textColor);
-    margin-top: 0.5rem;
-    font-family: 'Proxima', sans-serif;
-    }
+	/* share styling */
+	.grafiek p {
+		font-size: 1.3rem;
+		line-height: 1.4;
+		color: var(--textColor);
+		margin-top: 0.5rem;
+		font-family: 'Proxima', sans-serif;
+	}
 
-    .social-icons {
-    display: flex;
-    justify-content: left;
-    gap: 2rem;
-    align-items: center;
-    margin-top: 2rem;
-    }
+	.social-icons {
+		display: flex;
+		justify-content: left;
+		gap: 2rem;
+		align-items: center;
+		margin-top: 2rem;
+	}
 
-    .share-icon {
-    font-size: 2.5rem;
-    color: var(--lightBlue);
-    }
+	.share-icon {
+		font-size: 2.5rem;
+		color: var(--lightBlue);
+	}
 
-    .share-icon:hover {
-    color: var(--darkBlue);
-    }
+	.share-icon:hover {
+		color: var(--darkBlue);
+	}
 
-    /* boxes styling */
-    .box-1,
-    .box-2,
-    .box-3,
-    .box-4,
-    p {
-    font-size: 1.6rem;
-    color: var(--lightBlue);
-    font-family: 'Roboto Mono', monospace;
-    }
+	/* boxes styling */
+	.box-1,
+	.box-2,
+	.box-3,
+	.box-4,
+	p {
+		font-size: 1.6rem;
+		color: var(--lightBlue);
+		font-family: 'Roboto Mono', monospace;
+	}
 
-    .box-1,
-    .box-2,
-    .box-3,
-    .box-4,
-    h2 {
-        font-size: 1.6rem;
-        color: var(--darkBlue);
-    }
+	.box-1,
+	.box-2,
+	.box-3,
+	.box-4,
+	h2 {
+		font-size: 1.6rem;
+		color: var(--darkBlue);
+	}
 
-    .col {
-        display: flex;
-        gap: .9rem;
-    }
+	.col {
+		display: flex;
+		gap: 0.9rem;
+	}
 
-    /* map styling */
-    #bubbles {
-    position: relative;
-    width: 100%;
-    }
+	/* map styling */
+	#bubbles {
+		position: relative;
+		width: 100%;
+	}
 
-    /* .hoverinfo {
+	/* .hoverinfo {
     color: #143653;
     padding: 4px;
     border-radius: 1px;
@@ -810,7 +848,6 @@
 
     }
 
-    /* Breakpoints medium screen */
     @media (min-width:992px) {
     .container2 {
         margin: 5rem 2rem 2rem 22.3rem;
@@ -825,7 +862,8 @@
         "grafiek grafiek more more more";
     }
 
-    /* .map .button-container {
+
+		/* .map .button-container {
         position: absolute;
     } */
 
@@ -885,10 +923,11 @@
         align-items: center;
     } */
 
-    .active {
-        color: var(--lightBlue);
-    }
-    }
+		.active {
+			color: var(--lightBlue);
+		}
+	}
+
 
     /* Breakpoints large screen */
     @media (min-width:1200px) {
@@ -905,68 +944,68 @@
         "share share grafiek more more";
     }
 
-    .more {
-        grid-area: more;
-    }
+		.more {
+			grid-area: more;
+		}
 
-    .panel {
-        padding: 2rem;
-    }
+		.panel {
+			padding: 2rem;
+		}
 
-    .map {
-        padding: 1.5rem;
-    }
+		.map {
+			padding: 1.5rem;
+		}
 
-    .box-1,
-    .box-2,
-    .box-4,
-    p {
-        font-size: 3rem;
-    }
+		.box-1,
+		.box-2,
+		.box-4,
+		p {
+			font-size: 3rem;
+		}
 
-    .box-3,
-    p {
-        font-size: 2.5rem;
-    }
+		.box-3,
+		p {
+			font-size: 2.5rem;
+		}
 
-    .box-1,
-    .box-2,
-    .box-3,
-    .box-4,
-    h2 {
-        font-size: 1.5rem;
-    }
+		.box-1,
+		.box-2,
+		.box-3,
+		.box-4,
+		h2 {
+			font-size: 1.5rem;
+		}
 
-    .grafiek h2 {
-        font-size: 1.8rem;
-    }
+		.grafiek h2 {
+			font-size: 1.8rem;
+		}
 
-    .more h2 {
-        font-size: 1.8rem;
-    }
+		.more h2 {
+			font-size: 1.8rem;
+		}
 
-    .share h2 {
-        font-size: 1.8rem;
-    }
+		.share h2 {
+			font-size: 1.8rem;
+		}
 
-    .grafiek p {
-        font-size: 1.5rem;
-    }
+		.grafiek p {
+			font-size: 1.5rem;
+		}
 
-    .share-icon {
-        font-size: 2.6rem;
-    }
+		.share-icon {
+			font-size: 2.6rem;
+		}
 
-    .social-icons {
-        margin-top: 3.5rem;
-    }
+		.social-icons {
+			margin-top: 3.5rem;
+		}
 
-    .dashboard-info p {
-        font-size: 1.5rem;
-        line-height: 1.4;
-        margin-top: 1rem;
-    }
-/* 
+		.dashboard-info p {
+			font-size: 1.5rem;
+			line-height: 1.4;
+			margin-top: 1rem;
+		}
+		/* 
 
     .dashboard-info span {
         margin-top: 1rem;
