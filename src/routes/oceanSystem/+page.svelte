@@ -1,10 +1,9 @@
 <script>
     import Infotext from '../../components/infotext.svelte';
-    import TrashRemovedOcean from '../../components/trash-removed-ocean.svelte';
+    import TrashRemovedOcean from '../../components/trash-removed.svelte';
     import LastPortCall from '../../components/lastportcall.svelte'
     import Image from '../../components/image.svelte';
 	import Startdate from '../../components/startdate.svelte';
-	import Lastportcall from '../../components/lastportcall.svelte';
     export let data
 </script>
 
@@ -17,7 +16,7 @@
     <TrashRemovedOcean data={data.dataApi.systems[0]} />
     <Infotext data={data.dataHygraph.dashboard.ocean.oceanInfotext} />
     <Startdate data={data.dataHygraph.dashboard.ocean.oceanStartDate} />
-    <Lastportcall data={data} />
+    <LastPortCall data={data} />
     <Image data={data.dataHygraph.dashboard.ocean.oceanImage} />
     <section class="map">
         hier komt de map.
