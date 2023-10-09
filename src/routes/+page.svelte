@@ -3,6 +3,7 @@
     import TrashRemoved from "../components/trash-removed.svelte"
     // import Map from "..components/map.svelte"
     export let data
+    import Trashgraph from "/src/components/trashGraph.svelte"
 </script>
 
 <svelte:head>
@@ -18,6 +19,7 @@
 
         <!-- Title + Searchbar -->
         <section class="header-dashboard">
+
             <h1>{data.dataHygraph.dashboard.title}</h1>
             <form class="search" action="/" method="GET">
                 <input type="text" name="search" placeholder="Search..">
@@ -114,6 +116,7 @@
 
     
         <Infotext data={data.dataHygraph.dashboard.infotext} />
+
 
         <!-- Share: table system statuses -->
         <section class="panel share">
@@ -271,6 +274,7 @@
 <!-- Footer -->
 <footer>
 </footer>
+
 
 
 
@@ -798,7 +802,7 @@
 
 
     @media (min-width:700px) {
-    .container2 {
+        .container2 {
         margin: 8rem 1.5rem 1.5rem 1.5rem;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
