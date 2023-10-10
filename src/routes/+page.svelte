@@ -1,7 +1,7 @@
 <script>
     import Infotext from "../components/infotext.svelte"
 	import ChartContinents from "../components/chartContinents.svelte";
-	import ChartRiverOcean from "../components/ChartRiverOcean.svelte";
+	import ChartRiverOcean from "../components/chartRiverOcean.svelte";
     import TrashRemoved from "../components/trash-removed.svelte"
     // import Map from "..components/map.svelte"
     export let data
