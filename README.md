@@ -1,38 +1,45 @@
-# create-svelte
+# Ocean Cleanup Dashboard
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Inhoudsopgave 
 
-## Creating a project
+## Beschrijving 📖
 
-If you're seeing this, you've probably already done this step. Congrats!
+De Ocean Cleanup is organisatie die als doel heeft de oceaan afvalvrij te maken, dit doen ze onder andere door het plaatsen van interceptors in de oceaan en in de riviermondingen. Deze interceptors vangen het afval op. De Ocean Cleanup wil mensen informeren over wat ze aan het doen zijn. Daarom hebben wij voor de Ocean Cleanup een dashboard gemaakt waarin je allerlei informatie kan vinden over de interceptors. Deze opdracht is gemaakt voor de opleiding Frontend Design & Development aan de HVA.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Kenmerken 🛠️
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Dit project is gemaakt met de volgende technologiën:
 
-## Developing
+* HTML
+* CSS
+* JavaScript
+* Svelte
+* Sveltekit
+* Node.js
+* Chart.js
+* Mapbox
+* Hygraph
+ 
+## Installatie 🎛️
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Clone deze repository naar je code editor.
+2. npm install
+3. npm install graphql-request graphql
+4. npm install chart.js
+5. npm install mapbox
+   
+## Gebruik 💻
 
-```bash
-npm run dev
+Dit dashboard is bedoeld voor iedereen die interesse heeft in de Ocean Cleanup en kan gebruikt worden om informatie in te zien over de interceptors, zoals bijvoorbeeld hoeveel afval een interceptor uit het water heeft gehaald.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Bronnen 📻
 
-## Building
+Chartjs grafieken:
+* https://www.chartjs.org/
 
-To create a production version of your app:
+API & Hygraph data koppelen:
+* https://kit.svelte.dev/docs/hooks#server-hooks
 
-```bash
-npm run build
-```
+## Licentie
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+This project is licensed under the terms of the [MIT license](https://github.com/fdnd-task/lose-your-head-the-client-case/blob/main/LICENSE).

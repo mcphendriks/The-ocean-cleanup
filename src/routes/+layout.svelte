@@ -1,7 +1,7 @@
 
 <header>
     <nav>
-        <img src="/1200px-The_Ocean_Cleanup_logowhite.png" alt="logo of The ocean cleanup">
+        <img src="/Ocean-Cleanup-Logo-Dark.png" alt="logo of The ocean cleanup">
         <ul>
             <li>
                 <a href="https://theoceancleanup.com/" class="nav-link" aria-label="back to the homepage">
@@ -23,7 +23,7 @@
 
             <li>
                 <a href="/" class="nav-link" aria-label="the economic impact">
-                    <span>The Economic Impact</span>
+                    <span>Economic Impact</span>
                 </a>
             </li>
 
@@ -43,14 +43,6 @@
                 <a href="/" class="nav-link" aria-label="sign up to newsletter">
                     <span>Our Newsletter</span>
                 </a>
-            </li>
-
-            <li>
-                 <button class="darkmode" value="darkmode button" aria-label="switch to darkmode">
-                    <a href="/" class="nav-link" aria-label="switch to darkmode">
-                        <span id="darkmode-btn-text">Dark</span>
-                    </a>
-                </button>
             </li>
         </ul>
        
@@ -101,6 +93,8 @@
     --iconSize: 2rem;
     }
 
+     
+
     :global(html) {
     font-size: 62.5%;
     scroll-behavior: smooth;
@@ -136,18 +130,12 @@
     list-style: none;
     }
 
+    ul{
+        padding-left:2rem;
+    }
     a {
     text-decoration: none;
     }
-
-    button {
-    all: unset;
-    text-align: center;
-    }
-    /* .darkmode{
-        display:flex;
-        align-self: center;
-    } */
 
     /* Nav */
     header {
@@ -176,8 +164,7 @@
     top: 0;
     width: 11rem;
     height: 100%;
-    padding: 1rem;
-    background-color: var(--lightBlue);
+    padding: 0rem;
     }
 
     .nav-list {
@@ -263,7 +250,6 @@
     nav img {
         width: 20rem;
         height: auto;
-        padding: 2rem 3.5rem;
     }
 
     nav {
@@ -464,12 +450,6 @@
 
     tr {
         height: 3.3rem;
-    }
-
-    #bubbles {
-        position: relative;
-        width: 100%;
-        height: auto;
     }
     }
 </style>
