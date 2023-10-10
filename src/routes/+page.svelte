@@ -3,6 +3,8 @@
 	import TrashRemoved from '../components/trash-removed.svelte';
 	import Map from '/src/components/map.svelte';
 	import Trashgraph from '/src/components/trashGraph.svelte';
+	import ChartContinents from "../components/chartContinents.svelte";
+	import ChartRiverOcean from "../components/chartRiverOcean.svelte";
 	export let data;
 </script>
 
@@ -11,74 +13,36 @@
 </svelte:head>
 
 <main>
-	<div class="container2">
-		<!-- Blue line -->
-		<div class="menu">
-			<div class="line" />
-		</div>
+  
+    <div class="container2">
+        <!-- Blue line -->
+        <div class="menu">
+            <div class="line"></div>
+        </div>
 
-		<!-- Title + Searchbar -->
-		<section class="header-dashboard">
-			<h1>{data.dataHygraph.dashboard.title}</h1>
-			<form class="search" action="/" method="GET">
-				<input type="text" name="search" placeholder="Search.." />
-				<input
-					type="submit"
-					name="search-button"
-					aria-label="search button"
-					class="search-button"
-				/>
-				<!-- voeg een zoekicoon toe -->
-			</form>
-		</section>
+        <!-- Title + Searchbar -->
+        <section class="header-dashboard">
 
-		<TrashRemoved data={data.dataApi.totals} />
+            <h1>{data.dataHygraph.dashboard.title}</h1>
+            <form class="search" action="/" method="GET">
+                <input type="text" name="search" placeholder="Search..">
+                <input type="submit" name="search-button" aria-label="search button" class="search-button">
+                    <!-- voeg een zoekicoon toe -->
+            </form>
+        </section>
 
-		<!-- Box 3: percentage since 2013 -->
-		<section class="panel box-3">
-			<h2>% removed since 2013</h2>
-			<div class="single-chart">
-				<svg viewBox="0 0 36 36" class="circular-chart green">
-					<path
-						class="circle-bg"
-						d="M18 2.0845
+        <TrashRemoved data={data.dataApi.totals}></TrashRemoved>
 
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"
-					/>
-					<path
-						class="circle"
-						stroke-dasharray="60, 100"
-						d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"
-					/>
-					<text x="18" y="20.35" class="percentage">65%</text>
-				</svg>
-			</div>
+        <!-- Box 3: percentage since 2013 -->
+        <section class="panel box-3">
+            <h2>Plastic removed from ocean and river systems</h2>
+            <ChartRiverOcean data={data} />
 		</section>
 
 		<!-- Box 4: percentage in 2040 -->
 		<section class="panel box-4">
-			<h2>% removed in 2040</h2>
-			<div class="single-chart">
-				<svg viewBox="0 0 36 36" class="circular-chart green">
-					<path
-						class="circle-bg"
-						d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-					/>
-					<path
-						class="circle"
-						stroke-dasharray="90, 100"
-						d="M18 2.0845
-                    a 15.9155 15.9155 0 0 1 0 31.831
-                    a 15.9155 15.9155 0 0 1 0 -31.831"
-					/>
-					<text x="18" y="20.35" class="percentage">90%</text>
-				</svg>
-			</div>
+            <h2>Plastic removed per continent</h2>
+			<ChartContinents data={data} />
 		</section>
 
 		<!-- Grafiek: share swith icons -->

@@ -40,6 +40,6 @@ export async function load() {
   
   const grrrData = await fetch("https://fdnd-toc-api.netlify.app/ocean")
         const dataApi = await grrrData.json()
-        console.log(dataHygraph.dashboard.ocean)
+        
   return {dataHygraph, dataApi}
 }

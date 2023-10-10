@@ -16,6 +16,7 @@
 		laatsteVierMaanden[3].month
 	];
 
+
 	data = {
 		labels: labels,
 		datasets: [
