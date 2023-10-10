@@ -53,7 +53,24 @@
 		options: {}
 	};
 
+
+
+// Functie om de kleurinstelling voor Chart.js te configureren op basis van dark mode
+function configureChartColor() {
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			// Dark mode wordt gebruikt
+			Chart.defaults.color = 'white';
+		} else {
+			// Dark mode wordt niet gebruikt
+			Chart.defaults.color = '#143653';
+		}
+	}
+		
+
+
 	onMount(() => {
+		configureChartColor();
+
 		const ctx = document.getElementById('polar-area-chart').getContext('2d');
 		chartInstance = new Chart(ctx, config);
 	});
