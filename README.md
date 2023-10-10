@@ -20,7 +20,7 @@ Dit project is gemaakt met de volgende technologiën:
 * Mapbox
 * Hygraph
  
-## Installatie 💻
+## Installatie 🎛️
 
 1. Clone deze repository naar je code editor.
 2. npm install
@@ -32,7 +32,7 @@ Dit project is gemaakt met de volgende technologiën:
 
 Dit dashboard is bedoeld voor iedereen die interesse heeft in de Ocean Cleanup en kan gebruikt worden om informatie in te zien over de interceptors, zoals bijvoorbeeld hoeveel afval een interceptor uit het water heeft gehaald.
 
-## Bronnen
+## Bronnen 📻
 
 Chartjs grafieken:
 * https://www.chartjs.org/
