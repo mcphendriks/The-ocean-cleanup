@@ -44,14 +44,6 @@
                     <span>Our Newsletter</span>
                 </a>
             </li>
-
-            <li>
-                 <button class="darkmode" value="darkmode button" aria-label="switch to darkmode">
-                    <a href="/" class="nav-link" aria-label="switch to darkmode">
-                        <span id="darkmode-btn-text">Dark</span>
-                    </a>
-                </button>
-            </li>
         </ul>
        
     </nav>
@@ -144,15 +136,6 @@
     a {
     text-decoration: none;
     }
-
-    button {
-    all: unset;
-    text-align: center;
-    }
-    /* .darkmode{
-        display:flex;
-        align-self: center;
-    } */
 
     /* Nav */
     header {
@@ -467,12 +450,6 @@
 
     tr {
         height: 3.3rem;
-    }
-
-    #bubbles {
-        position: relative;
-        width: 100%;
-        height: auto;
     }
     }
 </style>
