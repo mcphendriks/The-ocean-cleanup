@@ -70,7 +70,6 @@
     background-color: var(--lightGray);
     color: var(--textColor);
     position: relative;
-    
     }
 
     h1{
