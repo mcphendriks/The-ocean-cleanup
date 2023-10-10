@@ -9,10 +9,12 @@ export async function load() {
     query Assets {
       dashboard(where: {id: "cln32p50anrma0bw03q8fsa54"}) {
         infotext {
-          markdown
-          html
-          text
-          raw
+          infotext {
+            html
+            text
+            raw
+            markdown
+          }
         }
         trashRemoved {
           trashRemovedText {
