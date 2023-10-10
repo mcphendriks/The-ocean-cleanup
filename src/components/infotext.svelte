@@ -2,7 +2,7 @@
     export let data
 </script>
 <!-- Dashboard-info: info about dashboard -->
-<section class="panel ">
+<section>
     <p>{data.infotext.markdown}</p>
 </section>
 

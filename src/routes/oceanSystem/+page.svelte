@@ -2,6 +2,7 @@
     import Infotext from '../../components/infotext.svelte';
     import TrashRemovedOcean from '../../components/trash-removed.svelte';
     import LastPortCall from '../../components/lastportcall.svelte'
+
     import Image from '../../components/image.svelte';
 	import Startdate from '../../components/startdate.svelte';
     export let data

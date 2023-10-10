@@ -1,6 +1,5 @@
 <script>
     export let data
-    console.log(data)
 </script>
 
 <section class="box-1">
