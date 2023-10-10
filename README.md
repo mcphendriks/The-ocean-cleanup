@@ -1,4 +1,5 @@
 # Ocean Cleanup Dashboard
+![image](https://github.com/mcphendriks/the-ocean-cleanup/assets/101579892/97f3cd13-fff6-42f2-89fc-c6d8bb57cf76)
 
 ## Inhoudsopgave 
 
