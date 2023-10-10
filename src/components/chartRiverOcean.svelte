@@ -39,4 +39,7 @@ onMount(() => {
 });
 </script>
 
-<canvas id="donut-chart" width="400" height="200" />
+
+	<canvas id="donut-chart" width="400" height="200" />
+
+

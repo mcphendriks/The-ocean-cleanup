@@ -59,5 +59,10 @@
 	});
 </script>
 
-<canvas id="polar-area-chart" width="400" height="200" />
+
+	<canvas id="polar-area-chart" width="400" height="200" />
+
+
+ 
+
 

@@ -307,38 +307,20 @@
 		margin: 8rem 1.5rem 1.5rem 1.5rem;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 0.01fr 0.1fr 1fr 1fr 0.5fr 0.8fr 0.5fr 0.5fr 1fr;
+		/* grid-template-rows: 0.01fr 0.1fr 1fr 1fr 0.5fr 0.8fr 0.5fr 0.5fr 1fr ; */
 		gap: 1.2rem;
 		grid-template-areas:
 			'menu menu'
 			'header-dashboard header-dashboard'
+			'box-1 box-2'
 			'dashboard-info dashboard-info'
 			'map map'
-			'box-1 box-2'
-			'box-3 box-4'
-			'share share'
-			'grafiek grafiek'
-			'more more';
+			'share share'	
+			'box-3 box-3'	
+			'box-4 box-4'
+			'grafiek grafiek'	
+			'more more'		
 	}
-
-    /* Grid */
-    .container2 {
-    margin: 8rem 1.5rem 1.5rem 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 0.01fr 0.1fr .1fr 1fr .5fr .8fr .5fr .5fr 1fr;
-    gap: 1.2rem;
-    grid-template-areas:
-        "menu menu"
-        "header-dashboard header-dashboard"
-        "box-1 box-2"
-        "dashboard-info dashboard-info"
-        "box-3 box-4"
-        "map map"
-        "share share"
-        "grafiek grafiek"
-        "more more";
-    }
 
     .panel {
     border-radius: .5rem;
@@ -466,11 +448,6 @@
 		gap: 0.9rem;
 	}
 
-	/* map styling */
-	#bubbles {
-		position: relative;
-		width: 100%;
-	}
 
 	/* .hoverinfo {
     color: #143653;
@@ -588,9 +565,6 @@
 		cursor: pointer;
 	}
 
-	/* .scroll-top i {
-    font-size: var(--fs16);
-    } */
 
 	/* Charts % */
 	.single-chart {
@@ -763,24 +737,22 @@
     } */
 
 
-   
-
-
     @media (min-width:700px) {
         .container2 {
         margin: 8rem 1.5rem 1.5rem 1.5rem;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 0.01fr 0.1fr .5fr 1fr 1fr 1fr 1fr;
+        /* grid-template-rows: 0.01fr 0.1fr .5fr 1fr 1fr 1fr 1fr; */
         gap: 1.2rem;
         grid-template-areas:
-        "menu menu menu menu"
-        "header-dashboard header-dashboard header-dashboard header-dashboard"
-        "dashboard-info dashboard-info dashboard-info box-1"
-        "map map map map"
-        "box-2 box-2 box-3 box-4"
-        "share grafiek grafiek grafiek"
-        "more more more more";
+			"menu menu menu menu"
+			"header-dashboard header-dashboard header-dashboard header-dashboard"
+			"box-1 box-1 box-2 box-2"
+			"dashboard-info dashboard-info map map"
+			"dashboard-info dashboard-info map map"
+			"share share share share"
+			"box-3 box-3 box-4 box-4"
+			"grafiek grafiek grafiek more"
     }
 
     .active {
@@ -792,15 +764,16 @@
     @media (min-width:992px) {
     .container2 {
         margin: 5rem 2rem 2rem 22.3rem;
-        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
-        grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
+        grid-template-columns: repeat(6, 1fr);
+        /* grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr; */
         grid-template-areas:
-        "menu menu menu menu menu"
-        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
-        "box-1 box-2  map map map"
-        "dashboard-info dashboard-info map map map"
-        "box-3 box-4 share share share"
-        "grafiek grafiek more more more";
+        "menu menu menu menu menu menu"
+        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
+        "box-1 box-1 box-1 box-2 box-2 box-2"
+        "dashboard-info dashboard-info map map map map"
+		"share share share share share share"
+        "box-3 box-3 box-3 box-4 box-4 box-4"
+        "grafiek grafiek grafiek more more more";
     }
 
 
@@ -872,9 +845,9 @@
 
     /* Breakpoints large screen */
     @media (min-width:1200px) {
-    .container2 {
+    /* .container2 {
         margin: 5rem 2rem 2rem 22.3rem;
-        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
         grid-template-areas:
         "menu menu menu menu menu"
@@ -883,7 +856,7 @@
         "dashboard-info dashboard-info map map map"
         "box-3 box-4 map map map"
         "share share grafiek more more";
-    }
+    } */
 
 		.more {
 			grid-area: more;
