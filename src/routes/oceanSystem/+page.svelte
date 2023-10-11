@@ -1,15 +1,15 @@
 <script>
-    import Infotext from '../../components/infotext.svelte';
-    import TrashRemovedOcean from '../../components/trash-removed.svelte';
-    import LastPortCall from '../../components/lastportcall.svelte'
-
-    import Image from '../../components/image.svelte';
+	import Infotext from '../../components/infotext.svelte';
+	import TrashRemovedOcean from '../../components/trash-removed.svelte';
+	import LastPortCall from '../../components/lastportcall.svelte';
+	import Map from '/src/components/map.svelte';
+	import Image from '../../components/image.svelte';
 	import Startdate from '../../components/startdate.svelte';
-    export let data
+	export let data;
 </script>
 
 <svelte:head>
-    <title>Ocean System Dashboard</title>
+	<title>Ocean System Dashboard</title>
 </svelte:head>
 
 <section>
@@ -24,43 +24,40 @@
     </div>
 </section>
 
-
-
 <style>
-        :root {
-    --darkBlue: #143653;
-    --lightBlue: #5CC8DE;
-    --whiteColor: #ffffff;
-    --lightGray: #f7f7f7;
-    --accentGray: rgb(228, 228, 228);
-    --textColor: #143653;
-    --boxShadow: rgba(128, 128, 128, 0.132);
-    --color: rgb(212, 212, 212);
-    --textSize: 1.2rem;
-    --iconSize: 2rem;
-    --trashRemovedBackground: white;
-    }
-    
-        /* Als darkmode de standaard instelling is */
-        @media (prefers-color-scheme: dark) {
-        :root {
-        --darkBlue: #ffffff;
-        --lightBlue: #5CC8DE;
-        --whiteColor: #143653;
-        --lightGray: #0D2437;
-        --accentGray: rgb(228, 228, 228);
-        --textColor: #ffffff;
-        --boxShadow: rgba(128, 128, 128, 0.0);
-        --color: rgb(212, 212, 212);
-        --textSize: 1.2rem;
-        --iconSize: 2rem;
-        --trashRemovedBackground: #143653;
-        } 
-  }
-  
+	:root {
+		--darkBlue: #143653;
+		--lightBlue: #5cc8de;
+		--whiteColor: #ffffff;
+		--lightGray: #f7f7f7;
+		--accentGray: rgb(228, 228, 228);
+		--textColor: #143653;
+		--boxShadow: rgba(128, 128, 128, 0.132);
+		--color: rgb(212, 212, 212);
+		--textSize: 1.2rem;
+		--iconSize: 2rem;
+		--trashRemovedBackground: white;
+	}
 
-    /* Grid container */
-    /* soms staat de grid area al gedefinieerd in de component zelf */
+	/* Als darkmode de standaard instelling is */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--darkBlue: #ffffff;
+			--lightBlue: #5cc8de;
+			--whiteColor: #143653;
+			--lightGray: #0d2437;
+			--accentGray: rgb(228, 228, 228);
+			--textColor: #ffffff;
+			--boxShadow: rgba(128, 128, 128, 0);
+			--color: rgb(212, 212, 212);
+			--textSize: 1.2rem;
+			--iconSize: 2rem;
+			--trashRemovedBackground: #143653;
+		}
+	}
+
+	/* Grid container */
+	/* soms staat de grid area al gedefinieerd in de component zelf */
 
     /* mobiele versie */
    section{
@@ -113,3 +110,4 @@
 }
     
 </style>
+

@@ -3,14 +3,15 @@
 	import TrashRemoved from '../components/trash-removed.svelte';
 	import Map from '/src/components/map.svelte';
 	import Trashgraph from '/src/components/trashGraph.svelte';
-	import ChartContinents from "../components/chartContinents.svelte";
-	import ChartRiverOcean from "../components/chartRiverOcean.svelte";
+	import ChartContinents from '../components/chartContinents.svelte';
+	import ChartRiverOcean from '../components/chartRiverOcean.svelte';
 	export let data;
 </script>
 
 <svelte:head>
 	<title>Dashboard The Ocean Cleanup</title>
 </svelte:head>
+
 
 <section class="main">
   
@@ -37,12 +38,13 @@
         <section class="panel box-3">
             <h2>Plastic removed from ocean and river systems</h2>
             <ChartRiverOcean data={data} />
+
 		</section>
 
 		<!-- Box 4: percentage in 2040 -->
 		<section class="panel box-4">
-            <h2>Plastic removed per continent</h2>
-			<ChartContinents data={data} />
+			<h2>Plastic removed per continent</h2>
+			<ChartContinents {data} />
 		</section>
 
 		<!-- Grafiek: share swith icons -->
@@ -51,7 +53,7 @@
 		</section>
 
 		<div class="map">
-			<Map {data} />
+			<Map data={data.riverDataJson.systems} />
 		</div>
 
 		<Infotext data={data.dataHygraph.dashboard.infotext} />
@@ -230,41 +232,41 @@
 		font-family: 'Proxima', sans-serif;
 	}
 
-    :root {
-    --darkBlue: #143653;
-    --trashRemovedBackground: white;
-    --lightBlue: #5CC8DE;
-    --whiteColor: #ffffff;
-    --lightGray: #f7f7f7;
-    --accentGray: rgb(228, 228, 228);
-    --textColor: #143653;
-    --boxShadow: rgba(128, 128, 128, 0.132);
-    --color: rgb(212, 212, 212);
-    --textSize: 1.2rem;
-    --iconSize: 2rem;
-    }
+	:root {
+		--darkBlue: #143653;
+		--trashRemovedBackground: white;
+		--lightBlue: #5cc8de;
+		--whiteColor: #ffffff;
+		--lightGray: #f7f7f7;
+		--accentGray: rgb(228, 228, 228);
+		--textColor: #143653;
+		--boxShadow: rgba(128, 128, 128, 0.132);
+		--color: rgb(212, 212, 212);
+		--textSize: 1.2rem;
+		--iconSize: 2rem;
+	}
 
-        /* Als darkmode de standaard instelling is */
-        @media (prefers-color-scheme: dark) {
-        :root {
-        --darkBlue: #ffffff;
-        --trashRemovedBackground: #143653;
-        --lightBlue: #5CC8DE;
-        --whiteColor: #143653;
-        --lightGray: #0D2437;
-        --accentGray: rgb(228, 228, 228);
-        --textColor: #ffffff;
-        --boxShadow: rgba(128, 128, 128, 0.0);
-        --color: rgb(212, 212, 212);
-        --textSize: 1.2rem;
-        --iconSize: 2rem;
-        } 
-  }
+	/* Als darkmode de standaard instelling is */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--darkBlue: #ffffff;
+			--trashRemovedBackground: #143653;
+			--lightBlue: #5cc8de;
+			--whiteColor: #143653;
+			--lightGray: #0d2437;
+			--accentGray: rgb(228, 228, 228);
+			--textColor: #ffffff;
+			--boxShadow: rgba(128, 128, 128, 0);
+			--color: rgb(212, 212, 212);
+			--textSize: 1.2rem;
+			--iconSize: 2rem;
+		}
+	}
 
-    :global(html) {
-    font-size: 62.5%;
-    scroll-behavior: smooth;
-    }
+	:global(html) {
+		font-size: 62.5%;
+		scroll-behavior: smooth;
+	}
 
 	:global(body) {
 		background-color: var(--lightGray);
@@ -301,21 +303,20 @@
 			'box-1 box-2'
 			'dashboard-info dashboard-info'
 			'map map'
-			'share share'	
-			'box-3 box-3'	
+			'share share'
+			'box-3 box-3'
 			'box-4 box-4'
-			'grafiek grafiek'	
-			'more more'		
+			'grafiek grafiek'
+			'more more';
 	}
 
-    .panel {
-    border-radius: .5rem;
-    padding: 1.5rem;
-    background-color: var(--whiteColor);
-    box-shadow: var(--boxShadow) 0px 0px 8px;
-    transition: .2s;
-    }
-
+	.panel {
+		border-radius: 0.5rem;
+		padding: 1.5rem;
+		background-color: var(--whiteColor);
+		box-shadow: var(--boxShadow) 0px 0px 8px;
+		transition: 0.2s;
+	}
 
 	/* Grid areas */
 	.header-dashboard {
@@ -621,7 +622,6 @@
         "grafiek grafiek grafiek more more more";
     }
 	}
-
 
     /* Breakpoints large screen */
     @media (min-width:1200px) {
