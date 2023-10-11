@@ -19,9 +19,9 @@
     <Startdate data={data.dataHygraph.dashboard.ocean.oceanStartDate} />
     <LastPortCall data={data} />
     <Image data={data.dataHygraph.dashboard.ocean.oceanImage} />
-    <section class="map">
+    <div class="map">
         hier komt de map.
-    </section>
+    </div>
 </section>
 
 
