@@ -1,32 +1,44 @@
 <script>
 	import { onMount } from 'svelte';
-
+	``;
+	export let data;
+	console.log(data.latitude, data.longitude);
 	let map;
 
 	onMount(() => {
+		// toegangscode in voor mapbox weer te geven
 		mapboxgl.accessToken =
 			'pk.eyJ1IjoibWNwaGVuZHJpa3MiLCJhIjoiY2xuYWpkajM3MDRvNzJxbzdjbGg1YXc0MiJ9.mRRivdosZVdSXQ9FDd0ZwA';
-
 		map = new mapboxgl.Map({
 			container: 'map',
 			style: 'mapbox://styles/mapbox/light-v11',
 			zoom: 2,
 			center: [-103.5917, 40.6699]
 		});
+		// lijst van GeoJSON-functies (geografische kenmerken) op basis van gegevens in data.riverDataJson.systems
+		const geojsonFeatures = data.map((interceptor) => ({
+			type: 'Feature',
+			geometry: {
+				type: 'Point',
+				coordinates: [interceptor.longitude, interceptor.latitude]
+			},
+			properties: interceptor
+		}));
 
 		map.on('load', () => {
-			map.addSource('interceptors', {
+			map.addSource('interceptor-locations', {
 				type: 'geojson',
-				data: 'https://raw.githubusercontent.com/mcphendriks/the-ocean-clean-up-GeoJSON-data/main/data.geojson',
-				cluster: true,
-				clusterMaxZoom: 14,
-				clusterRadius: 50
+				data: {
+					type: 'FeatureCollection',
+					features: geojsonFeatures
+				}
 			});
 
+			// Add a layer for the circles
 			map.addLayer({
-				id: 'interceptor-points',
+				id: 'interceptor-circles',
 				type: 'circle',
-				source: 'interceptors',
+				source: 'interceptor-locations',
 				paint: {
 					'circle-radius': 10,
 					'circle-stroke-width': 1,
@@ -44,9 +56,17 @@
 						'#B0B0B0',
 						'planned',
 						'#B0B0B0',
-						/* Default color if no match found */ 'red'
+						/* Default color */ 'blue'
 					]
 				}
+			});
+
+			map.on('click', 'interceptor-circles', (e) => {
+				const interceptorId = e.features[0].properties.id;
+				const coordinates = e.features[0].geometry.coordinates;
+
+				const slug = `/interceptor?id=${interceptorId}`;
+				window.location.href = slug;
 			});
 		});
 	});
