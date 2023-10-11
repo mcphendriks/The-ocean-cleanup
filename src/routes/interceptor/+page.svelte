@@ -14,9 +14,9 @@
     <Infotext data={data.currentInterceptorHygraph[0].riverInfoText} />
     <TrashRemoved data={data.currentInterceptor[0]} />
     <Image data={data.currentInterceptorHygraph[0].riverImage} />
-    <section class="map">
+    <div class="map">
         Hier kan de map komen.
-    </section>
+    </div>
 </section>
    
 
