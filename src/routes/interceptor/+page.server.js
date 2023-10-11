@@ -53,6 +53,12 @@ export async function load({ url, params }) {
     return interceptor.id == url.searchParams.get('id')
   })
   
-  return {currentInterceptorHygraph, currentInterceptor}
-}
+  const riverData = await fetch("https://fdnd-toc-api.netlify.app/river");
+  const riverDataJson = await riverData.json();
+  
+  
+  const oceanData = await fetch("https://fdnd-toc-api.netlify.app/ocean");
+  const oceanDataJson = await oceanData.json();
 
+  return {currentInterceptorHygraph, currentInterceptor, riverDataJson, oceanDataJson}
+}

@@ -22,7 +22,7 @@
 	<Infotext data={data.currentInterceptorHygraph[0].riverInfoText} />
 	<TrashRemoved data={data.currentInterceptor[0]} />
 	<Image data={data.currentInterceptorHygraph[0].riverImage} />
-	<div class="map">Hier kan de map komen.</div>
+	<div class="map"><Map data={data} /></div>
 </section>
 
 <style>

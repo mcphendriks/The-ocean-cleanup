@@ -20,7 +20,7 @@
     <LastPortCall data={data} />
     <Image data={data.dataHygraph.dashboard.ocean.oceanImage} />
     <div class="map">
-        hier komt de map.
+        <Map data={data} />
     </div>
 </section>
 

@@ -53,7 +53,7 @@
 		</section>
 
 		<div class="map">
-			<Map data={data.riverDataJson.systems} />
+			<Map data={data} />
 		</div>
 
 		<Infotext data={data.dataHygraph.dashboard.infotext} />

@@ -16,7 +16,7 @@
 			center: [-103.5917, 40.6699]
 		});
 		// lijst van GeoJSON-functies (geografische kenmerken) op basis van gegevens in data.riverDataJson.systems
-		const geojsonFeatures = data.map((interceptor) => ({
+		const geojsonFeatures = data.riverDataJson.systems.map((interceptor) => ({
 			type: 'Feature',
 			geometry: {
 				type: 'Point',
@@ -25,12 +25,21 @@
 			properties: interceptor
 		}));
 
+		const geojsonFeaturesOcean = data.oceanDataJson.systems.map((ocean) => ({
+			type: 'Feature',
+			geometry: {
+				type: 'Point',
+				coordinates: [ocean.longitude, ocean.latitude]
+			},
+			properties: ocean
+		}));
+
 		map.on('load', () => {
 			map.addSource('interceptor-locations', {
 				type: 'geojson',
 				data: {
 					type: 'FeatureCollection',
-					features: geojsonFeatures
+					features: geojsonFeatures, geojsonFeaturesOcean
 				}
 			});
 
