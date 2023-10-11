@@ -284,23 +284,9 @@
 		font-weight: 500;
 	}
 
-	ul,
-	li {
-		list-style: none;
-	}
-
 	a {
 		text-decoration: none;
 	}
-
-	button {
-		all: unset;
-		text-align: center;
-	}
-	/* .darkmode{
-        display:flex;
-        align-self: center;
-    } */
 
 	/* Grid */
 	.container2 {
@@ -378,14 +364,6 @@
 		background-color: var(--lightBlue);
 	}
 
-	/* .dashboard-info span {
-    font-size: 1.3rem;
-    line-height: 1.4;
-    color: var(--textColor);
-    font-weight: bold;
-    font-family: 'Proxima', sans-serif;
-    } */
-
 	/* dashboard H1 */
 	h1 {
 		line-height: 1.2;
@@ -397,67 +375,20 @@
 		font-size: 2rem;
 	}
 
-	/* share styling */
-	.grafiek p {
-		font-size: 1.3rem;
-		line-height: 1.4;
-		color: var(--textColor);
-		margin-top: 0.5rem;
-		font-family: 'Proxima', sans-serif;
-	}
-
-	.social-icons {
-		display: flex;
-		justify-content: left;
-		gap: 2rem;
-		align-items: center;
-		margin-top: 2rem;
-	}
-
-	.share-icon {
-		font-size: 2.5rem;
-		color: var(--lightBlue);
-	}
-
-	.share-icon:hover {
-		color: var(--darkBlue);
-	}
-
 	/* boxes styling */
-	.box-1,
-	.box-2,
 	.box-3,
-	.box-4,
-	p {
+	.box-4{
 		font-size: 1.6rem;
 		color: var(--lightBlue);
 		font-family: 'Roboto Mono', monospace;
 	}
 
-	.box-1,
-	.box-2,
 	.box-3,
 	.box-4,
 	h2 {
 		font-size: 1.6rem;
 		color: var(--darkBlue);
 	}
-
-	.col {
-		display: flex;
-		gap: 0.9rem;
-	}
-
-
-	/* .hoverinfo {
-    color: #143653;
-    padding: 4px;
-    border-radius: 1px;
-    background-color: var(--lightGray);
-    box-shadow: transparent;
-    font-size: 12px;
-    border: 1px solid #CCC;
-    } */
 
 	/* more styling */
 	.more-link {
@@ -473,12 +404,6 @@
 	.more-link:hover {
 		color: var(--lightBlue);
 	}
-
-	/* .more-arrow {
-    text-align: right;
-    font-size: 1.8rem;
-    margin-right: 2rem;
-    } */
 
 	.more-icon {
 		font-size: 1.8rem;
@@ -523,32 +448,6 @@
 		font-size: 1.3rem;
 	}
 
-	/* .search button {
-    width: 30px;
-    height: 25px;
-    border: none;
-    margin-right: 1.5rem;
-    border-radius: 0 5px 5px 0;
-    color: var(--textColor);
-    transition-property: all;
-    transition-duration: 0.5s;
-    position: absolute;
-    right: 0;
-    outline: none;
-    }
-
-    .search button i {
-    font-size: 1.2rem;
-    transition-property: all;
-    transition-duration: 0.5s;
-    }
-
-    .search button:hover i {
-    transform: scale(1.1);
-    transition-property: all;
-    transition-duration: 0.5s;
-    } */
-
 	/* Scroll to top */
 	.scroll-top {
 		position: absolute;
@@ -565,49 +464,10 @@
 		cursor: pointer;
 	}
 
-
-	/* Charts % */
-	.single-chart {
-		width: 100%;
-		justify-content: space-around;
-	}
-
-	.circular-chart {
-		display: block;
-		margin: 1.3rem auto;
-		margin-bottom: 0;
-		width: 100px;
-		max-height: 250px;
-	}
-
-	.circle-bg {
-		fill: none;
-		stroke: #eee;
-		stroke-width: 3.8;
-	}
-
-	.circle {
-		fill: none;
-		stroke-width: 2.8;
-		stroke-linecap: round;
-		animation: progress 1s ease-out forwards;
-	}
-
 	@keyframes progress {
 		0% {
 			stroke-dasharray: 0 100;
 		}
-	}
-
-	.circular-chart.green .circle {
-		stroke: var(--lightBlue);
-	}
-
-	.percentage {
-		fill: var(--textColor);
-		font-family: sans-serif;
-		font-size: 0.5em;
-		text-anchor: middle;
 	}
 
 	/* Pulse */
@@ -709,10 +569,6 @@
 		width: 40%;
 	}
 
-	/* .status {
-    width: 30%;
-    } */
-
 	.status-pulse {
 		display: flex;
 		justify-content: space-between;
@@ -731,12 +587,6 @@
 		width: 20%;
 	}
 
-	/* Progressive Enhancement, moet JS nog toevoegen */
-	/* .js-enabled {
-    display: none;
-    } */
-
-
     @media (min-width:700px) {
         .container2 {
         margin: 8rem 1.5rem 1.5rem 1.5rem;
@@ -754,11 +604,6 @@
 			"box-3 box-3 box-4 box-4"
 			"grafiek grafiek grafiek more"
     }
-
-    .active {
-        color: var(--lightBlue);
-    }
-
     }
 
     @media (min-width:992px) {
@@ -775,88 +620,11 @@
         "box-3 box-3 box-3 box-4 box-4 box-4"
         "grafiek grafiek grafiek more more more";
     }
-
-
-		/* .map .button-container {
-        position: absolute;
-    } */
-
-		/* Nav */
-		header {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 20rem;
-			height: 100vh;
-			box-shadow: var(--boxShadow) 0px 0px 8px;
-		}
-
-		.nav-list {
-			display: block;
-		}
-
-		nav img {
-			width: 20rem;
-			height: auto;
-			padding: 2rem 3.5rem;
-		}
-
-		nav {
-			height: 100%;
-			flex-direction: column;
-			justify-content: left;
-			gap: 6rem;
-			overflow: hidden;
-		}
-
-		.nav-link {
-			display: flex;
-			justify-content: left;
-			align-items: center;
-			margin-bottom: 4rem;
-			gap: 1rem;
-		}
-
-		.nav-link span {
-			display: flex;
-			justify-content: left;
-			align-items: center;
-			gap: 1rem;
-			font-weight: 600;
-			font-size: 1.5rem;
-			text-transform: uppercase;
-			letter-spacing: 0.05rem;
-		}
-
-		.nav-link span:hover {
-			color: var(--lightBlue);
-		}
-
-		/* .nav-icon {
-        font-size: 2.5rem;
-        align-items: center;
-    } */
-
-		.active {
-			color: var(--lightBlue);
-		}
 	}
 
 
     /* Breakpoints large screen */
     @media (min-width:1200px) {
-    /* .container2 {
-        margin: 5rem 2rem 2rem 22.3rem;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
-        grid-template-areas:
-        "menu menu menu menu menu"
-        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
-        "box-1 box-2 map map map"
-        "dashboard-info dashboard-info map map map"
-        "box-3 box-4 map map map"
-        "share share grafiek more more";
-    } */
 
 		.more {
 			grid-area: more;
@@ -870,28 +638,18 @@
 			padding: 1.5rem;
 		}
 
-		.box-1,
-		.box-2,
-		.box-4,
-		p {
+		.box-4{
 			font-size: 3rem;
 		}
 
-		.box-3,
-		p {
+		.box-3{
 			font-size: 2.5rem;
 		}
 
-		.box-1,
-		.box-2,
 		.box-3,
 		.box-4,
 		h2 {
 			font-size: 1.5rem;
-		}
-
-		.grafiek h2 {
-			font-size: 1.8rem;
 		}
 
 		.more h2 {
@@ -902,61 +660,6 @@
 			font-size: 1.8rem;
 		}
 
-		.grafiek p {
-			font-size: 1.5rem;
-		}
-
-		.share-icon {
-			font-size: 2.6rem;
-		}
-
-		.social-icons {
-			margin-top: 3.5rem;
-		}
-
-		.dashboard-info p {
-			font-size: 1.5rem;
-			line-height: 1.4;
-			margin-top: 1rem;
-		}
-		/* 
-
-    .dashboard-info span {
-        margin-top: 1rem;
-        font-size: 1.5rem;
-        line-height: 1.4;
-    } */
-
-		.nav-link {
-			display: flex;
-			justify-content: left;
-			align-items: center;
-		}
-
-		.nav-link span {
-			display: flex;
-			justify-content: left;
-			align-items: center;
-			gap: 1rem;
-			font-weight: 600;
-			font-size: 1.5rem;
-			text-transform: uppercase;
-			letter-spacing: 0.05rem;
-		}
-
-		.nav-link:hover {
-			color: var(--lightBlue);
-		}
-
-		.active {
-			color: var(--lightBlue);
-		}
-
-		/* .nav-icon {
-        font-size: 2.5rem;
-        align-items: center;
-    } */
-
 		.line {
 			height: 2px;
 			width: 6%;
@@ -965,19 +668,6 @@
 
 		.search input {
 			width: 190px;
-		}
-
-		.circular-chart {
-			display: flex;
-			justify-content: center;
-			margin: 10px auto;
-			width: 100px;
-			max-height: 250px;
-		}
-
-		.single-chart {
-			width: 100%;
-			justify-content: space-around;
 		}
 
 		.scroll-top {
