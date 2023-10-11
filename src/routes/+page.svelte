@@ -12,7 +12,7 @@
 	<title>Dashboard The Ocean Cleanup</title>
 </svelte:head>
 
-<main>
+<section class="main">
   
     <div class="container2">
         <!-- Blue line -->
@@ -200,7 +200,7 @@
 			</table>
 		</section>
 	</div>
-</main>
+</section>
 <!-- End main section -->
 
 <!-- Scroll to top button -->

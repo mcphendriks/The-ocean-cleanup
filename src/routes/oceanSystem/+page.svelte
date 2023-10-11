@@ -12,7 +12,7 @@
     <title>Ocean System Dashboard</title>
 </svelte:head>
 
-<main>
+<section>
     <h2>{data.dataApi.systems[0]. name}</h2>
     <TrashRemovedOcean data={data.dataApi.systems[0]} />
     <Infotext data={data.dataHygraph.dashboard.ocean.oceanInfotext} />
@@ -22,7 +22,7 @@
     <section class="map">
         hier komt de map.
     </section>
-</main>
+</section>
 
 
 
@@ -63,7 +63,7 @@
     /* soms staat de grid area al gedefinieerd in de component zelf */
 
     /* mobiele versie */
-   main{
+   section{
     margin: 8rem 1.5rem 1.5rem 1.5rem;
     display: grid;
     grid-template-columns: 1fr, 1fr;
@@ -90,7 +90,7 @@
     }
     /* vanaf 992px */
     @media (min-width:62em) {
-    main{
+    section{
         margin: 5rem 2rem 2rem 22.3rem;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
