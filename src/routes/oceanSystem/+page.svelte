@@ -12,17 +12,17 @@
 	<title>Ocean System Dashboard</title>
 </svelte:head>
 
-<main>
-	<h2>{data.dataApi.systems[0].name}</h2>
-	<TrashRemovedOcean data={data.dataApi.systems[0]} />
-	<Infotext data={data.dataHygraph.dashboard.ocean.oceanInfotext} />
-	<Startdate data={data.dataHygraph.dashboard.ocean.oceanStartDate} />
-	<LastPortCall {data} />
-	<Image data={data.dataHygraph.dashboard.ocean.oceanImage} />
-	<section class="map">
-		<Map data={data.riverDataJson.systems} />
-	</section>
-</main>
+<section>
+    <h2>{data.dataApi.systems[0]. name}</h2>
+    <TrashRemovedOcean data={data.dataApi.systems[0]} />
+    <Infotext data={data.dataHygraph.dashboard.ocean.oceanInfotext} />
+    <Startdate data={data.dataHygraph.dashboard.ocean.oceanStartDate} />
+    <LastPortCall data={data} />
+    <Image data={data.dataHygraph.dashboard.ocean.oceanImage} />
+    <div class="map">
+        hier komt de map.
+    </div>
+</section>
 
 <style>
 	:root {
@@ -59,53 +59,55 @@
 	/* Grid container */
 	/* soms staat de grid area al gedefinieerd in de component zelf */
 
-	/* mobiele versie */
-	main {
-		margin: 8rem 1.5rem 1.5rem 1.5rem;
-		display: grid;
-		grid-template-columns: 1fr, 1fr;
-		grid-template-rows: 0.1fr, 0.3fr, 6fr, 2fr, 1fr, 1fr, 1fr, 1fr;
-		gap: 1.2rem;
-		grid-template-areas:
-			'header header'
-			'box-1 box-2'
-			'dashboard-info dashboard-info'
-			'dashboard-info-startdate dashboard-info-startdate'
-			'dashboard-info-lastportcall dashboard-info-lastportcall'
-			'map map'
-			'image image';
-	}
+    /* mobiele versie */
+   section{
+    margin: 8rem 1.5rem 1.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: 0.1fr, 0.3fr, 6fr, 2fr, 1fr, 1fr, 1fr, 1fr;
+    gap: 1.2rem;
+    grid-template-areas:
+        "header header"
+        "box-1 box-2"
+        "dashboard-info dashboard-info"
+        "dashboard-info-startdate dashboard-info-startdate"
+        "dashboard-info-lastportcall dashboard-info-lastportcall"
+        "map map"
+        "image image"
+    }
 
-	h2 {
-		grid-area: header;
-	}
-	.map {
-		grid-area: map;
-		width: 100%;
-		height: 15rem;
-		background-color: grey;
-	}
-	/* vanaf 992px */
-	@media (min-width: 62em) {
-		main {
-			margin: 5rem 2rem 2rem 22.3rem;
-			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-			grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
-			grid-template-areas:
-				'header header header header header'
-				'box-1 box-2 map map map'
-				'dashboard-info dashboard-info map map map'
-				'dashboard-info dashboard-info map map map'
-				'dashboard-info dashboard-info map map map'
-				'dashboard-info-startdate dashboard-info-startdate image image image'
-				'dashboard-info-lastportcall dashboard-info-lastportcall image image image'
-				'dashboard-info-lastportcall dashboard-info-lastportcall image image image';
-		}
-		.map {
-			grid-area: map;
-			width: 100%;
-			height: 100%;
-			background-color: grey;
-		}
-	}
+    h2 {
+        grid-area: header;
+    }
+    .map{
+        grid-area: map;
+        width:100%;
+        height:15rem;
+        background-color: grey;
+    }
+    /* vanaf 992px */
+    @media (min-width:62em) {
+    section{
+        margin: 5rem 2rem 2rem 22.3rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
+        grid-template-areas:
+            "header header header header header"
+            "box-1 box-2 map map map"
+            "dashboard-info dashboard-info map map map"
+            "dashboard-info dashboard-info map map map"
+            "dashboard-info dashboard-info map map map"
+            "dashboard-info-startdate dashboard-info-startdate image image image"
+            "dashboard-info-lastportcall dashboard-info-lastportcall image image image"
+            "dashboard-info-lastportcall dashboard-info-lastportcall image image image"
+    }
+    .map{
+        grid-area: map;
+        width:100%;
+        height:100%;
+        background-color: grey;
+    }
+}
+    
 </style>
+
