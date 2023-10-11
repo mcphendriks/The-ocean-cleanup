@@ -2,11 +2,28 @@
     export let data
 </script>
 <!-- Dashboard-info: info about dashboard -->
-<section class="panel ">
+<section>
     <p>{data.infotext.markdown}</p>
 </section>
 
 <style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Proxima', sans-serif;
+    }
+
+    :global(html) {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    }
+
+    :global(body) {
+    background-color: var(--lightGray);
+    color: var(--textColor);
+    position: relative;
+    }
 
     section {
         grid-area: dashboard-info;

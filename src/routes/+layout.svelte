@@ -1,7 +1,7 @@
 
 <header>
     <nav>
-        <img src="/1200px-The_Ocean_Cleanup_logowhite.png" alt="logo of The ocean cleanup">
+        <img src="/Ocean-Cleanup-Logo-Dark.png" alt="logo of The ocean cleanup">
         <ul>
             <li>
                 <a href="https://theoceancleanup.com/" class="nav-link" aria-label="back to the homepage">
@@ -23,7 +23,7 @@
 
             <li>
                 <a href="/" class="nav-link" aria-label="the economic impact">
-                    <span>The Economic Impact</span>
+                    <span>Economic Impact</span>
                 </a>
             </li>
 
@@ -43,14 +43,6 @@
                 <a href="/" class="nav-link" aria-label="sign up to newsletter">
                     <span>Our Newsletter</span>
                 </a>
-            </li>
-
-            <li>
-                 <button class="darkmode" value="darkmode button" aria-label="switch to darkmode">
-                    <a href="/" class="nav-link" aria-label="switch to darkmode">
-                        <span id="darkmode-btn-text">Dark</span>
-                    </a>
-                </button>
             </li>
         </ul>
        
@@ -114,42 +106,17 @@
     position: relative;
     }
 
-    h1{
-    line-height: 1.2;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: var(--darkBlue);
-    }
-
-    h2 {
-    line-height: 1.2;
-    font-weight: 500;
-    color: var(--darkBlue);
-    margin-bottom: 1rem;
-    }
-
-    h3 {
-    font-size: 1.3rem;
-    font-weight: 500;
-    }
-
     ul,
     li {
     list-style: none;
     }
 
+    ul{
+        padding-left:2rem;
+    }
     a {
     text-decoration: none;
     }
-
-    button {
-    all: unset;
-    text-align: center;
-    }
-    /* .darkmode{
-        display:flex;
-        align-self: center;
-    } */
 
     /* Nav */
     header {
@@ -178,16 +145,7 @@
     top: 0;
     width: 11rem;
     height: 100%;
-    padding: 1rem;
-    background-color: var(--lightBlue);
-    }
-
-    .nav-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
-    margin: 0 auto;
+    padding: 0rem;
     }
 
     .nav-link {
@@ -203,51 +161,9 @@
     .active {
     color: var(--lightBlue);
     }
-   
-
-    /* Breakpoints small screen */
-    @media (min-width:700px) {
-    .container2 {
-        margin: 8rem 1.5rem 1.5rem 1.5rem;
-        display: grid;
-        grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-        grid-template-rows: 0.1fr, 0.3fr, 2fr, 2fr, 1fr, 1fr, 1fr;
-        gap: 1.2rem;
-        grid-template-areas:
-        "menu menu menu menu"
-        "header-dashboard header-dashboard header-dashboard header-dashboard"
-        "dashboard-info dashboard-info dashboard-info box-1"
-        "map map map map"
-        "box-2 box-2 box-3 box-4"
-        "share grafiek grafiek grafiek"
-        "more more more more";
-    }
-
-    .active {
-        color: var(--lightBlue);
-    }
-
-    }
 
     /* Breakpoints medium screen */
     @media (min-width:992px) {
-    .container2 {
-        margin: 5rem 2rem 2rem 22.3rem;
-        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
-        grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
-        grid-template-areas:
-        "menu menu menu menu menu"
-        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
-        "dashboard-info dashboard-info map map map"
-        "box-1 box-2 map map map"
-        "box-3 box-4 share share share"
-        "grafiek grafiek more more more";
-    }
-
-    /* .map .button-container {
-        position: absolute;
-    } */
-
     /* Nav */
     header {
         position: fixed;
@@ -258,14 +174,9 @@
         box-shadow: var(--boxShadow) 0px 0px 8px;
     }
 
-    .nav-list {
-        display: block;
-    }
-
     nav img {
         width: 20rem;
         height: auto;
-        padding: 2rem 3.5rem;
     }
 
     nav {
@@ -299,103 +210,13 @@
         color: var(--lightBlue);
     }
 
-    /* .nav-icon {
-        font-size: 2.5rem;
-        align-items: center;
-    } */
-
     .active {
         color: var(--lightBlue);
-    }
-
-    .header-dashboard h1 {
-        font-size: 2.5rem;
     }
     }
 
     /* Breakpoints large screen */
     @media (min-width:1200px) {
-    .container2 {
-        margin: 5rem 2rem 2rem 22.3rem;
-        grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
-        grid-template-rows: 0.01fr 0.1fr 0.3fr 0.4fr 0.4fr 0.6fr;
-        grid-template-areas:
-        "menu menu menu menu menu"
-        "header-dashboard header-dashboard header-dashboard header-dashboard header-dashboard"
-        "dashboard-info dashboard-info map map map"
-        "box-1 box-2 map map map"
-        "box-3 box-4 map map map"
-        "share share grafiek more more";
-    }
-
-    .more {
-        grid-area: more;
-    }
-
-    .panel {
-        padding: 2rem;
-    }
-
-    .map {
-        padding: 1.5rem;
-    }
-
-    .box-1,
-    .box-2,
-    .box-4,
-    p {
-        font-size: 3rem;
-    }
-
-    .box-3,
-    p {
-        font-size: 2.5rem;
-    }
-
-    .box-1,
-    .box-2,
-    .box-3,
-    .box-4,
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .grafiek h2 {
-        font-size: 1.8rem;
-    }
-
-    .more h2 {
-        font-size: 1.8rem;
-    }
-
-    .share h2 {
-        font-size: 1.8rem;
-    }
-
-    .grafiek p {
-        font-size: 1.5rem;
-    }
-
-    .share-icon {
-        font-size: 2.6rem;
-    }
-
-    .social-icons {
-        margin-top: 3.5rem;
-    }
-
-    .dashboard-info p {
-        font-size: 1.5rem;
-        line-height: 1.4;
-        margin-top: 1rem;
-    }
-/* 
-    .dashboard-info span {
-        margin-top: 1rem;
-        font-size: 1.5rem;
-        line-height: 1.4;
-    } */
-
     .nav-link {
         display: flex;
         justify-content: left;
@@ -419,59 +240,6 @@
 
     .active {
         color: var(--lightBlue);
-    }
-
-    /* .nav-icon {
-        font-size: 2.5rem;
-        align-items: center;
-    } */
-
-    .line {
-        height: 2px;
-        width: 6%;
-        background-color: var(--lightBlue);
-    }
-
-    .search input {
-        width: 190px;
-    }
-
-    .circular-chart {
-        display: flex;
-        justify-content: center;
-        margin: 10px auto;
-        width: 100px;
-        max-height: 250px;
-    }
-
-    .single-chart {
-        width: 100%;
-        justify-content: space-around;
-    }
-
-    .scroll-top {
-        display: none;
-    }
-
-    .amount h4 {
-        font-family: 'Roboto', monospace;
-        color: var(--lightBlue);
-        font-weight: 500;
-        font-size: 1.8rem;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-    tr {
-        height: 3.3rem;
-    }
-
-    #bubbles {
-        position: relative;
-        width: 100%;
-        height: auto;
     }
     }
 </style>
