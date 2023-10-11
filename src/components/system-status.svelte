@@ -6,25 +6,25 @@ let installed = []
 let planned = []
 let inMaintenance = []
 
-data.dataApi.systems.forEach(interceptor => {
+data.riverDataJson.systems.forEach(interceptor => {
 	if (interceptor.status == "in_operation") {
 		operational.push(interceptor)
 	}
 });
 
-data.dataApi.systems.forEach(interceptor => {
+data.riverDataJson.systems.forEach(interceptor => {
 	if (interceptor.status == "installed_for_testing") {
 		installed.push(interceptor)
 	}
 });
 
-data.dataApi.systems.forEach(interceptor => {
+data.riverDataJson.systems.forEach(interceptor => {
 	if (interceptor.status == "planned") {
 		planned.push(interceptor)
 	}
 });
 
-data.dataApi.systems.forEach(interceptor => {
+data.riverDataJson.systems.forEach(interceptor => {
 	if (interceptor.status == "in_maintenance") {
 		inMaintenance.push(interceptor)
 	}
